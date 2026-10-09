@@ -467,6 +467,16 @@
             margin-bottom: 15px;
             text-align: center;
         }
+        .auth-warning {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid #ffc107;
+            color: #ffc107;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
 
         .auth-switch {
             text-align: center;
@@ -530,7 +540,7 @@
                         </div>
                         <button class="btn-logout" onclick="logout()">Выйти</button>
                     </div>
-                    <button class="btn-download-small" onclick="downloadJar()">Скачать</button>
+                    <button class="btn-download-small" onclick="requireAuthAndDownload()">Скачать</button>
                 </div>
             </div>
         </header>
@@ -539,9 +549,12 @@
             <h1>Лучший мод для<br>комфортной игры в Minecraft</h1>
             <p>HolyVisuals создан для тех, кто ценит стиль, удобство и максимальную производительность. Продуманный интерфейс и стабильная работа дают вам реальное преимущество в игре.</p>
             <div class="hero-buttons">
-                <button class="btn-primary" onclick="downloadJar()">Скачать HolyVisuals</button>
+                <button class="btn-primary" onclick="requireAuthAndDownload()">Скачать HolyVisuals</button>
                 <a href="#features" class="btn-secondary">Подробнее</a>
             </div>
+            <p id="download-hint" style="margin-top:20px; font-size:0.85rem; color:#666;">
+                🔒 Скачивание доступно только зарегистрированным пользователям
+            </p>
         </section>
 
         <section class="features" id="features">
@@ -672,17 +685,26 @@
             return 'h_' + Math.abs(hash).toString(36);
         }
 
-        function showMessage(text, type) {
-            const msg = document.getElementById('auth-message');
-            msg.innerHTML = `<div class="${type === 'error' ? 'auth-error' : 'auth-success'}">${text}</div>`;
-            setTimeout(() => { msg.innerHTML = ''; }, 4000);
+        function isLoggedIn() {
+            return !!localStorage.getItem(SESSION_KEY);
         }
 
-        function openAuthModal(mode) {
+        function showMessage(text, type) {
+            const msg = document.getElementById('auth-message');
+            msg.innerHTML = `<div class="${type === 'error' ? 'auth-error' : (type === 'warning' ? 'auth-warning' : 'auth-success')}">${text}</div>`;
+            setTimeout(() => { msg.innerHTML = ''; }, 5000);
+        }
+
+        function openAuthModal(mode, customMessage) {
             const modal = document.getElementById('auth-modal');
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             if (mode) switchTab(mode);
+            
+            // Показываем кастомное сообщение (например, "войдите чтобы скачать")
+            if (customMessage) {
+                setTimeout(() => showMessage(customMessage, 'warning'), 100);
+            }
         }
         function closeAuthModal() {
             const modal = document.getElementById('auth-modal');
@@ -743,10 +765,16 @@
             };
             saveUsers(users);
 
-            showMessage('✅ Аккаунт создан! Теперь войдите.', 'success');
+            // Автоматически входим после регистрации
+            localStorage.setItem(SESSION_KEY, JSON.stringify({ email: email, loginAt: new Date().toISOString() }));
+
+            showMessage('✅ Аккаунт создан! Сейчас скачается мод...', 'success');
+            
             setTimeout(() => {
-                switchTab('login');
-                document.getElementById('login-email').value = email;
+                closeAuthModal();
+                checkAuthState();
+                // Автоматически запускаем скачивание
+                downloadJar();
             }, 1200);
         }
 
@@ -764,11 +792,14 @@
             }
 
             localStorage.setItem(SESSION_KEY, JSON.stringify({ email: user.email, loginAt: new Date().toISOString() }));
-            showMessage('✅ Успешный вход!', 'success');
+            showMessage('✅ Успешный вход! Сейчас скачается мод...', 'success');
+            
             setTimeout(() => {
                 closeAuthModal();
                 checkAuthState();
-            }, 800);
+                // Автоматически запускаем скачивание
+                downloadJar();
+            }, 1200);
         }
 
         function logout() {
@@ -780,6 +811,7 @@
             const session = localStorage.getItem(SESSION_KEY);
             const authButtons = document.getElementById('auth-buttons');
             const userPanel = document.getElementById('user-panel');
+            const hint = document.getElementById('download-hint');
 
             if (session) {
                 try {
@@ -789,12 +821,23 @@
                     userPanel.style.display = 'flex';
                     document.getElementById('user-email').textContent = data.email;
                     document.getElementById('user-avatar').textContent = data.email.charAt(0).toUpperCase();
+                    if (hint) hint.style.display = 'none';
                 } catch { logout(); }
             } else {
                 authButtons.classList.remove('hidden');
                 userPanel.classList.add('hidden');
                 userPanel.style.display = 'none';
+                if (hint) hint.style.display = 'block';
             }
+        }
+
+        // ==================== ЗАЩИТА СКАЧИВАНИЯ ====================
+        function requireAuthAndDownload() {
+            if (!isLoggedIn()) {
+                openAuthModal('register', '🔒 Чтобы скачать мод, нужно войти или зарегистрироваться');
+                return;
+            }
+            downloadJar();
         }
 
         // ==================== СКАЧИВАНИЕ JAR ====================
@@ -807,12 +850,10 @@
                     return response.blob();
                 })
                 .then(jarBlob => {
-                    // Настоящий jar найден — скачиваем его
                     triggerDownload(jarBlob, JAR_NAME);
                     console.log("✅ Настоящий " + JAR_NAME + " скачан!");
                 })
                 .catch(() => {
-                    // JAR не найден — создаём заглушку с правильным именем
                     console.log("⚠️ Настоящий jar не найден, создаю заглушку...");
 
                     const fakeJarContent = 
