@@ -3,481 +3,415 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HolyVisuals - Меню функций</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>HolyVisuals | Мод для Minecraft</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --bg-color: #0a0a0c;
-            --panel-bg: #141418;
-            --card-bg: #1c1c22;
-            --card-hover: #25252d;
-            --text-main: #ffffff;
-            --text-muted: #8b8b99;
-            --accent-blue: #3b82f6; /* Синий цвет из скрина */
-            --accent-glow: rgba(59, 130, 246, 0.5);
-            --border-color: #2a2a35;
-        }
-
+        /* ==================== СБРОС ==================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            min-height: 100vh;
+            background-color: #0a0a0f;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ==================== ЗАСТАВКА ==================== */
+        #preloader {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: #0a0a0f;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            background-image: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 40%);
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
         }
 
-        /* Главное окно (как на скрине) */
-        .menu-container {
-            width: 100%;
-            max-width: 1000px;
-            background-color: var(--panel-bg);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--border-color);
-            position: relative;
+        #preloader.hidden-preloader {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-content { text-align: center; }
+
+        .logo-icon {
+            font-size: 4rem;
+            color: #9b30ff;
+            text-shadow: 0 0 30px rgba(155, 48, 255, 0.8);
+            animation: pulse 1.5s infinite;
+        }
+
+        .preloader-title {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-top: 10px;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .loader-bar {
+            width: 200px;
+            height: 4px;
+            background: #1a1a2e;
+            margin: 30px auto 0;
+            border-radius: 10px;
             overflow: hidden;
         }
 
-        /* Шапка */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
+        .loader-progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #6a0dad, #9b30ff);
+            animation: load 2s forwards;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+        @keyframes load { 0% { width: 0%; } 100% { width: 100%; } }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
-        .logo span {
-            color: var(--accent-blue);
+        /* ==================== ОСНОВНОЙ КОНТЕНТ ==================== */
+        #main-content {
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        #main-content.visible { opacity: 1; }
+        .hidden { display: none; }
+
+        /* ==================== ШАПКА ==================== */
+        header {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(155, 48, 255, 0.2);
+            z-index: 1000;
         }
 
-        /* Поиск */
-        .search-bar {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 10px 15px;
-            display: flex;
-            align-items: center;
-            width: 250px;
-            transition: border-color 0.3s;
-        }
-
-        .search-bar:focus-within {
-            border-color: var(--accent-blue);
-        }
-
-        .search-bar input {
-            background: transparent;
-            border: none;
-            color: var(--text-main);
-            outline: none;
-            width: 100%;
-            font-size: 14px;
-            margin-left: 10px;
-        }
-
-        .search-bar input::placeholder {
-            color: var(--text-muted);
-        }
-
-        /* Категории (Вкладки) */
-        .categories {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .cat-btn {
-            background-color: var(--card-bg);
-            border: 1px solid transparent;
-            color: var(--text-muted);
-            padding: 8px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .cat-btn:hover {
-            background-color: var(--card-hover);
-            color: var(--text-main);
-        }
-
-        .cat-btn.active {
-            background-color: var(--accent-blue);
-            color: #fff;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        /* Сетка функций (как на скрине) */
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            max-height: 400px;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-
-        /* Скроллбар */
-        .features-grid::-webkit-scrollbar {
-            width: 6px;
-        }
-        .features-grid::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .features-grid::-webkit-scrollbar-thumb {
-            background: var(--border-color);
-            border-radius: 10px;
-        }
-
-        /* Карточка функции */
-        .feature-item {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-
-        .feature-item:hover {
-            background-color: var(--card-hover);
-            border-color: #3a3a45;
-        }
-
-        .feature-info {
-            display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             gap: 15px;
         }
 
-        .feature-icon {
-            width: 20px;
-            height: 20px;
-            fill: var(--accent-blue);
-        }
-
-        .feature-name {
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        /* Тумблер (Переключатель) */
-        .toggle-switch {
-            position: relative;
-            width: 44px;
-            height: 24px;
-        }
-
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: #3a3a45;
-            transition: .4s;
-            border-radius: 34px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 18px;
-            width: 18px;
-            left: 3px;
-            bottom: 3px;
-            background-color: #fff;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-        input:checked + .slider {
-            background-color: var(--accent-blue);
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(20px);
-        }
-
-        /* Кнопка скачивания (внизу) */
-        .download-area {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            justify-content: center;
-        }
-
-        .btn-download {
-            background: linear-gradient(135deg, var(--accent-blue), #2563eb);
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
             color: #fff;
-            border: none;
-            padding: 15px 40px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .btn-download:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        .logo-icon-small {
+            color: #9b30ff;
+            font-size: 1.8rem;
+            text-shadow: 0 0 15px #9b30ff;
         }
 
-        .btn-download:active {
-            transform: translateY(0);
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
         }
 
-        /* Адаптивность */
+        nav a:hover, nav a.active {
+            color: #fff;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+
+        .btn-download-small {
+            background: linear-gradient(90deg, #6a0dad, #9b30ff);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .btn-download-small:hover { box-shadow: 0 0 20px rgba(155, 48, 255, 0.6); }
+
+        /* ==================== ГЛАВНЫЙ БЛОК ==================== */
+        .hero {
+            padding: 180px 20px 100px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #aaa;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #6a0dad, #9b30ff);
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(155, 48, 255, 0.4);
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(155, 48, 255, 0.8);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid #333;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-secondary:hover { border-color: #9b30ff; color: #9b30ff; }
+
+        /* ==================== ПРЕИМУЩЕСТВА ==================== */
+        .features {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .section-desc {
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            font-size: 0.95rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: #12121a;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            border: 1px solid #1f1f2e;
+            transition: 0.3s;
+        }
+        .feature-card:hover {
+            border-color: #6a0dad;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(106, 13, 173, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #d1b3ff;
+        }
+        .feature-card p { color: #888; font-size: 0.9rem; line-height: 1.5; }
+
+        /* ==================== CTA ==================== */
+        .cta {
+            padding: 100px 20px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(106, 13, 173, 0.15) 0%, transparent 70%);
+        }
+        .cta h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .highlight { color: #9b30ff; }
+        .cta p { color: #aaa; margin-bottom: 40px; font-size: 1.1rem; }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid #555;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-outline:hover { border-color: #fff; background: #fff; color: #000; }
+
+        /* ==================== ФУТЕР ==================== */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #1f1f2e;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* ==================== АДАПТИВ ==================== */
         @media (max-width: 768px) {
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-            .search-bar {
-                width: 100%;
-            }
-            .categories {
-                overflow-x: auto;
-                padding-bottom: 5px;
-            }
-            .cat-btn {
-                white-space: nowrap;
-            }
+            .hero h1 { font-size: 2.2rem; }
+            .cta h2 { font-size: 2rem; }
+            .features h2 { font-size: 1.8rem; }
+            nav a { margin: 0 8px; font-size: 0.85rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="menu-container">
-        <!-- Шапка -->
-        <div class="header">
-            <div class="logo">Holy<span>Visuals</span></div>
-            <div class="search-bar">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b8b99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <input type="text" placeholder="Search...">
+    <!-- ЗАСТАВКА -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="logo-icon">⚡</div>
+            <h1 class="preloader-title">HolyVisuals</h1>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
             </div>
-        </div>
-
-        <!-- Категории -->
-        <div class="categories">
-            <button class="cat-btn active">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                Visuals
-            </button>
-            <button class="cat-btn">Util</button>
-            <button class="cat-btn">Configs</button>
-            <button class="cat-btn">Theme</button>
-        </div>
-
-        <!-- Сетка функций -->
-        <div class="features-grid">
-            <!-- Карточка 1 -->
-            <div class="feature-item">
-                <div class="feature-info">
-                    <svg class="feature-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    <span class="feature-name">Ambience</span>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox" checked>
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <!-- Карточка 2 -->
-            <div class="feature-item">
-                <div class="feature-info">
-                    <svg class="feature-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    <span class="feature-name">Arrow Nametag</span>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox" checked>
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <!-- Карточка 3 -->
-            <div class="feature-item">
-                <div class="feature-info">
-                    <svg class="feature-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    <span class="feature-name">Block Overlay</span>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox">
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <!-- Карточка 4 -->
-            <div class="feature-item">
-                <div class="feature-info">
-                    <svg class="feature-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    <span class="feature-name">China Hat</span>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox" checked>
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <!-- Карточка 5 -->
-            <div class="feature-item">
-                <div class="feature-info">
-                    <svg class="feature-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    <span class="feature-name">Armor Durability View</span>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox" checked>
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <!-- Карточка 6 -->
-            <div class="feature-item">
-                <div class="feature-info">
-                    <svg class="feature-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    <span class="feature-name">Aspect Ratio</span>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox" checked>
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <!-- Карточка 7 -->
-            <div class="feature-item">
-                <div class="feature-info">
-                    <svg class="feature-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    <span class="feature-name">Body Glow</span>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox">
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <!-- Карточка 8 -->
-            <div class="feature-item">
-                <div class="feature-info">
-                    <svg class="feature-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    <span class="feature-name">Cosmetics</span>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox" checked>
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <!-- Карточка 9 -->
-            <div class="feature-item">
-                <div class="feature-info">
-                    <svg class="feature-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    <span class="feature-name">CritEffect</span>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox">
-                    <span class="slider"></span>
-                </label>
-            </div>
-
-            <!-- Карточка 10 -->
-            <div class="feature-item">
-                <div class="feature-info">
-                    <svg class="feature-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    <span class="feature-name">Crosshair</span>
-                </div>
-                <label class="toggle-switch">
-                    <input type="checkbox">
-                    <span class="slider"></span>
-                </label>
-            </div>
-        </div>
-
-        <!-- Кнопка скачивания -->
-        <div class="download-area">
-            <button id="downloadBtn" class="btn-download">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                СКАЧАТЬ HOLYVISUALS.ZIP
-            </button>
         </div>
     </div>
 
+    <!-- ОСНОВНОЙ САЙТ -->
+    <div id="main-content" class="hidden">
+        
+        <header>
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <span class="logo-icon-small">⚡</span> HolyVisuals
+                </div>
+                <nav>
+                    <a href="#">Главная</a>
+                    <a href="#features">Функции</a>
+                    <a href="#">Тарифы</a>
+                    <a href="#">Видеообзоры</a>
+                    <a href="#" class="active">Бесплатная версия</a>
+                </nav>
+                <a href="holyvisuals.zip" class="btn-download-small" download>Скачать</a>
+            </div>
+        </header>
+
+        <section class="hero">
+            <h1>Лучший мод для<br>комфортной игры в Minecraft</h1>
+            <p>HolyVisuals создан для тех, кто ценит стиль, удобство и максимальную производительность. Продуманный интерфейс и стабильная работа дают вам реальное преимущество в игре.</p>
+            <div class="hero-buttons">
+                <a href="holyvisuals.zip" class="btn-primary" download>Скачать HolyVisuals</a>
+                <a href="#features" class="btn-secondary">Подробнее</a>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <h2>Преимущества нашего мода</h2>
+            <p class="section-desc">Наш мод открывает доступ к мощному набору функций, которые выводят комфорт и стиль игры на новый уровень.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Дизайн</h3>
+                    <p>Наслаждайтесь игрой с элегантным минималистичным интерфейсом.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Производительность</h3>
+                    <p>Оптимизированный код позволяет достичь высокого FPS даже на слабых компьютерах.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>PvP преимущества</h3>
+                    <p>Получите преимущество в бою с помощью специальных настроек и функций для PvP.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Гибкие настройки</h3>
+                    <p>Настройте мод под себя с помощью множества параметров и опций с удобным интерфейсом.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Анти-чит</h3>
+                    <p>Наш мод полностью совместим с популярными анти-чит системами на серверах.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Регулярные обновления</h3>
+                    <p>Мы постоянно улучшаем и обновляем наш мод, добавляя новые функции.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Ваш следующий уровень<br>начинается <span class="highlight">здесь</span></h2>
+            <p>Присоединяйтесь к тысячам игроков, использующих HolyVisuals для максимального игрового комфорта.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary">Войти</a>
+                <a href="#" class="btn-outline">Регистрация</a>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 HolyVisuals. Все права защищены.</p>
+        </footer>
+    </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const downloadBtn = document.getElementById('downloadBtn');
-
-            // Логика переключения вкладок (для красоты)
-            const catBtns = document.querySelectorAll('.cat-btn');
-            catBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    catBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                });
-            });
-
-            // Логика скачивания
-            downloadBtn.addEventListener('click', () => {
-                const fileUrl = 'holyvisuals.zip'; 
-                const fileName = 'HolyVisuals_v1.0.zip';
-
-                const link = document.createElement('a');
-                link.href = fileUrl;
-                link.download = fileName;
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                const mainContent = document.getElementById('main-content');
                 
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-
-                // Анимация кнопки
-                const originalText = downloadBtn.innerHTML;
-                downloadBtn.innerHTML = '✔ СКАЧИВАНИЕ...';
-                downloadBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                preloader.classList.add('hidden-preloader');
+                mainContent.classList.remove('hidden');
                 
                 setTimeout(() => {
-                    downloadBtn.innerHTML = originalText;
-                    downloadBtn.style.background = 'linear-gradient(135deg, #3b82f6, #2563eb)';
-                }, 3000);
-            });
+                    mainContent.classList.add('visible');
+                }, 50);
+                
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 1000);
+            }, 2000);
         });
     </script>
 </body>
