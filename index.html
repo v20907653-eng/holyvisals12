@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HolyVisuals | Мод для Minecraft</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <!-- Библиотека для создания ZIP прямо в браузере -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -120,6 +122,7 @@
             font-weight: 600;
             font-size: 0.9rem;
             transition: 0.3s;
+            cursor: pointer;
         }
         .btn-download-small:hover { box-shadow: 0 0 20px rgba(155, 48, 255, 0.6); }
 
@@ -160,6 +163,8 @@
             transition: 0.3s;
             box-shadow: 0 0 20px rgba(155, 48, 255, 0.4);
             display: inline-block;
+            cursor: pointer;
+            border: none;
         }
         .btn-primary:hover {
             transform: scale(1.05);
@@ -281,7 +286,7 @@
                     <a href="#">Видеообзоры</a>
                     <a href="#" class="active">Бесплатная версия</a>
                 </nav>
-                <a href="#" class="btn-download-small" onclick="downloadMod(event)">Скачать</a>
+                <a class="btn-download-small" onclick="createAndDownloadZip()">Скачать</a>
             </div>
         </header>
 
@@ -289,7 +294,7 @@
             <h1>Лучший мод для<br>комфортной игры в Minecraft</h1>
             <p>HolyVisuals создан для тех, кто ценит стиль, удобство и максимальную производительность. Продуманный интерфейс и стабильная работа дают вам реальное преимущество в игре.</p>
             <div class="hero-buttons">
-                <a href="#" class="btn-primary" onclick="downloadMod(event)">Скачать HolyVisuals</a>
+                <button class="btn-primary" onclick="createAndDownloadZip()">Скачать HolyVisuals</button>
                 <a href="#features" class="btn-secondary">Подробнее</a>
             </div>
         </section>
@@ -346,52 +351,92 @@
             setTimeout(() => {
                 const preloader = document.getElementById('preloader');
                 const mainContent = document.getElementById('main-content');
-                
                 preloader.classList.add('hidden-preloader');
                 mainContent.classList.remove('hidden');
-                
                 setTimeout(() => mainContent.classList.add('visible'), 50);
                 setTimeout(() => preloader.style.display = 'none', 1000);
             }, 2000);
         });
 
-        // ФУНКЦИЯ СКАЧИВАНИЯ С ФИКСОМ
-        function downloadMod(event) {
-            event.preventDefault();
-            
-            const link = document.createElement('a');
-            link.href = 'holyvisuals.zip';
-            link.download = 'holyvisuals.zip';
-            
-            // Проверяем, существует ли файл
-            fetch('holyvisuals.zip', { method: 'HEAD' })
-                .then(response => {
-                    if (response.ok) {
-                        // Файл есть — скачиваем его
-                        link.click();
-                        console.log('✅ Архив holyvisuals.zip найден и скачивается.');
-                    } else {
-                        throw new Error('Файл не найден');
-                    }
-                })
-                .catch(() => {
-                    // Файла нет — создаём пустой ZIP-заглушку
-                    const zipContent = new Blob(
-                        [new Uint8Array([0x50, 0x4B, 0x05, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00])],
-                        { type: 'application/zip' }
-                    );
-                    const url = URL.createObjectURL(zipContent);
+        // ============ СОЗДАНИЕ ZIP В БРАУЗЕРЕ ============
+        function createAndDownloadZip() {
+            // Создаём новый ZIP-архив
+            const zip = new JSZip();
+
+            // Файл 1: README.txt
+            zip.file("README.txt", 
+`HolyVisuals - Мод для Minecraft
+================================
+
+Спасибо за скачивание HolyVisuals!
+
+📦 Что входит в этот архив:
+- README.txt (этот файл)
+- config.json (пример конфигурации)
+- version.txt (информация о версии)
+
+🚀 Как установить:
+1. Распакуйте архив.
+2. Поместите файлы в папку .minecraft/mods/
+3. Запустите Minecraft с Forge или Fabric.
+
+⚙️ Возможности мода:
+- Улучшенный HUD
+- Настройка визуальных эффектов
+- Оптимизация FPS
+- Поддержка PvP функций
+
+🔗 Сайт: holyvisuals
+© 2026 HolyVisuals. Все права защищены.
+`);
+
+            // Файл 2: config.json
+            zip.file("config.json", JSON.stringify({
+                name: "HolyVisuals",
+                version: "1.0.0",
+                author: "HolyTeam",
+                settings: {
+                    hud: true,
+                    effects: true,
+                    fpsBoost: true,
+                    pvpMode: false,
+                    theme: "dark-purple"
+                },
+                features: [
+                    "Custom HUD",
+                    "Visual Effects",
+                    "FPS Optimizer",
+                    "PvP Helper",
+                    "Anti-Cheat Compatible"
+                ]
+            }, null, 4));
+
+            // Файл 3: version.txt
+            zip.file("version.txt", "HolyVisuals v1.0.0\nRelease Date: 2026\nStatus: Stable\n");
+
+            // Файл 4: папка mods с примером
+            const modsFolder = zip.folder("mods");
+            modsFolder.file("put_your_mod_here.txt", 
+                "Поместите сюда .jar файл вашего мода HolyVisuals.\n" +
+                "Например: holyvisuals-1.0.0.jar\n");
+
+            // Генерируем ZIP и скачиваем
+            zip.generateAsync({ type: "blob" })
+                .then(function(content) {
+                    // Создаём ссылку для скачивания
+                    const url = URL.createObjectURL(content);
+                    const link = document.createElement('a');
                     link.href = url;
+                    link.download = "holyvisuals.zip";
+                    document.body.appendChild(link);
                     link.click();
-                    
-                    alert('⚠️ Файл holyvisuals.zip не найден в папке с сайтом.\n\n' +
-                          'Скачался пустой архив-заглушка. Чтобы скачивался твой настоящий архив:\n' +
-                          '1. Положи holyvisuals.zip в ту же папку, где лежит index.html\n' +
-                          '2. Убедись, что имя файла точно "holyvisuals.zip"\n' +
-                          '3. Открывай сайт двойным кликом по index.html (не через онлайн-редактор)');
-                    
+                    document.body.removeChild(link);
                     URL.revokeObjectURL(url);
-                    console.log('⚠️ Архив не найден, создана заглушка.');
+
+                    console.log("✅ holyvisuals.zip успешно создан и скачан!");
+                })
+                .catch(function(error) {
+                    alert("Ошибка при создании архива: " + error);
                 });
         }
     </script>
