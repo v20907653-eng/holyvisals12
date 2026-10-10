@@ -16,7 +16,6 @@
             overflow-x: hidden;
         }
 
-        /* ЗАСТАВКА */
         #preloader {
             position: fixed;
             top: 0; left: 0;
@@ -66,7 +65,6 @@
         #main-content.visible { opacity: 1; }
         .hidden { display: none !important; }
 
-        /* ШАПКА */
         header {
             position: fixed;
             top: 0; width: 100%;
@@ -122,7 +120,6 @@
             color: #fff;
             padding: 10px 20px;
             border-radius: 8px;
-            text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
             transition: 0.3s;
@@ -289,7 +286,6 @@
             box-shadow: 0 0 15px rgba(155, 48, 255, 0.4);
         }
 
-        /* ГЛАВНЫЙ БЛОК */
         .hero {
             padding: 180px 20px 100px;
             text-align: center;
@@ -369,7 +365,6 @@
             box-shadow: 0 0 40px rgba(255, 184, 0, 0.9);
         }
 
-        /* ПРЕИМУЩЕСТВА */
         .features {
             padding: 80px 20px;
             max-width: 1200px;
@@ -404,7 +399,6 @@
         .feature-card h3 { font-size: 1.2rem; margin-bottom: 10px; color: #d1b3ff; }
         .feature-card p { color: #888; font-size: 0.9rem; line-height: 1.5; }
 
-        /* ПЛАТНАЯ ВЕРСИЯ */
         .premium-section {
             padding: 80px 20px;
             max-width: 1200px;
@@ -460,7 +454,6 @@
             letter-spacing: 1px;
         }
 
-        /* CTA */
         .cta {
             padding: 100px 20px;
             text-align: center;
@@ -485,7 +478,6 @@
         }
         .btn-outline:hover { border-color: #fff; background: #fff; color: #000; }
 
-        /* ФУТЕР */
         footer {
             text-align: center;
             padding: 40px;
@@ -508,7 +500,6 @@
         }
         .footer-support button:hover { background: rgba(77, 255, 136, 0.15); }
 
-        /* МОДАЛЬНОЕ ОКНО */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -689,7 +680,6 @@
         }
         .auth-switch a:hover { text-decoration: underline; }
 
-        /* ТАРИФЫ */
         .tariffs-modal {
             background: #12121a;
             border: 1px solid #6a0dad;
@@ -810,7 +800,6 @@
             box-shadow: 0 10px 25px rgba(255, 184, 0, 0.6);
         }
 
-        /* МОДАЛЬНОЕ ОКНО ОПЛАТЫ */
         .payment-modal {
             background: #12121a;
             border: 1px solid #4dff88;
@@ -1011,7 +1000,6 @@
         }
         .payment-close-btn:hover { border-color: #ff4d4d; color: #ff4d4d; }
 
-        /* АДМИН-ПАНЕЛЬ */
         .admin-modal {
             background: #12121a;
             border: 1px solid #ff4d4d;
@@ -1118,7 +1106,6 @@
         .ticket-actions button.danger:hover { border-color: #ff4d4d; color: #ff4d4d; }
         .ticket-actions button.reply:hover { border-color: #4dff88; color: #4dff88; }
         .ticket-actions button.make-admin:hover { border-color: #ffb800; color: #ffb800; }
-        .ticket-actions button.copy-key:hover { border-color: #00c6ff; color: #00c6ff; }
 
         .admin-empty {
             text-align: center;
@@ -1151,7 +1138,6 @@
             margin-top: 5px;
         }
 
-        /* КЛЮЧИ */
         .key-gen-panel {
             background: #0a0a0f;
             border: 1px solid #2a2a3e;
@@ -1277,7 +1263,6 @@
         }
         .key-item button:hover { border-color: #ff4d4d; color: #ff4d4d; }
 
-        /* ЧАТ */
         .chat-modal {
             background: #12121a;
             border: 1px solid #4dff88;
@@ -1399,31 +1384,6 @@
             box-shadow: 0 0 20px rgba(77, 255, 136, 0.5);
         }
 
-        /* ПРЕМИУМ-СТАТУС */
-        .premium-status {
-            background: linear-gradient(135deg, rgba(255, 184, 0, 0.15), rgba(255, 140, 0, 0.05));
-            border: 1px solid #ffb800;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .premium-status .ps-title {
-            color: #ffb800;
-            font-size: 1rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        .premium-status .ps-date {
-            color: #fff;
-            font-size: 0.9rem;
-        }
-        .premium-status .ps-tariff {
-            color: #aaa;
-            font-size: 0.8rem;
-            margin-top: 5px;
-        }
-
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .cta h2 { font-size: 2rem; }
@@ -1439,7 +1399,6 @@
 </head>
 <body>
 
-    <!-- ЗАСТАВКА -->
     <div id="preloader">
         <div class="preloader-content">
             <div class="logo-icon">⚡</div>
@@ -1450,7 +1409,6 @@
         </div>
     </div>
 
-    <!-- ОСНОВНОЙ САЙТ -->
     <div id="main-content" class="hidden">
         
         <header>
@@ -1584,21 +1542,17 @@
         </footer>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО АВТОРИЗАЦИИ -->
+    <!-- АВТОРИЗАЦИЯ -->
     <div class="modal-overlay" id="auth-modal">
         <div class="auth-modal">
             <button class="modal-close" onclick="closeAuthModal()">&times;</button>
-            
             <h2 id="modal-title">Добро пожаловать</h2>
             <p class="auth-subtitle" id="modal-subtitle">Войдите в свой аккаунт HolyVisuals</p>
-
             <div class="auth-tabs">
                 <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Вход</button>
                 <button class="auth-tab" id="tab-register" onclick="switchTab('register')">Регистрация</button>
             </div>
-
             <div id="auth-message"></div>
-
             <form class="auth-form" id="form-login" onsubmit="handleLogin(event)">
                 <div class="form-group">
                     <label>Email или логин админа</label>
@@ -1611,7 +1565,6 @@
                 <button type="submit" class="auth-submit">Войти</button>
                 <p class="auth-switch">Нет аккаунта? <a onclick="switchTab('register')">Зарегистрироваться</a></p>
             </form>
-
             <form class="auth-form hidden" id="form-register" onsubmit="handleRegister(event)">
                 <div class="form-group">
                     <label>Email</label>
@@ -1631,16 +1584,13 @@
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО АКТИВАЦИИ КЛЮЧА -->
+    <!-- АКТИВАЦИЯ КЛЮЧА -->
     <div class="modal-overlay" id="key-modal">
         <div class="auth-modal">
             <button class="modal-close" onclick="closeKeyModal()">&times;</button>
-            
             <h2>🎟️ Активация ключа</h2>
             <p class="auth-subtitle">Введите ключ для активации подписки</p>
-
             <div id="key-message"></div>
-
             <form class="auth-form" id="form-key" onsubmit="handleKeyActivate(event)">
                 <div class="form-group">
                     <label>Ключ активации</label>
@@ -1648,21 +1598,18 @@
                 </div>
                 <button type="submit" class="auth-submit blue">🔓 Активировать</button>
             </form>
-
             <p class="auth-switch" style="margin-top:15px;">
                 Нет ключа? <a onclick="closeKeyModal(); openTariffsModal();">Купить подписку</a>
             </p>
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО ТАРИФОВ -->
+    <!-- ТАРИФЫ -->
     <div class="modal-overlay" id="tariffs-modal">
         <div class="tariffs-modal">
             <button class="modal-close" onclick="closeTariffsModal()">&times;</button>
-            
             <h2>💎 Тарифы HolyVisuals</h2>
             <p class="tariffs-subtitle">Выберите подходящий план и получите максимум от мода</p>
-
             <div class="tariffs-grid">
                 <div class="tariff-card">
                     <div class="tariff-name">На месяц</div>
@@ -1677,7 +1624,6 @@
                     </ul>
                     <button class="tariff-btn" onclick="openPaymentModal('month')">Купить</button>
                 </div>
-
                 <div class="tariff-card popular">
                     <span class="tariff-badge">🔥 Популярный</span>
                     <div class="tariff-name">На 3 месяца</div>
@@ -1693,7 +1639,6 @@
                     </ul>
                     <button class="tariff-btn" onclick="openPaymentModal('3months')">Купить</button>
                 </div>
-
                 <div class="tariff-card">
                     <div class="tariff-name">На год</div>
                     <div class="tariff-price">400 ₽ <small>/ год</small></div>
@@ -1712,14 +1657,12 @@
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО ОПЛАТЫ -->
+    <!-- ОПЛАТА -->
     <div class="modal-overlay" id="payment-modal">
         <div class="payment-modal">
             <button class="modal-close" onclick="closePaymentModal()">&times;</button>
-            
             <h2>💳 Оплата подписки</h2>
             <p class="payment-subtitle">Выберите удобный способ оплаты</p>
-
             <div class="payment-summary">
                 <div>
                     <div class="ps-label">Выбранный тариф</div>
@@ -1727,7 +1670,6 @@
                 </div>
                 <div class="ps-price" id="payment-tariff-price">—</div>
             </div>
-
             <div class="payment-methods-title">Способ оплаты</div>
             <div class="payment-methods">
                 <button class="payment-method" id="pm-sber" onclick="selectPaymentMethod('sber')">
@@ -1741,7 +1683,6 @@
                     <div class="pm-desc">По номеру телефона</div>
                 </button>
             </div>
-
             <div class="payment-details" id="details-sber">
                 <h4>🟢 Перевод на карту / Сбербанк</h4>
                 <div class="detail-row">
@@ -1757,7 +1698,6 @@
                     <span class="detail-value" id="sber-amount">—</span>
                 </div>
             </div>
-
             <div class="payment-details" id="details-sbp">
                 <h4>⚡ СБП по номеру телефона</h4>
                 <div class="detail-row">
@@ -1773,32 +1713,26 @@
                     <span class="detail-value" id="sbp-amount">—</span>
                 </div>
             </div>
-
             <div class="payment-note">
                 ⚠️ <strong>Важно!</strong> После оплаты обязательно напишите нам в Telegram, чтобы мы активировали подписку. В сообщении укажите:
                 <br>• Ваш email от аккаунта
                 <br>• Тариф, который оплатили
                 <br>• Скриншот чека
             </div>
-
             <a href="https://t.me/meowlik_bober" target="_blank" class="tg-btn">
                 ✈️ Написать в Telegram @meowlik_bober
             </a>
-
             <button class="payment-close-btn" onclick="closePaymentModal()">Закрыть</button>
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО ПОДДЕРЖКИ -->
+    <!-- ПОДДЕРЖКА -->
     <div class="modal-overlay" id="support-modal">
         <div class="auth-modal">
             <button class="modal-close" onclick="closeSupportModal()">&times;</button>
-            
             <h2>💬 Поддержка HolyVisuals</h2>
             <p class="auth-subtitle">Опишите проблему — мы обязательно ответим</p>
-
             <div id="support-message"></div>
-
             <form class="auth-form" id="form-support" onsubmit="handleSupportSubmit(event)">
                 <div class="form-group">
                     <label>Ваш Email (для ответа)</label>
@@ -1822,14 +1756,13 @@
                 </div>
                 <button type="submit" class="auth-submit green">📨 Отправить и открыть чат</button>
             </form>
-
             <p class="auth-switch" style="margin-top:15px;">
                 Или напишите нам в Telegram: <a href="https://t.me/meowlik_bober" target="_blank">@meowlik_bober</a>
             </p>
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО ЧАТА -->
+    <!-- ЧАТ -->
     <div class="modal-overlay" id="chat-modal">
         <div class="chat-modal">
             <div class="chat-header">
@@ -1844,14 +1777,12 @@
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО АДМИНКИ -->
+    <!-- АДМИНКА -->
     <div class="modal-overlay" id="admin-modal">
         <div class="admin-modal">
             <button class="modal-close" onclick="closeAdminModal()">&times;</button>
-            
             <h2>🛡️ Админ-панель</h2>
             <p class="admin-subtitle">HolyVisuals — управление поддержкой, ключами и админами</p>
-
             <div class="admin-tabs">
                 <button class="admin-tab active" id="admin-tab-tickets" onclick="switchAdminTab('tickets')">📨 Обращения</button>
                 <button class="admin-tab" id="admin-tab-keys" onclick="switchAdminTab('keys')">🎟️ Ключи</button>
@@ -1925,15 +1856,9 @@
         const TICKETS_KEY = 'holyvisuals_tickets';
         const ADMINS_KEY = 'holyvisuals_admins';
         const KEYS_KEY = 'holyvisuals_keys';
-        const MAIN_ADMIN = 'holyvisalsAMINS';
+        const MAIN_ADMIN = 'holyvisalsamins';
         const MAIN_ADMIN_PASSWORD = 'admin123';
         const TG_LINK = 'https://t.me/meowlik_bober';
-
-        const PAYMENT_DATA = {
-            phone: '+7 951 991-01-68',
-            phoneRaw: '+79519910168',
-            bank: 'Сбербанк'
-        };
 
         const TARIFFS = {
             'month': { name: 'На месяц', price: '75 ₽', days: 30 },
@@ -1950,10 +1875,51 @@
                 mainContent.classList.remove('hidden');
                 setTimeout(() => mainContent.classList.add('visible'), 50);
                 setTimeout(() => preloader.style.display = 'none', 1000);
-                initAdmins();
+                initAll();
                 checkAuthState();
             }, 1500);
         });
+
+        // ==================== ИНИЦИАЛИЗАЦИЯ ====================
+        function initAll() {
+            initAdmins();
+            initMainAdminUser();
+            initKeys();
+            migrateOldData();
+        }
+
+        // Создаём главного админа как пользователя в USERS_KEY
+        function initMainAdminUser() {
+            const users = getUsers();
+            if (!users[MAIN_ADMIN]) {
+                users[MAIN_ADMIN] = {
+                    email: MAIN_ADMIN,
+                    passwordHash: hashPassword(MAIN_ADMIN_PASSWORD),
+                    createdAt: new Date().toISOString(),
+                    premium: {
+                        tariff: 'year',
+                        tariffName: 'На год',
+                        activatedAt: new Date().toISOString(),
+                        expiresAt: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(),
+                        activatedByKey: 'MAIN_ADMIN'
+                    }
+                };
+                saveUsers(users);
+            }
+        }
+
+        // Миграция старых данных: добавляем premium: null, если нет
+        function migrateOldData() {
+            const users = getUsers();
+            let changed = false;
+            Object.keys(users).forEach(email => {
+                if (!users[email].premium && users[email].premium !== null) {
+                    users[email].premium = null;
+                    changed = true;
+                }
+            });
+            if (changed) saveUsers(users);
+        }
 
         // ==================== УТИЛИТЫ ====================
         function hashPassword(password) {
@@ -2019,7 +1985,6 @@
                 font-size: 0.9rem;
                 z-index: 99999;
                 box-shadow: 0 10px 30px rgba(77, 255, 136, 0.4);
-                animation: fadeIn 0.3s ease;
                 max-width: 90vw;
                 text-align: center;
             `;
@@ -2055,8 +2020,6 @@
             if (count < 1 || count > 50) { alert('Количество: от 1 до 50'); return; }
 
             const keys = getKeys();
-            const newKeys = [];
-
             for (let i = 0; i < count; i++) {
                 let code;
                 let attempts = 0;
@@ -2065,7 +2028,7 @@
                     attempts++;
                 } while (keys.some(k => k.code === code) && attempts < 20);
 
-                const key = {
+                keys.unshift({
                     code: code,
                     tariff: tariff,
                     createdAt: new Date().toISOString(),
@@ -2073,9 +2036,7 @@
                     usedBy: null,
                     usedAt: null,
                     expiresAt: null
-                };
-                keys.unshift(key);
-                newKeys.push(key);
+                });
             }
 
             saveKeys(keys);
@@ -2144,12 +2105,12 @@
         function getAdmins() {
             try {
                 const admins = JSON.parse(localStorage.getItem(ADMINS_KEY)) || [];
-                if (!admins.includes(MAIN_ADMIN.toLowerCase())) {
-                    admins.push(MAIN_ADMIN.toLowerCase());
+                if (!admins.includes(MAIN_ADMIN)) {
+                    admins.push(MAIN_ADMIN);
                 }
                 return admins;
             } catch {
-                return [MAIN_ADMIN.toLowerCase()];
+                return [MAIN_ADMIN];
             }
         }
         function saveAdmins(admins) {
@@ -2164,7 +2125,7 @@
             return getAdmins().includes(email.toLowerCase());
         }
 
-        // ==================== ПРЕМИУМ СТАТУС ====================
+        // ==================== ПРЕМИУМ ====================
         function hasPremium(email) {
             if (!email) return false;
             const users = getUsers();
@@ -2216,7 +2177,7 @@
             return getMyTickets().filter(t => t.userUnread).length;
         }
 
-        // ==================== СООБЩЕНИЯ UI ====================
+        // ==================== UI ====================
         function showMessage(text, type) {
             const msg = document.getElementById('auth-message');
             msg.innerHTML = `<div class="auth-${type}">${text}</div>`;
@@ -2299,6 +2260,7 @@
             if (!email || !password) { showMessage('Заполните все поля', 'error'); return; }
             if (password.length < 6) { showMessage('Пароль минимум 6 символов', 'error'); return; }
             if (password !== password2) { showMessage('Пароли не совпадают', 'error'); return; }
+            if (email === MAIN_ADMIN) { showMessage('Этот логин зарезервирован', 'error'); return; }
 
             const users = getUsers();
             if (users[email]) { showMessage('Этот email уже зарегистрирован', 'error'); return; }
@@ -2327,7 +2289,10 @@
             const login = document.getElementById('login-email').value.trim().toLowerCase();
             const password = document.getElementById('login-password').value;
 
-            if (login === MAIN_ADMIN.toLowerCase() && password === MAIN_ADMIN_PASSWORD) {
+            // ГЛАВНЫЙ АДМИН — входит всегда, даже если данных нет
+            if (login === MAIN_ADMIN && password === MAIN_ADMIN_PASSWORD) {
+                // Убеждаемся, что он есть в users
+                initMainAdminUser();
                 localStorage.setItem(SESSION_KEY, JSON.stringify({ 
                     email: MAIN_ADMIN, 
                     isMainAdmin: true,
@@ -2539,9 +2504,17 @@
 
             const session = getSession();
             const users = getUsers();
-            const user = users[session.email.toLowerCase()];
+            const userEmail = session.email.toLowerCase();
+            const user = users[userEmail];
 
-            if (!user) { showKeyMessage('Аккаунт не найден', 'error'); return; }
+            if (!user) { 
+                showKeyMessage('❌ Аккаунт не найден. Попробуйте войти заново.', 'error'); 
+                setTimeout(() => {
+                    closeKeyModal();
+                    logout();
+                }, 2000);
+                return; 
+            }
 
             // Рассчитываем дату окончания
             const tariff = TARIFFS[key.tariff];
@@ -2564,7 +2537,7 @@
                 expiresAt: expiresAt.toISOString(),
                 activatedByKey: code
             };
-            users[session.email.toLowerCase()] = user;
+            users[userEmail] = user;
             saveUsers(users);
 
             // Помечаем ключ использованным
@@ -2928,10 +2901,10 @@
                     <div class="ticket-header">
                         <div class="ticket-from">
                             ${escapeHtml(email)}
-                            ${email === MAIN_ADMIN.toLowerCase() ? '<span style="color:#ffb800;">👑 ГЛАВНЫЙ АДМИН</span>' : ''}
+                            ${email === MAIN_ADMIN ? '<span style="color:#ffb800;">👑 ГЛАВНЫЙ АДМИН</span>' : ''}
                         </div>
                     </div>
-                    ${email !== MAIN_ADMIN.toLowerCase() ? `
+                    ${email !== MAIN_ADMIN ? `
                         <div class="ticket-actions">
                             <button class="danger" onclick="removeAdmin('${escapeHtml(email)}')">❌ Снять админа</button>
                         </div>
@@ -2973,7 +2946,7 @@
             if (!email) { alert('Введите email'); return; }
 
             const users = getUsers();
-            if (!users[email] && email !== MAIN_ADMIN.toLowerCase()) {
+            if (!users[email] && email !== MAIN_ADMIN) {
                 alert('❌ Пользователь с таким email не зарегистрирован.\n\nСначала пусть зарегистрируется на сайте.');
                 return;
             }
@@ -2993,9 +2966,10 @@
         }
 
         function makeAdminFromList(email) {
+            const em = email.toLowerCase();
             const admins = getAdmins();
-            if (admins.includes(email.toLowerCase())) return;
-            admins.push(email.toLowerCase());
+            if (admins.includes(em)) return;
+            admins.push(em);
             saveAdmins(admins);
             renderUsersList();
             renderAdminsList();
@@ -3004,7 +2978,7 @@
 
         function removeAdmin(email) {
             const em = email.toLowerCase();
-            if (em === MAIN_ADMIN.toLowerCase()) {
+            if (em === MAIN_ADMIN) {
                 alert('❌ Нельзя снять главного администратора');
                 return;
             }
@@ -3017,19 +2991,20 @@
             alert('✅ Права администратора сняты с ' + email);
         }
 
-        // ==================== АВТО-ГЕНЕРАЦИЯ ПЕРВЫХ КЛЮЧЕЙ ====================
+        // ==================== СТАРТОВЫЕ КЛЮЧИ ====================
         function initKeys() {
             const keys = getKeys();
             if (keys.length === 0) {
-                // Генерируем по 5 ключей каждого типа при первом запуске
                 const tariffs = ['month', '3months', 'year'];
                 const allKeys = [];
                 tariffs.forEach(tariff => {
                     for (let i = 0; i < 5; i++) {
                         let code;
+                        let attempts = 0;
                         do {
                             code = generateRandomKey();
-                        } while (allKeys.some(k => k.code === code));
+                            attempts++;
+                        } while (allKeys.some(k => k.code === code) && attempts < 20);
                         allKeys.push({
                             code: code,
                             tariff: tariff,
@@ -3042,12 +3017,9 @@
                     }
                 });
                 saveKeys(allKeys);
-                console.log('🎟️ Сгенерировано 15 стартовых ключей');
+                console.log('🎟️ Сгенерировано 15 стартовых ключей. Смотри в админке → Ключи');
             }
         }
-
-        // Вызываем инициализацию ключей
-        setTimeout(initKeys, 100);
     </script>
 </body>
 </html>
