@@ -133,6 +133,79 @@
         }
         .btn-download-small:hover { box-shadow: 0 0 20px rgba(155, 48, 255, 0.6); }
 
+        .btn-premium-small {
+            background: linear-gradient(90deg, #ffb800, #ff8c00);
+            color: #1a1a1a;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 0 15px rgba(255, 184, 0, 0.4);
+        }
+        .btn-premium-small:hover {
+            box-shadow: 0 0 25px rgba(255, 184, 0, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* КНОПКА ПОДДЕРЖКИ */
+        .btn-support-small {
+            background: transparent;
+            border: 1px solid #4dff88;
+            color: #4dff88;
+            padding: 9px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn-support-small:hover {
+            background: rgba(77, 255, 136, 0.15);
+            box-shadow: 0 0 15px rgba(77, 255, 136, 0.4);
+        }
+
+        /* КНОПКА АДМИНКИ */
+        .btn-admin-small {
+            background: linear-gradient(90deg, #ff4d4d, #ff8080);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: 0.3s;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
+        }
+        .btn-admin-small:hover {
+            box-shadow: 0 0 25px rgba(255, 77, 77, 0.8);
+            transform: translateY(-2px);
+        }
+        .admin-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ffb800;
+            color: #1a1a1a;
+            font-size: 0.7rem;
+            font-weight: 800;
+            min-width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5px;
+        }
+
         .user-info {
             display: flex;
             align-items: center;
@@ -153,6 +226,13 @@
             font-weight: 800;
             font-size: 0.8rem;
             color: #fff;
+        }
+        .user-info.admin {
+            background: rgba(255, 77, 77, 0.15);
+            border-color: #ff4d4d;
+        }
+        .user-info.admin .avatar {
+            background: linear-gradient(135deg, #ff4d4d, #ff8080);
         }
         .btn-logout {
             background: transparent;
@@ -246,6 +326,26 @@
         }
         .btn-secondary:hover { border-color: #9b30ff; color: #9b30ff; }
 
+        .btn-premium {
+            background: linear-gradient(90deg, #ffb800, #ff8c00);
+            color: #1a1a1a;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: 0.3s;
+            box-shadow: 0 0 25px rgba(255, 184, 0, 0.5);
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+        .btn-premium:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 184, 0, 0.9);
+        }
+
         /* ПРЕИМУЩЕСТВА */
         .features {
             padding: 80px 20px;
@@ -281,6 +381,62 @@
         .feature-card h3 { font-size: 1.2rem; margin-bottom: 10px; color: #d1b3ff; }
         .feature-card p { color: #888; font-size: 0.9rem; line-height: 1.5; }
 
+        /* ПЛАТНАЯ ВЕРСИЯ */
+        .premium-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .premium-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .premium-section h2 .gold {
+            color: #ffb800;
+            text-shadow: 0 0 20px rgba(255, 184, 0, 0.5);
+        }
+        .premium-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        .premium-card {
+            background: #12121a;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            border: 1px solid #2a2a3e;
+            transition: 0.3s;
+            position: relative;
+        }
+        .premium-card:hover {
+            border-color: #ffb800;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 184, 0, 0.15);
+        }
+        .premium-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #ffb800;
+        }
+        .premium-card p { color: #888; font-size: 0.9rem; line-height: 1.5; }
+        .premium-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(90deg, #ffb800, #ff8c00);
+            color: #1a1a1a;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         /* CTA */
         .cta {
             padding: 100px 20px;
@@ -315,6 +471,24 @@
             color: #555;
             font-size: 0.85rem;
         }
+        .footer-support {
+            margin-top: 15px;
+        }
+        .footer-support button {
+            background: transparent;
+            border: 1px solid #4dff88;
+            color: #4dff88;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            transition: 0.3s;
+        }
+        .footer-support button:hover {
+            background: rgba(77, 255, 136, 0.15);
+        }
 
         /* МОДАЛЬНОЕ ОКНО */
         .modal-overlay {
@@ -345,6 +519,8 @@
             position: relative;
             transform: translateY(20px);
             transition: transform 0.3s;
+            max-height: 90vh;
+            overflow-y: auto;
         }
         .modal-overlay.active .auth-modal { transform: translateY(0); }
 
@@ -410,7 +586,9 @@
             margin-bottom: 8px;
             font-weight: 600;
         }
-        .auth-form input {
+        .auth-form input,
+        .auth-form textarea,
+        .auth-form select {
             width: 100%;
             padding: 14px 16px;
             background: #0a0a0f;
@@ -421,12 +599,19 @@
             font-family: 'Montserrat', sans-serif;
             transition: 0.3s;
         }
-        .auth-form input:focus {
+        .auth-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .auth-form input:focus,
+        .auth-form textarea:focus,
+        .auth-form select:focus {
             outline: none;
             border-color: #9b30ff;
             box-shadow: 0 0 15px rgba(155, 48, 255, 0.3);
         }
-        .auth-form input::placeholder { color: #555; }
+        .auth-form input::placeholder,
+        .auth-form textarea::placeholder { color: #555; }
 
         .auth-submit {
             width: 100%;
@@ -445,6 +630,13 @@
         .auth-submit:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(155, 48, 255, 0.5);
+        }
+        .auth-submit.green {
+            background: linear-gradient(90deg, #1a7a4a, #4dff88);
+            color: #0a0a0f;
+        }
+        .auth-submit.green:hover {
+            box-shadow: 0 10px 25px rgba(77, 255, 136, 0.5);
         }
 
         .auth-error {
@@ -492,12 +684,327 @@
         }
         .auth-switch a:hover { text-decoration: underline; }
 
+        /* ТАРИФЫ */
+        .tariffs-modal {
+            background: #12121a;
+            border: 1px solid #6a0dad;
+            border-radius: 20px;
+            padding: 40px 35px;
+            max-width: 1000px;
+            width: 100%;
+            box-shadow: 0 0 60px rgba(106, 13, 173, 0.5);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-overlay.active .tariffs-modal { transform: translateY(0); }
+
+        .tariffs-modal h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        .tariffs-modal .tariffs-subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 35px;
+        }
+
+        .tariffs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tariff-card {
+            background: #0a0a0f;
+            border: 1px solid #2a2a3e;
+            border-radius: 15px;
+            padding: 30px 25px;
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .tariff-card:hover {
+            border-color: #9b30ff;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(155, 48, 255, 0.2);
+        }
+        .tariff-card.popular {
+            border-color: #ffb800;
+            box-shadow: 0 0 25px rgba(255, 184, 0, 0.2);
+        }
+        .tariff-card.popular:hover {
+            border-color: #ffb800;
+            box-shadow: 0 15px 35px rgba(255, 184, 0, 0.35);
+        }
+
+        .tariff-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, #ffb800, #ff8c00);
+            color: #1a1a1a;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 5px 15px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .tariff-name {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .tariff-price {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #9b30ff;
+            margin-bottom: 5px;
+        }
+        .tariff-price small {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #888;
+        }
+        .tariff-old-price {
+            font-size: 0.9rem;
+            color: #666;
+            text-decoration: line-through;
+            margin-bottom: 15px;
+        }
+        .tariff-desc {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            min-height: 40px;
+        }
+        .tariff-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+        .tariff-features li {
+            color: #aaa;
+            font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 1px solid #1f1f2e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tariff-features li:last-child { border-bottom: none; }
+        .tariff-features li::before {
+            content: "✓";
+            color: #4dff88;
+            font-weight: 800;
+            font-size: 0.9rem;
+        }
+
+        .tariff-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #6a0dad, #9b30ff);
+            color: #fff;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: 0.3s;
+        }
+        .tariff-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(155, 48, 255, 0.5);
+        }
+        .tariff-card.popular .tariff-btn {
+            background: linear-gradient(90deg, #ffb800, #ff8c00);
+            color: #1a1a1a;
+        }
+        .tariff-card.popular .tariff-btn:hover {
+            box-shadow: 0 10px 25px rgba(255, 184, 0, 0.6);
+        }
+
+        /* АДМИН-ПАНЕЛЬ */
+        .admin-modal {
+            background: #12121a;
+            border: 1px solid #ff4d4d;
+            border-radius: 20px;
+            padding: 40px 35px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 0 60px rgba(255, 77, 77, 0.3);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-overlay.active .admin-modal { transform: translateY(0); }
+
+        .admin-modal h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: #ff4d4d;
+        }
+        .admin-modal .admin-subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .admin-tabs {
+            display: flex;
+            background: #0a0a0f;
+            border-radius: 10px;
+            padding: 5px;
+            margin-bottom: 25px;
+            border: 1px solid #1f1f2e;
+        }
+        .admin-tab {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #888;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: 0.3s;
+        }
+        .admin-tab.active {
+            background: linear-gradient(90deg, #ff4d4d, #ff8080);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
+        }
+
+        .ticket-list { max-height: 55vh; overflow-y: auto; }
+
+        .ticket {
+            background: #0a0a0f;
+            border: 1px solid #2a2a3e;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+        .ticket:hover { border-color: #ff4d4d; }
+        .ticket.unread { border-color: #ffb800; background: rgba(255, 184, 0, 0.05); }
+        .ticket-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .ticket-from {
+            font-weight: 700;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+        .ticket-from span {
+            color: #9b30ff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        .ticket-date {
+            color: #666;
+            font-size: 0.8rem;
+        }
+        .ticket-subject {
+            color: #d1b3ff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        .ticket-message {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            white-space: pre-wrap;
+        }
+        .ticket-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .ticket-actions button {
+            background: transparent;
+            border: 1px solid #555;
+            color: #aaa;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: 0.3s;
+        }
+        .ticket-actions button:hover { border-color: #9b30ff; color: #9b30ff; }
+        .ticket-actions button.danger:hover { border-color: #ff4d4d; color: #ff4d4d; }
+        .ticket-actions button.reply:hover { border-color: #4dff88; color: #4dff88; }
+
+        .admin-empty {
+            text-align: center;
+            color: #666;
+            padding: 40px 20px;
+            font-size: 0.95rem;
+        }
+
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .stat-card {
+            background: #0a0a0f;
+            border: 1px solid #2a2a3e;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-card .stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ff4d4d;
+        }
+        .stat-card .stat-label {
+            color: #888;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .cta h2 { font-size: 2rem; }
             .features h2 { font-size: 1.8rem; }
+            .premium-section h2 { font-size: 1.8rem; }
             nav a { margin: 0 8px; font-size: 0.85rem; }
-            .auth-modal { padding: 30px 20px; }
+            .auth-modal, .tariffs-modal, .admin-modal { padding: 30px 20px; }
+            .tariffs-modal h2 { font-size: 1.5rem; }
+            .nav-actions { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -525,22 +1032,28 @@
                 <nav>
                     <a href="#">Главная</a>
                     <a href="#features">Функции</a>
-                    <a href="#">Тарифы</a>
+                    <a onclick="openTariffsModal()">Тарифы</a>
                     <a href="#">Видеообзоры</a>
                     <a href="#" class="active">Бесплатная версия</a>
                 </nav>
                 <div class="nav-actions">
+                    <button class="btn-support-small" onclick="openSupportModal()">💬 Поддержка</button>
                     <div id="auth-buttons">
                         <button class="btn-auth" onclick="openAuthModal('login')">Войти</button>
                     </div>
                     <div id="user-panel" class="hidden" style="display:flex; align-items:center; gap:12px;">
-                        <div class="user-info">
+                        <div class="user-info" id="user-info-box">
                             <div class="avatar" id="user-avatar">H</div>
                             <span id="user-email">user@mail.com</span>
                         </div>
                         <button class="btn-logout" onclick="logout()">Выйти</button>
                     </div>
-                    <button class="btn-download-small" onclick="requireAuthAndDownload()">Скачать</button>
+                    <button class="btn-admin-small hidden" id="admin-btn" onclick="openAdminModal()">
+                        🛡️ Админка
+                        <span class="admin-badge hidden" id="admin-badge">0</span>
+                    </button>
+                    <button class="btn-premium-small" onclick="openTariffsModal()">💎 Купить платную версию</button>
+                    <button class="btn-download-small" onclick="requireAuthAndDownload()">Скачать бета</button>
                 </div>
             </div>
         </header>
@@ -549,7 +1062,8 @@
             <h1>Лучший мод для<br>комфортной игры в Minecraft</h1>
             <p>HolyVisuals создан для тех, кто ценит стиль, удобство и максимальную производительность. Продуманный интерфейс и стабильная работа дают вам реальное преимущество в игре.</p>
             <div class="hero-buttons">
-                <button class="btn-primary" onclick="requireAuthAndDownload()">Скачать HolyVisuals</button>
+                <button class="btn-primary" onclick="requireAuthAndDownload()">Скачать HolyVisuals (бета)</button>
+                <button class="btn-premium" onclick="openTariffsModal()">💎 Купить платную версию</button>
                 <a href="#features" class="btn-secondary">Подробнее</a>
             </div>
             <p id="download-hint" style="margin-top:20px; font-size:0.85rem; color:#666;">
@@ -589,6 +1103,39 @@
             </div>
         </section>
 
+        <section class="premium-section" id="premium">
+            <h2>💎 <span class="gold">Платная версия HolyVisuals</span></h2>
+            <p class="section-desc">Разблокируйте максимум возможностей мода. Приоритетная поддержка, эксклюзивные функции и регулярные обновления.</p>
+            
+            <div class="premium-grid">
+                <div class="premium-card">
+                    <span class="premium-badge">Эксклюзив</span>
+                    <h3>🎨 Премиум-скины</h3>
+                    <p>Доступ к эксклюзивным визуальным темам и анимациям, которых нет в бесплатной версии.</p>
+                </div>
+                <div class="premium-card">
+                    <h3>⚡ Ускоренная загрузка</h3>
+                    <p>Приоритетная загрузка обновлений и новых функций раньше остальных пользователей.</p>
+                </div>
+                <div class="premium-card">
+                    <h3>🛡️ Расширенный анти-чит</h3>
+                    <p>Дополнительные настройки совместимости с приватными анти-чит системами серверов.</p>
+                </div>
+                <div class="premium-card">
+                    <h3>🎯 Продвинутый PvP-модуль</h3>
+                    <p>Тонкая настройка прицела, хитбоксов и визуальных эффектов для максимального преимущества.</p>
+                </div>
+                <div class="premium-card">
+                    <h3>💬 Приоритетная поддержка</h3>
+                    <p>Личный чат с разработчиками и быстрое решение любых вопросов.</p>
+                </div>
+                <div class="premium-card">
+                    <h3>🚀 Ранний доступ</h3>
+                    <p>Тестируйте новые функции до официального релиза и влияйте на развитие мода.</p>
+                </div>
+            </div>
+        </section>
+
         <section class="cta">
             <h2>Ваш следующий уровень<br>начинается <span class="highlight">здесь</span></h2>
             <p>Присоединяйтесь к тысячам игроков, использующих HolyVisuals для максимального игрового комфорта.</p>
@@ -600,6 +1147,9 @@
 
         <footer>
             <p>&copy; 2026 HolyVisuals. Все права защищены.</p>
+            <div class="footer-support">
+                <button onclick="openSupportModal()">💬 Связаться с поддержкой</button>
+            </div>
         </footer>
     </div>
 
@@ -620,8 +1170,8 @@
 
             <form class="auth-form" id="form-login" onsubmit="handleLogin(event)">
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="login-email" placeholder="you@example.com" required>
+                    <label>Email или логин</label>
+                    <input type="text" id="login-email" placeholder="you@example.com" required>
                 </div>
                 <div class="form-group">
                     <label>Пароль</label>
@@ -650,7 +1200,156 @@
         </div>
     </div>
 
+    <!-- МОДАЛЬНОЕ ОКНО ТАРИФОВ -->
+    <div class="modal-overlay" id="tariffs-modal">
+        <div class="tariffs-modal">
+            <button class="modal-close" onclick="closeTariffsModal()">&times;</button>
+            
+            <h2>💎 Тарифы HolyVisuals</h2>
+            <p class="tariffs-subtitle">Выберите подходящий план и получите максимум от мода</p>
+
+            <div class="tariffs-grid">
+                <!-- НА МЕСЯЦ -->
+                <div class="tariff-card">
+                    <div class="tariff-name">На месяц</div>
+                    <div class="tariff-price">75 ₽ <small>/ мес</small></div>
+                    <div class="tariff-old-price">150 ₽</div>
+                    <div class="tariff-desc">Отличный старт для знакомства с премиум-возможностями</div>
+                    <ul class="tariff-features">
+                        <li>Все функции бесплатной версии</li>
+                        <li>Премиум-скины и темы</li>
+                        <li>Расширенный анти-чит</li>
+                        <li>Приоритетная поддержка</li>
+                    </ul>
+                    <button class="tariff-btn" onclick="buyTariff('month')">Выбрать</button>
+                </div>
+
+                <!-- НА 3 МЕСЯЦА -->
+                <div class="tariff-card popular">
+                    <span class="tariff-badge">🔥 Популярный</span>
+                    <div class="tariff-name">На 3 месяца</div>
+                    <div class="tariff-price">220 ₽ <small>/ 3 мес</small></div>
+                    <div class="tariff-old-price">450 ₽</div>
+                    <div class="tariff-desc">Оптимальный выбор для постоянных игроков</div>
+                    <ul class="tariff-features">
+                        <li>Всё из тарифа «На месяц»</li>
+                        <li>Продвинутый PvP-модуль</li>
+                        <li>Ранний доступ к обновлениям</li>
+                        <li>Эксклюзивные визуальные эффекты</li>
+                        <li>Экономия 51%</li>
+                    </ul>
+                    <button class="tariff-btn" onclick="buyTariff('3months')">Выбрать</button>
+                </div>
+
+                <!-- НА ГОД -->
+                <div class="tariff-card">
+                    <div class="tariff-name">На год</div>
+                    <div class="tariff-price">400 ₽ <small>/ год</small></div>
+                    <div class="tariff-old-price">900 ₽</div>
+                    <div class="tariff-desc">Максимальная выгода для преданных фанатов</div>
+                    <ul class="tariff-features">
+                        <li>Всё из тарифа «На 3 месяца»</li>
+                        <li>Приоритетная поддержка 24/7</li>
+                        <li>Участие в закрытых тестах</li>
+                        <li>Персональные настройки от разработчиков</li>
+                        <li>Экономия 56%</li>
+                    </ul>
+                    <button class="tariff-btn" onclick="buyTariff('year')">Выбрать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ПОДДЕРЖКИ -->
+    <div class="modal-overlay" id="support-modal">
+        <div class="auth-modal">
+            <button class="modal-close" onclick="closeSupportModal()">&times;</button>
+            
+            <h2>💬 Поддержка HolyVisuals</h2>
+            <p class="auth-subtitle">Опишите проблему — мы обязательно ответим</p>
+
+            <div id="support-message"></div>
+
+            <form class="auth-form" id="form-support" onsubmit="handleSupportSubmit(event)">
+                <div class="form-group">
+                    <label>Ваш Email (для ответа)</label>
+                    <input type="email" id="support-email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Тема обращения</label>
+                    <select id="support-subject" required>
+                        <option value="">— Выберите тему —</option>
+                        <option value="Проблема со скачиванием">Проблема со скачиванием</option>
+                        <option value="Ошибка в моде">Ошибка в моде</option>
+                        <option value="Вопрос по оплате">Вопрос по оплате</option>
+                        <option value="Предложение / идея">Предложение / идея</option>
+                        <option value="Другое">Другое</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Сообщение</label>
+                    <textarea id="support-text" placeholder="Подробно опишите вашу проблему..." required minlength="10"></textarea>
+                </div>
+                <button type="submit" class="auth-submit green">📨 Отправить в поддержку</button>
+            </form>
+
+            <p class="auth-switch" style="margin-top:15px;">
+                Или напишите нам на почту: <a>support@holyvisuals.ru</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО АДМИНКИ -->
+    <div class="modal-overlay" id="admin-modal">
+        <div class="admin-modal">
+            <button class="modal-close" onclick="closeAdminModal()">&times;</button>
+            
+            <h2>🛡️ Админ-панель</h2>
+            <p class="admin-subtitle">HolyVisuals — управление поддержкой</p>
+
+            <div class="admin-tabs">
+                <button class="admin-tab active" id="admin-tab-tickets" onclick="switchAdminTab('tickets')">📨 Обращения</button>
+                <button class="admin-tab" id="admin-tab-users" onclick="switchAdminTab('users')">👥 Пользователи</button>
+            </div>
+
+            <!-- ОБРАЩЕНИЯ -->
+            <div id="admin-content-tickets">
+                <div class="admin-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-total">0</div>
+                        <div class="stat-label">Всего обращений</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-unread" style="color:#ffb800;">0</div>
+                        <div class="stat-label">Новых</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-users" style="color:#9b30ff;">0</div>
+                        <div class="stat-label">Пользователей</div>
+                    </div>
+                </div>
+                <div class="ticket-list" id="ticket-list">
+                    <!-- Сюда рендерятся тикеты -->
+                </div>
+            </div>
+
+            <!-- ПОЛЬЗОВАТЕЛИ -->
+            <div id="admin-content-users" class="hidden">
+                <div class="ticket-list" id="user-list">
+                    <!-- Сюда рендерятся пользователи -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // ==================== КОНСТАНТЫ ====================
+        const USERS_KEY = 'holyvisuals_users';
+        const SESSION_KEY = 'holyvisuals_session';
+        const TICKETS_KEY = 'holyvisuals_tickets';
+        const ADMIN_LOGIN = 'holyvisalsAMINS';
+        const ADMIN_PASSWORD = 'admin123';
+
         // ==================== ЗАСТАВКА ====================
         window.addEventListener('load', () => {
             setTimeout(() => {
@@ -664,10 +1363,7 @@
             }, 2000);
         });
 
-        // ==================== АВТОРИЗАЦИЯ ====================
-        const USERS_KEY = 'holyvisuals_users';
-        const SESSION_KEY = 'holyvisuals_session';
-
+        // ==================== ПОЛЬЗОВАТЕЛИ ====================
         function getUsers() {
             try { return JSON.parse(localStorage.getItem(USERS_KEY)) || {}; }
             catch { return {}; }
@@ -689,19 +1385,44 @@
             return !!localStorage.getItem(SESSION_KEY);
         }
 
+        function getSession() {
+            try { return JSON.parse(localStorage.getItem(SESSION_KEY)); }
+            catch { return null; }
+        }
+
+        function isAdmin() {
+            const s = getSession();
+            return s && s.email && s.email.toLowerCase() === ADMIN_LOGIN.toLowerCase();
+        }
+
+        // ==================== ТИКЕТЫ ПОДДЕРЖКИ ====================
+        function getTickets() {
+            try { return JSON.parse(localStorage.getItem(TICKETS_KEY)) || []; }
+            catch { return []; }
+        }
+        function saveTickets(tickets) {
+            localStorage.setItem(TICKETS_KEY, JSON.stringify(tickets));
+        }
+
         function showMessage(text, type) {
             const msg = document.getElementById('auth-message');
             msg.innerHTML = `<div class="${type === 'error' ? 'auth-error' : (type === 'warning' ? 'auth-warning' : 'auth-success')}">${text}</div>`;
             setTimeout(() => { msg.innerHTML = ''; }, 5000);
         }
 
+        function showSupportMessage(text, type) {
+            const msg = document.getElementById('support-message');
+            msg.innerHTML = `<div class="${type === 'error' ? 'auth-error' : (type === 'warning' ? 'auth-warning' : 'auth-success')}">${text}</div>`;
+            setTimeout(() => { msg.innerHTML = ''; }, 6000);
+        }
+
+        // ==================== АВТОРИЗАЦИЯ ====================
         function openAuthModal(mode, customMessage) {
             const modal = document.getElementById('auth-modal');
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             if (mode) switchTab(mode);
             
-            // Показываем кастомное сообщение (например, "войдите чтобы скачать")
             if (customMessage) {
                 setTimeout(() => showMessage(customMessage, 'warning'), 100);
             }
@@ -742,7 +1463,12 @@
             if (e.target.id === 'auth-modal') closeAuthModal();
         });
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeAuthModal();
+            if (e.key === 'Escape') {
+                closeAuthModal();
+                closeTariffsModal();
+                closeSupportModal();
+                closeAdminModal();
+            }
         });
 
         function handleRegister(event) {
@@ -765,7 +1491,6 @@
             };
             saveUsers(users);
 
-            // Автоматически входим после регистрации
             localStorage.setItem(SESSION_KEY, JSON.stringify({ email: email, loginAt: new Date().toISOString() }));
 
             showMessage('✅ Аккаунт создан! Сейчас скачается мод...', 'success');
@@ -773,18 +1498,39 @@
             setTimeout(() => {
                 closeAuthModal();
                 checkAuthState();
-                // Автоматически запускаем скачивание
                 downloadJar();
             }, 1200);
         }
 
         function handleLogin(event) {
             event.preventDefault();
-            const email = document.getElementById('login-email').value.trim().toLowerCase();
+            const login = document.getElementById('login-email').value.trim().toLowerCase();
             const password = document.getElementById('login-password').value;
 
+            // Проверка админа
+            if (login === ADMIN_LOGIN.toLowerCase() && password === ADMIN_PASSWORD) {
+                localStorage.setItem(SESSION_KEY, JSON.stringify({ 
+                    email: ADMIN_LOGIN, 
+                    isAdmin: true,
+                    loginAt: new Date().toISOString() 
+                }));
+                showMessage('✅ Вход в админ-аккаунт выполнен!', 'success');
+                setTimeout(() => {
+                    closeAuthModal();
+                    checkAuthState();
+                    // Уведомление о новых тикетах
+                    const unread = getTickets().filter(t => !t.read).length;
+                    if (unread > 0) {
+                        setTimeout(() => {
+                            alert('🔔 У вас ' + unread + ' новых обращений в поддержку!');
+                        }, 500);
+                    }
+                }, 1000);
+                return;
+            }
+
             const users = getUsers();
-            const user = users[email];
+            const user = users[login];
 
             if (!user) { showMessage('Аккаунт не найден. Зарегистрируйтесь.', 'error'); return; }
             if (user.passwordHash !== hashPassword(password)) {
@@ -797,7 +1543,6 @@
             setTimeout(() => {
                 closeAuthModal();
                 checkAuthState();
-                // Автоматически запускаем скачивание
                 downloadJar();
             }, 1200);
         }
@@ -808,30 +1553,51 @@
         }
 
         function checkAuthState() {
-            const session = localStorage.getItem(SESSION_KEY);
+            const session = getSession();
             const authButtons = document.getElementById('auth-buttons');
             const userPanel = document.getElementById('user-panel');
             const hint = document.getElementById('download-hint');
+            const adminBtn = document.getElementById('admin-btn');
+            const userInfoBox = document.getElementById('user-info-box');
 
             if (session) {
-                try {
-                    const data = JSON.parse(session);
-                    authButtons.classList.add('hidden');
-                    userPanel.classList.remove('hidden');
-                    userPanel.style.display = 'flex';
-                    document.getElementById('user-email').textContent = data.email;
-                    document.getElementById('user-avatar').textContent = data.email.charAt(0).toUpperCase();
-                    if (hint) hint.style.display = 'none';
-                } catch { logout(); }
+                const admin = isAdmin();
+                authButtons.classList.add('hidden');
+                userPanel.classList.remove('hidden');
+                userPanel.style.display = 'flex';
+                document.getElementById('user-email').textContent = session.email;
+                document.getElementById('user-avatar').textContent = session.email.charAt(0).toUpperCase();
+                if (hint) hint.style.display = 'none';
+
+                if (admin) {
+                    userInfoBox.classList.add('admin');
+                    adminBtn.classList.remove('hidden');
+                    updateAdminBadge();
+                } else {
+                    userInfoBox.classList.remove('admin');
+                    adminBtn.classList.add('hidden');
+                }
             } else {
                 authButtons.classList.remove('hidden');
                 userPanel.classList.add('hidden');
                 userPanel.style.display = 'none';
+                adminBtn.classList.add('hidden');
                 if (hint) hint.style.display = 'block';
             }
         }
 
-        // ==================== ЗАЩИТА СКАЧИВАНИЯ ====================
+        function updateAdminBadge() {
+            const unread = getTickets().filter(t => !t.read).length;
+            const badge = document.getElementById('admin-badge');
+            if (unread > 0) {
+                badge.textContent = unread;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        // ==================== СКАЧИВАНИЕ ====================
         function requireAuthAndDownload() {
             if (!isLoggedIn()) {
                 openAuthModal('register', '🔒 Чтобы скачать мод, нужно войти или зарегистрироваться');
@@ -840,7 +1606,6 @@
             downloadJar();
         }
 
-        // ==================== СКАЧИВАНИЕ JAR ====================
         function downloadJar() {
             const JAR_NAME = "holyvisuals-1.0.0.jar";
 
@@ -859,7 +1624,7 @@
                     const fakeJarContent = 
 `HolyVisuals - Мод для Minecraft
 ================================
-Версия: 1.0.0
+Версия: 1.0.0 (бета)
 Загрузчик: Fabric / Forge
 Minecraft: 1.20.x
 
@@ -893,6 +1658,284 @@ Minecraft: 1.20.x
             link.click();
             document.body.removeChild(link);
             setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }
+
+        // ==================== ТАРИФЫ ====================
+        function openTariffsModal() {
+            const modal = document.getElementById('tariffs-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTariffsModal() {
+            const modal = document.getElementById('tariffs-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('tariffs-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'tariffs-modal') closeTariffsModal();
+        });
+
+        function buyTariff(tariff) {
+            if (!isLoggedIn()) {
+                closeTariffsModal();
+                openAuthModal('register', '🔒 Для покупки тарифа нужно войти или зарегистрироваться');
+                return;
+            }
+
+            const names = {
+                'month': 'На месяц',
+                '3months': 'На 3 месяца',
+                'year': 'На год'
+            };
+
+            const prices = {
+                'month': '75 ₽',
+                '3months': '220 ₽',
+                'year': '400 ₽'
+            };
+
+            alert(
+                '💎 Покупка тарифа\n\n' +
+                'Тариф: ' + names[tariff] + '\n' +
+                'Стоимость: ' + prices[tariff] + '\n\n' +
+                'В демо-версии оплата не подключена.\n' +
+                'Спасибо за интерес к HolyVisuals!'
+            );
+        }
+
+        // ==================== ПОДДЕРЖКА ====================
+        function openSupportModal() {
+            const modal = document.getElementById('support-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Автозаполнение email если пользователь залогинен
+            const session = getSession();
+            if (session && !isAdmin()) {
+                document.getElementById('support-email').value = session.email;
+            }
+        }
+
+        function closeSupportModal() {
+            const modal = document.getElementById('support-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            document.getElementById('support-message').innerHTML = '';
+        }
+
+        document.getElementById('support-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'support-modal') closeSupportModal();
+        });
+
+        function handleSupportSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('support-email').value.trim().toLowerCase();
+            const subject = document.getElementById('support-subject').value;
+            const text = document.getElementById('support-text').value.trim();
+
+            if (!email || !subject || !text) {
+                showSupportMessage('Заполните все поля', 'error');
+                return;
+            }
+            if (text.length < 10) {
+                showSupportMessage('Сообщение слишком короткое (минимум 10 символов)', 'error');
+                return;
+            }
+
+            const tickets = getTickets();
+            const session = getSession();
+
+            tickets.unshift({
+                id: 't_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
+                email: email,
+                accountEmail: session ? session.email : null,
+                subject: subject,
+                text: text,
+                createdAt: new Date().toISOString(),
+                read: false,
+                replies: []
+            });
+            saveTickets(tickets);
+
+            showSupportMessage('✅ Сообщение отправлено! Мы ответим вам на ' + email, 'success');
+            
+            document.getElementById('support-text').value = '';
+            document.getElementById('support-subject').value = '';
+            
+            setTimeout(() => {
+                closeSupportModal();
+            }, 2500);
+        }
+
+        // ==================== АДМИНКА ====================
+        function openAdminModal() {
+            if (!isAdmin()) {
+                openAuthModal('login', '🔒 Только для администратора');
+                return;
+            }
+            const modal = document.getElementById('admin-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            renderAdminPanel();
+        }
+
+        function closeAdminModal() {
+            const modal = document.getElementById('admin-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('admin-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'admin-modal') closeAdminModal();
+        });
+
+        function switchAdminTab(tab) {
+            const tabTickets = document.getElementById('admin-tab-tickets');
+            const tabUsers = document.getElementById('admin-tab-users');
+            const contentTickets = document.getElementById('admin-content-tickets');
+            const contentUsers = document.getElementById('admin-content-users');
+
+            if (tab === 'tickets') {
+                tabTickets.classList.add('active');
+                tabUsers.classList.remove('active');
+                contentTickets.classList.remove('hidden');
+                contentUsers.classList.add('hidden');
+            } else {
+                tabUsers.classList.add('active');
+                tabTickets.classList.remove('active');
+                contentUsers.classList.remove('hidden');
+                contentTickets.classList.add('hidden');
+                renderUsersList();
+            }
+        }
+
+        function renderAdminPanel() {
+            renderTicketsList();
+            updateAdminStats();
+        }
+
+        function updateAdminStats() {
+            const tickets = getTickets();
+            const users = getUsers();
+            document.getElementById('stat-total').textContent = tickets.length;
+            document.getElementById('stat-unread').textContent = tickets.filter(t => !t.read).length;
+            document.getElementById('stat-users').textContent = Object.keys(users).length;
+        }
+
+        function formatDate(iso) {
+            const d = new Date(iso);
+            const pad = n => n.toString().padStart(2, '0');
+            return `${pad(d.getDate())}.${pad(d.getMonth()+1)}.${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+        }
+
+        function renderTicketsList() {
+            const tickets = getTickets();
+            const list = document.getElementById('ticket-list');
+
+            if (tickets.length === 0) {
+                list.innerHTML = '<div class="admin-empty">📭 Пока нет обращений в поддержку</div>';
+                return;
+            }
+
+            list.innerHTML = tickets.map(t => `
+                <div class="ticket ${t.read ? '' : 'unread'}">
+                    <div class="ticket-header">
+                        <div class="ticket-from">
+                            ${escapeHtml(t.email)}
+                            ${t.accountEmail ? `<span>(аккаунт: ${escapeHtml(t.accountEmail)})</span>` : ''}
+                        </div>
+                        <div class="ticket-date">${formatDate(t.createdAt)}</div>
+                    </div>
+                    <div class="ticket-subject">📌 ${escapeHtml(t.subject)}</div>
+                    <div class="ticket-message">${escapeHtml(t.text)}</div>
+                    ${t.replies && t.replies.length > 0 ? `
+                        <div style="margin-top:10px; padding-top:10px; border-top:1px solid #1f1f2e;">
+                            <div style="color:#4dff88; font-size:0.8rem; font-weight:700; margin-bottom:5px;">Ответы:</div>
+                            ${t.replies.map(r => `
+                                <div style="background:#0a0a0f; padding:10px; border-radius:8px; margin-bottom:8px; border-left:3px solid #4dff88;">
+                                    <div style="color:#666; font-size:0.75rem; margin-bottom:4px;">${formatDate(r.createdAt)}</div>
+                                    <div style="color:#ccc; font-size:0.85rem;">${escapeHtml(r.text)}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    ` : ''}
+                    <div class="ticket-actions">
+                        <button class="reply" onclick="replyToTicket('${t.id}')">💬 Ответить</button>
+                        ${!t.read ? `<button onclick="markRead('${t.id}')">✓ Прочитано</button>` : ''}
+                        <button class="danger" onclick="deleteTicket('${t.id}')">🗑 Удалить</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderUsersList() {
+            const users = getUsers();
+            const list = document.getElementById('user-list');
+            const emails = Object.keys(users);
+
+            if (emails.length === 0) {
+                list.innerHTML = '<div class="admin-empty">👥 Пока нет зарегистрированных пользователей</div>';
+                return;
+            }
+
+            list.innerHTML = emails.map(email => {
+                const u = users[email];
+                return `
+                    <div class="ticket">
+                        <div class="ticket-header">
+                            <div class="ticket-from">${escapeHtml(email)}</div>
+                            <div class="ticket-date">Регистрация: ${formatDate(u.createdAt)}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function markRead(id) {
+            const tickets = getTickets();
+            const t = tickets.find(x => x.id === id);
+            if (t) { t.read = true; saveTickets(tickets); }
+            renderAdminPanel();
+            updateAdminBadge();
+        }
+
+        function deleteTicket(id) {
+            if (!confirm('Удалить это обращение?')) return;
+            const tickets = getTickets().filter(x => x.id !== id);
+            saveTickets(tickets);
+            renderAdminPanel();
+            updateAdminBadge();
+        }
+
+        function replyToTicket(id) {
+            const reply = prompt('Введите ответ пользователю:');
+            if (!reply || !reply.trim()) return;
+
+            const tickets = getTickets();
+            const t = tickets.find(x => x.id === id);
+            if (!t) return;
+            if (!t.replies) t.replies = [];
+            t.replies.push({
+                text: reply.trim(),
+                createdAt: new Date().toISOString()
+            });
+            t.read = true;
+            saveTickets(tickets);
+            renderAdminPanel();
+            updateAdminBadge();
+            alert('✅ Ответ сохранён! (В реальном проекте здесь была бы отправка на email)');
         }
     </script>
 </body>
