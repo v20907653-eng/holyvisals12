@@ -62,7 +62,6 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* ОСНОВНОЙ КОНТЕНТ */
         #main-content { opacity: 0; transition: opacity 0.8s ease; }
         #main-content.visible { opacity: 1; }
         .hidden { display: none !important; }
@@ -138,7 +137,6 @@
             color: #1a1a1a;
             padding: 10px 20px;
             border-radius: 8px;
-            text-decoration: none;
             font-weight: 700;
             font-size: 0.9rem;
             transition: 0.3s;
@@ -152,7 +150,6 @@
             transform: translateY(-2px);
         }
 
-        /* КНОПКА ПОДДЕРЖКИ */
         .btn-support-small {
             background: transparent;
             border: 1px solid #4dff88;
@@ -164,13 +161,13 @@
             font-weight: 600;
             transition: 0.3s;
             font-family: 'Montserrat', sans-serif;
+            position: relative;
         }
         .btn-support-small:hover {
             background: rgba(77, 255, 136, 0.15);
             box-shadow: 0 0 15px rgba(77, 255, 136, 0.4);
         }
 
-        /* КНОПКА АДМИНКИ */
         .btn-admin-small {
             background: linear-gradient(90deg, #ff4d4d, #ff8080);
             color: #fff;
@@ -296,7 +293,6 @@
             color: #fff;
             padding: 15px 35px;
             border-radius: 50px;
-            text-decoration: none;
             font-weight: 700;
             transition: 0.3s;
             box-shadow: 0 0 20px rgba(155, 48, 255, 0.4);
@@ -331,7 +327,6 @@
             color: #1a1a1a;
             padding: 15px 35px;
             border-radius: 50px;
-            text-decoration: none;
             font-weight: 800;
             transition: 0.3s;
             box-shadow: 0 0 25px rgba(255, 184, 0, 0.5);
@@ -452,7 +447,6 @@
             color: #fff;
             padding: 15px 35px;
             border-radius: 50px;
-            text-decoration: none;
             font-weight: 600;
             border: 1px solid #555;
             transition: 0.3s;
@@ -471,9 +465,7 @@
             color: #555;
             font-size: 0.85rem;
         }
-        .footer-support {
-            margin-top: 15px;
-        }
+        .footer-support { margin-top: 15px; }
         .footer-support button {
             background: transparent;
             border: 1px solid #4dff88;
@@ -486,9 +478,7 @@
             font-family: 'Montserrat', sans-serif;
             transition: 0.3s;
         }
-        .footer-support button:hover {
-            background: rgba(77, 255, 136, 0.15);
-        }
+        .footer-support button:hover { background: rgba(77, 255, 136, 0.15); }
 
         /* МОДАЛЬНОЕ ОКНО */
         .modal-overlay {
@@ -513,7 +503,7 @@
             border: 1px solid #6a0dad;
             border-radius: 20px;
             padding: 40px 35px;
-            max-width: 420px;
+            max-width: 440px;
             width: 100%;
             box-shadow: 0 0 60px rgba(106, 13, 173, 0.5);
             position: relative;
@@ -639,36 +629,16 @@
             box-shadow: 0 10px 25px rgba(77, 255, 136, 0.5);
         }
 
-        .auth-error {
-            background: rgba(255, 77, 77, 0.1);
-            border: 1px solid #ff4d4d;
-            color: #ff8080;
+        .auth-error, .auth-success, .auth-warning {
             padding: 12px;
             border-radius: 8px;
             font-size: 0.85rem;
             margin-bottom: 15px;
             text-align: center;
         }
-        .auth-success {
-            background: rgba(77, 255, 136, 0.1);
-            border: 1px solid #4dff88;
-            color: #4dff88;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        .auth-warning {
-            background: rgba(255, 193, 7, 0.1);
-            border: 1px solid #ffc107;
-            color: #ffc107;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-            text-align: center;
-        }
+        .auth-error { background: rgba(255, 77, 77, 0.1); border: 1px solid #ff4d4d; color: #ff8080; }
+        .auth-success { background: rgba(77, 255, 136, 0.1); border: 1px solid #4dff88; color: #4dff88; }
+        .auth-warning { background: rgba(255, 193, 7, 0.1); border: 1px solid #ffc107; color: #ffc107; }
 
         .auth-switch {
             text-align: center;
@@ -762,41 +732,12 @@
             white-space: nowrap;
         }
 
-        .tariff-name {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        .tariff-price {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #9b30ff;
-            margin-bottom: 5px;
-        }
-        .tariff-price small {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #888;
-        }
-        .tariff-old-price {
-            font-size: 0.9rem;
-            color: #666;
-            text-decoration: line-through;
-            margin-bottom: 15px;
-        }
-        .tariff-desc {
-            color: #888;
-            font-size: 0.85rem;
-            margin-bottom: 20px;
-            min-height: 40px;
-        }
-        .tariff-features {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 25px;
-            flex-grow: 1;
-        }
+        .tariff-name { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 10px; }
+        .tariff-price { font-size: 2.2rem; font-weight: 900; color: #9b30ff; margin-bottom: 5px; }
+        .tariff-price small { font-size: 1rem; font-weight: 600; color: #888; }
+        .tariff-old-price { font-size: 0.9rem; color: #666; text-decoration: line-through; margin-bottom: 15px; }
+        .tariff-desc { color: #888; font-size: 0.85rem; margin-bottom: 20px; min-height: 40px; }
+        .tariff-features { list-style: none; text-align: left; margin-bottom: 25px; flex-grow: 1; }
         .tariff-features li {
             color: #aaa;
             font-size: 0.85rem;
@@ -807,12 +748,7 @@
             gap: 8px;
         }
         .tariff-features li:last-child { border-bottom: none; }
-        .tariff-features li::before {
-            content: "✓";
-            color: #4dff88;
-            font-weight: 800;
-            font-size: 0.9rem;
-        }
+        .tariff-features li::before { content: "✓"; color: #4dff88; font-weight: 800; font-size: 0.9rem; }
 
         .tariff-btn {
             width: 100%;
@@ -845,7 +781,7 @@
             border: 1px solid #ff4d4d;
             border-radius: 20px;
             padding: 40px 35px;
-            max-width: 900px;
+            max-width: 950px;
             width: 100%;
             box-shadow: 0 0 60px rgba(255, 77, 77, 0.3);
             position: relative;
@@ -877,9 +813,11 @@
             padding: 5px;
             margin-bottom: 25px;
             border: 1px solid #1f1f2e;
+            flex-wrap: wrap;
         }
         .admin-tab {
             flex: 1;
+            min-width: 120px;
             background: transparent;
             border: none;
             color: #888;
@@ -887,7 +825,7 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-family: 'Montserrat', sans-serif;
             transition: 0.3s;
         }
@@ -917,27 +855,10 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-        .ticket-from {
-            font-weight: 700;
-            color: #fff;
-            font-size: 0.95rem;
-        }
-        .ticket-from span {
-            color: #9b30ff;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-left: 8px;
-        }
-        .ticket-date {
-            color: #666;
-            font-size: 0.8rem;
-        }
-        .ticket-subject {
-            color: #d1b3ff;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
+        .ticket-from { font-weight: 700; color: #fff; font-size: 0.95rem; }
+        .ticket-from span { color: #9b30ff; font-size: 0.8rem; font-weight: 600; margin-left: 8px; }
+        .ticket-date { color: #666; font-size: 0.8rem; }
+        .ticket-subject { color: #d1b3ff; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; }
         .ticket-message {
             color: #aaa;
             font-size: 0.9rem;
@@ -945,11 +866,7 @@
             margin-bottom: 15px;
             white-space: pre-wrap;
         }
-        .ticket-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+        .ticket-actions { display: flex; gap: 10px; flex-wrap: wrap; }
         .ticket-actions button {
             background: transparent;
             border: 1px solid #555;
@@ -964,6 +881,7 @@
         .ticket-actions button:hover { border-color: #9b30ff; color: #9b30ff; }
         .ticket-actions button.danger:hover { border-color: #ff4d4d; color: #ff4d4d; }
         .ticket-actions button.reply:hover { border-color: #4dff88; color: #4dff88; }
+        .ticket-actions button.make-admin:hover { border-color: #ffb800; color: #ffb800; }
 
         .admin-empty {
             text-align: center;
@@ -994,6 +912,128 @@
             color: #888;
             font-size: 0.8rem;
             margin-top: 5px;
+        }
+
+        /* ЧАТ */
+        .chat-modal {
+            background: #12121a;
+            border: 1px solid #4dff88;
+            border-radius: 20px;
+            padding: 0;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 0 60px rgba(77, 255, 136, 0.3);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .modal-overlay.active .chat-modal { transform: translateY(0); }
+
+        .chat-header {
+            padding: 20px 25px;
+            background: linear-gradient(90deg, #1a7a4a, #4dff88);
+            color: #0a0a0f;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chat-header h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+        .chat-header .chat-close {
+            background: transparent;
+            border: none;
+            color: #0a0a0f;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0 5px;
+        }
+        .chat-header .chat-close:hover { color: #ff4d4d; }
+
+        .chat-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #0a0a0f;
+            min-height: 300px;
+            max-height: 50vh;
+        }
+
+        .chat-message {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-message.user { align-items: flex-end; }
+        .chat-message.admin { align-items: flex-start; }
+
+        .chat-bubble {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+        .chat-message.user .chat-bubble {
+            background: linear-gradient(135deg, #6a0dad, #9b30ff);
+            color: #fff;
+            border-bottom-right-radius: 3px;
+        }
+        .chat-message.admin .chat-bubble {
+            background: #1f1f2e;
+            color: #fff;
+            border: 1px solid #4dff88;
+            border-bottom-left-radius: 3px;
+        }
+        .chat-time {
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .chat-input-area {
+            padding: 15px 20px;
+            background: #12121a;
+            border-top: 1px solid #1f1f2e;
+            display: flex;
+            gap: 10px;
+        }
+        .chat-input-area input {
+            flex: 1;
+            padding: 12px 16px;
+            background: #0a0a0f;
+            border: 1px solid #2a2a3e;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .chat-input-area input:focus {
+            outline: none;
+            border-color: #4dff88;
+            box-shadow: 0 0 15px rgba(77, 255, 136, 0.3);
+        }
+        .chat-input-area button {
+            background: linear-gradient(90deg, #1a7a4a, #4dff88);
+            color: #0a0a0f;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .chat-input-area button:hover {
+            box-shadow: 0 0 20px rgba(77, 255, 136, 0.5);
         }
 
         @media (max-width: 768px) {
@@ -1037,7 +1077,7 @@
                     <a href="#" class="active">Бесплатная версия</a>
                 </nav>
                 <div class="nav-actions">
-                    <button class="btn-support-small" onclick="openSupportModal()">💬 Поддержка</button>
+                    <button class="btn-support-small" id="support-btn" onclick="openSupportModal()">💬 Поддержка</button>
                     <div id="auth-buttons">
                         <button class="btn-auth" onclick="openAuthModal('login')">Войти</button>
                     </div>
@@ -1170,7 +1210,7 @@
 
             <form class="auth-form" id="form-login" onsubmit="handleLogin(event)">
                 <div class="form-group">
-                    <label>Email или логин</label>
+                    <label>Email или логин админа</label>
                     <input type="text" id="login-email" placeholder="you@example.com" required>
                 </div>
                 <div class="form-group">
@@ -1209,7 +1249,6 @@
             <p class="tariffs-subtitle">Выберите подходящий план и получите максимум от мода</p>
 
             <div class="tariffs-grid">
-                <!-- НА МЕСЯЦ -->
                 <div class="tariff-card">
                     <div class="tariff-name">На месяц</div>
                     <div class="tariff-price">75 ₽ <small>/ мес</small></div>
@@ -1224,7 +1263,6 @@
                     <button class="tariff-btn" onclick="buyTariff('month')">Выбрать</button>
                 </div>
 
-                <!-- НА 3 МЕСЯЦА -->
                 <div class="tariff-card popular">
                     <span class="tariff-badge">🔥 Популярный</span>
                     <div class="tariff-name">На 3 месяца</div>
@@ -1241,7 +1279,6 @@
                     <button class="tariff-btn" onclick="buyTariff('3months')">Выбрать</button>
                 </div>
 
-                <!-- НА ГОД -->
                 <div class="tariff-card">
                     <div class="tariff-name">На год</div>
                     <div class="tariff-price">400 ₽ <small>/ год</small></div>
@@ -1288,14 +1325,31 @@
                 </div>
                 <div class="form-group">
                     <label>Сообщение</label>
-                    <textarea id="support-text" placeholder="Подробно опишите вашу проблему..." required minlength="10"></textarea>
+                    <textarea id="support-text" placeholder="Подробно опишите вашу проблему..." required minlength="5"></textarea>
                 </div>
-                <button type="submit" class="auth-submit green">📨 Отправить в поддержку</button>
+                <button type="submit" class="auth-submit green">📨 Отправить и открыть чат</button>
             </form>
 
             <p class="auth-switch" style="margin-top:15px;">
-                Или напишите нам на почту: <a>support@holyvisuals.ru</a>
+                Или напишите нам: <a>support@holyvisuals.ru</a>
             </p>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ЧАТА -->
+    <div class="modal-overlay" id="chat-modal">
+        <div class="chat-modal">
+            <div class="chat-header">
+                <h3 id="chat-title">💬 Чат с поддержкой</h3>
+                <button class="chat-close" onclick="closeChatModal()">&times;</button>
+            </div>
+            <div class="chat-body" id="chat-body">
+                <!-- Сообщения -->
+            </div>
+            <div class="chat-input-area" id="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Введите сообщение..." onkeypress="if(event.key==='Enter') sendChatMessage()">
+                <button onclick="sendChatMessage()">Отправить</button>
+            </div>
         </div>
     </div>
 
@@ -1305,14 +1359,14 @@
             <button class="modal-close" onclick="closeAdminModal()">&times;</button>
             
             <h2>🛡️ Админ-панель</h2>
-            <p class="admin-subtitle">HolyVisuals — управление поддержкой</p>
+            <p class="admin-subtitle">HolyVisuals — управление поддержкой и администраторами</p>
 
             <div class="admin-tabs">
                 <button class="admin-tab active" id="admin-tab-tickets" onclick="switchAdminTab('tickets')">📨 Обращения</button>
                 <button class="admin-tab" id="admin-tab-users" onclick="switchAdminTab('users')">👥 Пользователи</button>
+                <button class="admin-tab" id="admin-tab-admins" onclick="switchAdminTab('admins')">🛡️ Админы</button>
             </div>
 
-            <!-- ОБРАЩЕНИЯ -->
             <div id="admin-content-tickets">
                 <div class="admin-stats">
                     <div class="stat-card">
@@ -1328,16 +1382,22 @@
                         <div class="stat-label">Пользователей</div>
                     </div>
                 </div>
-                <div class="ticket-list" id="ticket-list">
-                    <!-- Сюда рендерятся тикеты -->
-                </div>
+                <div class="ticket-list" id="ticket-list"></div>
             </div>
 
-            <!-- ПОЛЬЗОВАТЕЛИ -->
             <div id="admin-content-users" class="hidden">
-                <div class="ticket-list" id="user-list">
-                    <!-- Сюда рендерятся пользователи -->
+                <div class="ticket-list" id="user-list"></div>
+            </div>
+
+            <div id="admin-content-admins" class="hidden">
+                <div style="margin-bottom:20px; padding:15px; background:#0a0a0f; border:1px solid #2a2a3e; border-radius:10px;">
+                    <label style="display:block; font-size:0.85rem; color:#aaa; margin-bottom:8px; font-weight:600;">Добавить администратора по email:</label>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                        <input type="email" id="new-admin-email" placeholder="user@example.com" style="flex:1; min-width:200px; padding:12px 16px; background:#12121a; border:1px solid #2a2a3e; border-radius:10px; color:#fff; font-family:'Montserrat',sans-serif; font-size:0.95rem;">
+                        <button onclick="addAdmin()" style="background:linear-gradient(90deg,#ffb800,#ff8c00); color:#1a1a1a; border:none; padding:12px 24px; border-radius:10px; font-weight:700; cursor:pointer; font-family:'Montserrat',sans-serif;">➕ Назначить</button>
+                    </div>
                 </div>
+                <div class="ticket-list" id="admin-list"></div>
             </div>
         </div>
     </div>
@@ -1347,8 +1407,9 @@
         const USERS_KEY = 'holyvisuals_users';
         const SESSION_KEY = 'holyvisuals_session';
         const TICKETS_KEY = 'holyvisuals_tickets';
-        const ADMIN_LOGIN = 'holyvisalsAMINS';
-        const ADMIN_PASSWORD = 'admin123';
+        const ADMINS_KEY = 'holyvisuals_admins';
+        const MAIN_ADMIN = 'holyvisalsAMINS';
+        const MAIN_ADMIN_PASSWORD = 'admin123';
 
         // ==================== ЗАСТАВКА ====================
         window.addEventListener('load', () => {
@@ -1359,18 +1420,12 @@
                 mainContent.classList.remove('hidden');
                 setTimeout(() => mainContent.classList.add('visible'), 50);
                 setTimeout(() => preloader.style.display = 'none', 1000);
+                initAdmins();
                 checkAuthState();
-            }, 2000);
+            }, 1500);
         });
 
-        // ==================== ПОЛЬЗОВАТЕЛИ ====================
-        function getUsers() {
-            try { return JSON.parse(localStorage.getItem(USERS_KEY)) || {}; }
-            catch { return {}; }
-        }
-        function saveUsers(users) {
-            localStorage.setItem(USERS_KEY, JSON.stringify(users));
-        }
+        // ==================== УТИЛИТЫ ====================
         function hashPassword(password) {
             let hash = 0;
             for (let i = 0; i < password.length; i++) {
@@ -1381,21 +1436,75 @@
             return 'h_' + Math.abs(hash).toString(36);
         }
 
+        function escapeHtml(str) {
+            if (str === null || str === undefined) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function formatDate(iso) {
+            const d = new Date(iso);
+            const pad = n => n.toString().padStart(2, '0');
+            return `${pad(d.getDate())}.${pad(d.getMonth()+1)}.${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+        }
+
+        function formatTime(iso) {
+            const d = new Date(iso);
+            const pad = n => n.toString().padStart(2, '0');
+            return `${pad(d.getHours())}:${pad(d.getMinutes())}`;
+        }
+
+        // ==================== ПОЛЬЗОВАТЕЛИ ====================
+        function getUsers() {
+            try { return JSON.parse(localStorage.getItem(USERS_KEY)) || {}; }
+            catch { return {}; }
+        }
+        function saveUsers(users) {
+            localStorage.setItem(USERS_KEY, JSON.stringify(users));
+        }
+
+        // ==================== АДМИНЫ ====================
+        function getAdmins() {
+            try {
+                const admins = JSON.parse(localStorage.getItem(ADMINS_KEY)) || [];
+                if (!admins.includes(MAIN_ADMIN.toLowerCase())) {
+                    admins.push(MAIN_ADMIN.toLowerCase());
+                }
+                return admins;
+            } catch {
+                return [MAIN_ADMIN.toLowerCase()];
+            }
+        }
+        function saveAdmins(admins) {
+            localStorage.setItem(ADMINS_KEY, JSON.stringify(admins));
+        }
+        function initAdmins() {
+            const admins = getAdmins();
+            saveAdmins(admins);
+        }
+        function isUserAdmin(email) {
+            if (!email) return false;
+            return getAdmins().includes(email.toLowerCase());
+        }
+
+        // ==================== СЕССИЯ ====================
         function isLoggedIn() {
             return !!localStorage.getItem(SESSION_KEY);
         }
-
         function getSession() {
             try { return JSON.parse(localStorage.getItem(SESSION_KEY)); }
             catch { return null; }
         }
-
         function isAdmin() {
             const s = getSession();
-            return s && s.email && s.email.toLowerCase() === ADMIN_LOGIN.toLowerCase();
+            return s && isUserAdmin(s.email);
         }
 
-        // ==================== ТИКЕТЫ ПОДДЕРЖКИ ====================
+        // ==================== ТИКЕТЫ ====================
         function getTickets() {
             try { return JSON.parse(localStorage.getItem(TICKETS_KEY)) || []; }
             catch { return []; }
@@ -1403,17 +1512,27 @@
         function saveTickets(tickets) {
             localStorage.setItem(TICKETS_KEY, JSON.stringify(tickets));
         }
-
-        function showMessage(text, type) {
-            const msg = document.getElementById('auth-message');
-            msg.innerHTML = `<div class="${type === 'error' ? 'auth-error' : (type === 'warning' ? 'auth-warning' : 'auth-success')}">${text}</div>`;
-            setTimeout(() => { msg.innerHTML = ''; }, 5000);
+        function getMyTickets() {
+            const s = getSession();
+            if (!s) return [];
+            return getTickets().filter(t => t.accountEmail === s.email || t.email === s.email);
+        }
+        function getUnreadForMe() {
+            const s = getSession();
+            if (!s) return 0;
+            return getMyTickets().filter(t => t.userUnread).length;
         }
 
+        // ==================== СООБЩЕНИЯ UI ====================
+        function showMessage(text, type) {
+            const msg = document.getElementById('auth-message');
+            msg.innerHTML = `<div class="auth-${type}">${text}</div>`;
+            setTimeout(() => { msg.innerHTML = ''; }, 5000);
+        }
         function showSupportMessage(text, type) {
             const msg = document.getElementById('support-message');
-            msg.innerHTML = `<div class="${type === 'error' ? 'auth-error' : (type === 'warning' ? 'auth-warning' : 'auth-success')}">${text}</div>`;
-            setTimeout(() => { msg.innerHTML = ''; }, 6000);
+            msg.innerHTML = `<div class="auth-${type}">${text}</div>`;
+            setTimeout(() => { msg.innerHTML = ''; }, 5000);
         }
 
         // ==================== АВТОРИЗАЦИЯ ====================
@@ -1422,7 +1541,6 @@
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             if (mode) switchTab(mode);
-            
             if (customMessage) {
                 setTimeout(() => showMessage(customMessage, 'warning'), 100);
             }
@@ -1468,6 +1586,7 @@
                 closeTariffsModal();
                 closeSupportModal();
                 closeAdminModal();
+                closeChatModal();
             }
         });
 
@@ -1507,23 +1626,20 @@
             const login = document.getElementById('login-email').value.trim().toLowerCase();
             const password = document.getElementById('login-password').value;
 
-            // Проверка админа
-            if (login === ADMIN_LOGIN.toLowerCase() && password === ADMIN_PASSWORD) {
+            // Проверка главного админа
+            if (login === MAIN_ADMIN.toLowerCase() && password === MAIN_ADMIN_PASSWORD) {
                 localStorage.setItem(SESSION_KEY, JSON.stringify({ 
-                    email: ADMIN_LOGIN, 
-                    isAdmin: true,
+                    email: MAIN_ADMIN, 
+                    isMainAdmin: true,
                     loginAt: new Date().toISOString() 
                 }));
-                showMessage('✅ Вход в админ-аккаунт выполнен!', 'success');
+                showMessage('✅ Вход в главный админ-аккаунт!', 'success');
                 setTimeout(() => {
                     closeAuthModal();
                     checkAuthState();
-                    // Уведомление о новых тикетах
                     const unread = getTickets().filter(t => !t.read).length;
                     if (unread > 0) {
-                        setTimeout(() => {
-                            alert('🔔 У вас ' + unread + ' новых обращений в поддержку!');
-                        }, 500);
+                        setTimeout(() => alert('🔔 У вас ' + unread + ' новых обращений в поддержку!'), 500);
                     }
                 }, 1000);
                 return;
@@ -1537,13 +1653,25 @@
                 showMessage('Неверный пароль', 'error'); return;
             }
 
-            localStorage.setItem(SESSION_KEY, JSON.stringify({ email: user.email, loginAt: new Date().toISOString() }));
-            showMessage('✅ Успешный вход! Сейчас скачается мод...', 'success');
+            const isAdm = isUserAdmin(user.email);
+            localStorage.setItem(SESSION_KEY, JSON.stringify({ 
+                email: user.email, 
+                isAdmin: isAdm,
+                loginAt: new Date().toISOString() 
+            }));
+            
+            showMessage(isAdm ? '✅ Вход администратора!' : '✅ Успешный вход! Сейчас скачается мод...', 'success');
             
             setTimeout(() => {
                 closeAuthModal();
                 checkAuthState();
-                downloadJar();
+                if (!isAdm) downloadJar();
+                else {
+                    const unread = getTickets().filter(t => !t.read).length;
+                    if (unread > 0) {
+                        setTimeout(() => alert('🔔 У вас ' + unread + ' новых обращений в поддержку!'), 500);
+                    }
+                }
             }, 1200);
         }
 
@@ -1577,12 +1705,16 @@
                     userInfoBox.classList.remove('admin');
                     adminBtn.classList.add('hidden');
                 }
+
+                // Обновляем кнопку поддержки — показываем непрочитанные
+                updateSupportBadge();
             } else {
                 authButtons.classList.remove('hidden');
                 userPanel.classList.add('hidden');
                 userPanel.style.display = 'none';
                 adminBtn.classList.add('hidden');
                 if (hint) hint.style.display = 'block';
+                updateSupportBadge();
             }
         }
 
@@ -1594,6 +1726,16 @@
                 badge.classList.remove('hidden');
             } else {
                 badge.classList.add('hidden');
+            }
+        }
+
+        function updateSupportBadge() {
+            const supportBtn = document.getElementById('support-btn');
+            const unread = getUnreadForMe();
+            if (unread > 0) {
+                supportBtn.innerHTML = `💬 Поддержка <span class="admin-badge">${unread}</span>`;
+            } else {
+                supportBtn.innerHTML = `💬 Поддержка`;
             }
         }
 
@@ -1616,11 +1758,8 @@
                 })
                 .then(jarBlob => {
                     triggerDownload(jarBlob, JAR_NAME);
-                    console.log("✅ Настоящий " + JAR_NAME + " скачан!");
                 })
                 .catch(() => {
-                    console.log("⚠️ Настоящий jar не найден, создаю заглушку...");
-
                     const fakeJarContent = 
 `HolyVisuals - Мод для Minecraft
 ================================
@@ -1628,24 +1767,15 @@
 Загрузчик: Fabric / Forge
 Minecraft: 1.20.x
 
-⚠️ Это заглушка. Настоящий jar-файл не найден в папке с сайтом.
+⚠️ Это заглушка. Настоящий jar-файл не найден.
 Чтобы скачивался настоящий мод:
 1. Положите файл holyvisuals-1.0.0.jar рядом с index.html
-2. Открывайте сайт через локальный сервер (Live Server, python -m http.server)
-   или выложите сайт на хостинг (Netlify, Vercel).
+2. Открывайте сайт через локальный сервер
 
 © 2026 HolyVisuals.
 `;
                     const fakeBlob = new Blob([fakeJarContent], { type: "application/java-archive" });
                     triggerDownload(fakeBlob, JAR_NAME);
-
-                    setTimeout(() => {
-                        alert("⚠️ Файл holyvisuals-1.0.0.jar не найден в папке с сайтом.\n\n" +
-                              "Скачалась заглушка с правильным именем.\n\n" +
-                              "Чтобы скачивался настоящий мод:\n" +
-                              "1. Положи holyvisuals-1.0.0.jar рядом с index.html\n" +
-                              "2. Открывай сайт через Live Server или хостинг (не двойным кликом!)");
-                    }, 500);
                 });
         }
 
@@ -1662,17 +1792,13 @@ Minecraft: 1.20.x
 
         // ==================== ТАРИФЫ ====================
         function openTariffsModal() {
-            const modal = document.getElementById('tariffs-modal');
-            modal.classList.add('active');
+            document.getElementById('tariffs-modal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
         function closeTariffsModal() {
-            const modal = document.getElementById('tariffs-modal');
-            modal.classList.remove('active');
+            document.getElementById('tariffs-modal').classList.remove('active');
             document.body.style.overflow = '';
         }
-
         document.getElementById('tariffs-modal').addEventListener('click', (e) => {
             if (e.target.id === 'tariffs-modal') closeTariffsModal();
         });
@@ -1683,26 +1809,9 @@ Minecraft: 1.20.x
                 openAuthModal('register', '🔒 Для покупки тарифа нужно войти или зарегистрироваться');
                 return;
             }
-
-            const names = {
-                'month': 'На месяц',
-                '3months': 'На 3 месяца',
-                'year': 'На год'
-            };
-
-            const prices = {
-                'month': '75 ₽',
-                '3months': '220 ₽',
-                'year': '400 ₽'
-            };
-
-            alert(
-                '💎 Покупка тарифа\n\n' +
-                'Тариф: ' + names[tariff] + '\n' +
-                'Стоимость: ' + prices[tariff] + '\n\n' +
-                'В демо-версии оплата не подключена.\n' +
-                'Спасибо за интерес к HolyVisuals!'
-            );
+            const names = { 'month': 'На месяц', '3months': 'На 3 месяца', 'year': 'На год' };
+            const prices = { 'month': '75 ₽', '3months': '220 ₽', 'year': '400 ₽' };
+            alert('💎 Покупка тарифа\n\nТариф: ' + names[tariff] + '\nСтоимость: ' + prices[tariff] + '\n\nВ демо-версии оплата не подключена.');
         }
 
         // ==================== ПОДДЕРЖКА ====================
@@ -1711,20 +1820,17 @@ Minecraft: 1.20.x
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
 
-            // Автозаполнение email если пользователь залогинен
             const session = getSession();
             if (session && !isAdmin()) {
                 document.getElementById('support-email').value = session.email;
             }
         }
-
         function closeSupportModal() {
             const modal = document.getElementById('support-modal');
             modal.classList.remove('active');
             document.body.style.overflow = '';
             document.getElementById('support-message').innerHTML = '';
         }
-
         document.getElementById('support-modal').addEventListener('click', (e) => {
             if (e.target.id === 'support-modal') closeSupportModal();
         });
@@ -1735,19 +1841,13 @@ Minecraft: 1.20.x
             const subject = document.getElementById('support-subject').value;
             const text = document.getElementById('support-text').value.trim();
 
-            if (!email || !subject || !text) {
-                showSupportMessage('Заполните все поля', 'error');
-                return;
-            }
-            if (text.length < 10) {
-                showSupportMessage('Сообщение слишком короткое (минимум 10 символов)', 'error');
-                return;
-            }
+            if (!email || !subject || !text) { showSupportMessage('Заполните все поля', 'error'); return; }
+            if (text.length < 5) { showSupportMessage('Сообщение слишком короткое', 'error'); return; }
 
             const tickets = getTickets();
             const session = getSession();
 
-            tickets.unshift({
+            const newTicket = {
                 id: 't_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
                 email: email,
                 accountEmail: session ? session.email : null,
@@ -1755,18 +1855,124 @@ Minecraft: 1.20.x
                 text: text,
                 createdAt: new Date().toISOString(),
                 read: false,
-                replies: []
-            });
+                userUnread: false,
+                messages: [
+                    { from: 'user', text: text, createdAt: new Date().toISOString() }
+                ]
+            };
+            tickets.unshift(newTicket);
             saveTickets(tickets);
 
-            showSupportMessage('✅ Сообщение отправлено! Мы ответим вам на ' + email, 'success');
+            showSupportMessage('✅ Обращение создано! Открываем чат...', 'success');
             
             document.getElementById('support-text').value = '';
             document.getElementById('support-subject').value = '';
             
             setTimeout(() => {
                 closeSupportModal();
-            }, 2500);
+                openChatModal(newTicket.id);
+                checkAuthState();
+            }, 1200);
+        }
+
+        // ==================== ЧАТ ====================
+        let currentChatTicketId = null;
+
+        function openChatModal(ticketId) {
+            const ticket = getTickets().find(t => t.id === ticketId);
+            if (!ticket) return;
+
+            currentChatTicketId = ticketId;
+
+            // Помечаем как прочитанное для пользователя
+            const tickets = getTickets();
+            const t = tickets.find(x => x.id === ticketId);
+            if (t) { t.userUnread = false; saveTickets(tickets); }
+
+            document.getElementById('chat-title').textContent = '💬 ' + ticket.subject;
+            renderChatMessages(ticket);
+            
+            document.getElementById('chat-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            updateSupportBadge();
+        }
+
+        function closeChatModal() {
+            document.getElementById('chat-modal').classList.remove('active');
+            document.body.style.overflow = '';
+            currentChatTicketId = null;
+        }
+        document.getElementById('chat-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'chat-modal') closeChatModal();
+        });
+
+        function renderChatMessages(ticket) {
+            const body = document.getElementById('chat-body');
+            const messages = ticket.messages || [];
+            
+            if (messages.length === 0) {
+                body.innerHTML = '<div style="text-align:center; color:#666; padding:20px;">Пока нет сообщений</div>';
+                return;
+            }
+
+            const session = getSession();
+            const myEmail = session ? session.email.toLowerCase() : '';
+            const amIAdmin = isAdmin();
+
+            body.innerHTML = messages.map(m => {
+                let isMine;
+                if (amIAdmin) {
+                    isMine = m.from === 'admin';
+                } else {
+                    isMine = m.from === 'user';
+                }
+                const cls = isMine ? 'user' : 'admin';
+                return `
+                    <div class="chat-message ${cls}">
+                        <div class="chat-bubble">${escapeHtml(m.text)}</div>
+                        <div class="chat-time">${formatTime(m.createdAt)}</div>
+                    </div>
+                `;
+            }).join('');
+
+            body.scrollTop = body.scrollHeight;
+        }
+
+        function sendChatMessage() {
+            if (!currentChatTicketId) return;
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const session = getSession();
+            if (!session) return;
+
+            const tickets = getTickets();
+            const t = tickets.find(x => x.id === currentChatTicketId);
+            if (!t) return;
+
+            const amIAdmin = isAdmin();
+            if (!t.messages) t.messages = [];
+
+            t.messages.push({
+                from: amIAdmin ? 'admin' : 'user',
+                text: text,
+                createdAt: new Date().toISOString()
+            });
+
+            // Уведомления
+            if (amIAdmin) {
+                t.userUnread = true;
+            } else {
+                t.read = false;
+            }
+
+            saveTickets(tickets);
+            input.value = '';
+            renderChatMessages(t);
+            updateSupportBadge();
+            updateAdminBadge();
         }
 
         // ==================== АДМИНКА ====================
@@ -1775,45 +1981,42 @@ Minecraft: 1.20.x
                 openAuthModal('login', '🔒 Только для администратора');
                 return;
             }
-            const modal = document.getElementById('admin-modal');
-            modal.classList.add('active');
+            document.getElementById('admin-modal').classList.add('active');
             document.body.style.overflow = 'hidden';
             renderAdminPanel();
         }
 
         function closeAdminModal() {
-            const modal = document.getElementById('admin-modal');
-            modal.classList.remove('active');
+            document.getElementById('admin-modal').classList.remove('active');
             document.body.style.overflow = '';
         }
-
         document.getElementById('admin-modal').addEventListener('click', (e) => {
             if (e.target.id === 'admin-modal') closeAdminModal();
         });
 
         function switchAdminTab(tab) {
-            const tabTickets = document.getElementById('admin-tab-tickets');
-            const tabUsers = document.getElementById('admin-tab-users');
-            const contentTickets = document.getElementById('admin-content-tickets');
-            const contentUsers = document.getElementById('admin-content-users');
+            document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('#admin-content-tickets, #admin-content-users, #admin-content-admins').forEach(c => c.classList.add('hidden'));
 
             if (tab === 'tickets') {
-                tabTickets.classList.add('active');
-                tabUsers.classList.remove('active');
-                contentTickets.classList.remove('hidden');
-                contentUsers.classList.add('hidden');
-            } else {
-                tabUsers.classList.add('active');
-                tabTickets.classList.remove('active');
-                contentUsers.classList.remove('hidden');
-                contentTickets.classList.add('hidden');
+                document.getElementById('admin-tab-tickets').classList.add('active');
+                document.getElementById('admin-content-tickets').classList.remove('hidden');
+                renderTicketsList();
+            } else if (tab === 'users') {
+                document.getElementById('admin-tab-users').classList.add('active');
+                document.getElementById('admin-content-users').classList.remove('hidden');
                 renderUsersList();
+            } else {
+                document.getElementById('admin-tab-admins').classList.add('active');
+                document.getElementById('admin-content-admins').classList.remove('hidden');
+                renderAdminsList();
             }
         }
 
         function renderAdminPanel() {
             renderTicketsList();
             updateAdminStats();
+            switchAdminTab('tickets');
         }
 
         function updateAdminStats() {
@@ -1822,12 +2025,6 @@ Minecraft: 1.20.x
             document.getElementById('stat-total').textContent = tickets.length;
             document.getElementById('stat-unread').textContent = tickets.filter(t => !t.read).length;
             document.getElementById('stat-users').textContent = Object.keys(users).length;
-        }
-
-        function formatDate(iso) {
-            const d = new Date(iso);
-            const pad = n => n.toString().padStart(2, '0');
-            return `${pad(d.getDate())}.${pad(d.getMonth()+1)}.${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
         }
 
         function renderTicketsList() {
@@ -1839,35 +2036,28 @@ Minecraft: 1.20.x
                 return;
             }
 
-            list.innerHTML = tickets.map(t => `
-                <div class="ticket ${t.read ? '' : 'unread'}">
-                    <div class="ticket-header">
-                        <div class="ticket-from">
-                            ${escapeHtml(t.email)}
-                            ${t.accountEmail ? `<span>(аккаунт: ${escapeHtml(t.accountEmail)})</span>` : ''}
+            list.innerHTML = tickets.map(t => {
+                const lastMsg = t.messages && t.messages.length > 0 ? t.messages[t.messages.length - 1] : null;
+                return `
+                    <div class="ticket ${t.read ? '' : 'unread'}">
+                        <div class="ticket-header">
+                            <div class="ticket-from">
+                                ${escapeHtml(t.email)}
+                                ${t.accountEmail && t.accountEmail !== t.email ? `<span>(аккаунт: ${escapeHtml(t.accountEmail)})</span>` : ''}
+                            </div>
+                            <div class="ticket-date">${formatDate(t.createdAt)}</div>
                         </div>
-                        <div class="ticket-date">${formatDate(t.createdAt)}</div>
-                    </div>
-                    <div class="ticket-subject">📌 ${escapeHtml(t.subject)}</div>
-                    <div class="ticket-message">${escapeHtml(t.text)}</div>
-                    ${t.replies && t.replies.length > 0 ? `
-                        <div style="margin-top:10px; padding-top:10px; border-top:1px solid #1f1f2e;">
-                            <div style="color:#4dff88; font-size:0.8rem; font-weight:700; margin-bottom:5px;">Ответы:</div>
-                            ${t.replies.map(r => `
-                                <div style="background:#0a0a0f; padding:10px; border-radius:8px; margin-bottom:8px; border-left:3px solid #4dff88;">
-                                    <div style="color:#666; font-size:0.75rem; margin-bottom:4px;">${formatDate(r.createdAt)}</div>
-                                    <div style="color:#ccc; font-size:0.85rem;">${escapeHtml(r.text)}</div>
-                                </div>
-                            `).join('')}
+                        <div class="ticket-subject">📌 ${escapeHtml(t.subject)}</div>
+                        <div class="ticket-message">${escapeHtml(t.text)}</div>
+                        ${lastMsg ? `<div style="color:#666; font-size:0.75rem; margin-bottom:10px;">Последнее: "${escapeHtml(lastMsg.text.substring(0, 80))}${lastMsg.text.length > 80 ? '...' : ''}" (${formatTime(lastMsg.createdAt)})</div>` : ''}
+                        <div class="ticket-actions">
+                            <button class="reply" onclick="openChatFromAdmin('${t.id}')">💬 Открыть чат</button>
+                            ${!t.read ? `<button onclick="markRead('${t.id}')">✓ Прочитано</button>` : ''}
+                            <button class="danger" onclick="deleteTicket('${t.id}')">🗑 Удалить</button>
                         </div>
-                    ` : ''}
-                    <div class="ticket-actions">
-                        <button class="reply" onclick="replyToTicket('${t.id}')">💬 Ответить</button>
-                        ${!t.read ? `<button onclick="markRead('${t.id}')">✓ Прочитано</button>` : ''}
-                        <button class="danger" onclick="deleteTicket('${t.id}')">🗑 Удалить</button>
                     </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
         function renderUsersList() {
@@ -1882,25 +2072,54 @@ Minecraft: 1.20.x
 
             list.innerHTML = emails.map(email => {
                 const u = users[email];
+                const adm = isUserAdmin(email);
                 return `
                     <div class="ticket">
                         <div class="ticket-header">
-                            <div class="ticket-from">${escapeHtml(email)}</div>
+                            <div class="ticket-from">
+                                ${escapeHtml(email)}
+                                ${adm ? '<span style="color:#ffb800;">🛡️ АДМИН</span>' : ''}
+                            </div>
                             <div class="ticket-date">Регистрация: ${formatDate(u.createdAt)}</div>
+                        </div>
+                        <div class="ticket-actions">
+                            ${!adm ? `<button class="make-admin" onclick="makeAdminFromList('${escapeHtml(email)}')">🛡️ Сделать админом</button>` : `<button class="danger" onclick="removeAdmin('${escapeHtml(email)}')">❌ Снять админа</button>`}
                         </div>
                     </div>
                 `;
             }).join('');
         }
 
-        function escapeHtml(str) {
-            if (!str) return '';
-            return String(str)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#039;');
+        function renderAdminsList() {
+            const admins = getAdmins();
+            const list = document.getElementById('admin-list');
+
+            list.innerHTML = admins.map(email => `
+                <div class="ticket">
+                    <div class="ticket-header">
+                        <div class="ticket-from">
+                            ${escapeHtml(email)}
+                            ${email === MAIN_ADMIN.toLowerCase() ? '<span style="color:#ffb800;">👑 ГЛАВНЫЙ АДМИН</span>' : ''}
+                        </div>
+                    </div>
+                    ${email !== MAIN_ADMIN.toLowerCase() ? `
+                        <div class="ticket-actions">
+                            <button class="danger" onclick="removeAdmin('${escapeHtml(email)}')">❌ Снять админа</button>
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+
+        function openChatFromAdmin(ticketId) {
+            // Помечаем как прочитанное
+            const tickets = getTickets();
+            const t = tickets.find(x => x.id === ticketId);
+            if (t) { t.read = true; saveTickets(tickets); }
+            
+            closeAdminModal();
+            setTimeout(() => openChatModal(ticketId), 300);
+            updateAdminBadge();
         }
 
         function markRead(id) {
@@ -1919,23 +2138,56 @@ Minecraft: 1.20.x
             updateAdminBadge();
         }
 
-        function replyToTicket(id) {
-            const reply = prompt('Введите ответ пользователю:');
-            if (!reply || !reply.trim()) return;
+        // ==================== УПРАВЛЕНИЕ АДМИНАМИ ====================
+        function addAdmin() {
+            const input = document.getElementById('new-admin-email');
+            const email = input.value.trim().toLowerCase();
+            if (!email) { alert('Введите email'); return; }
 
-            const tickets = getTickets();
-            const t = tickets.find(x => x.id === id);
-            if (!t) return;
-            if (!t.replies) t.replies = [];
-            t.replies.push({
-                text: reply.trim(),
-                createdAt: new Date().toISOString()
-            });
-            t.read = true;
-            saveTickets(tickets);
-            renderAdminPanel();
-            updateAdminBadge();
-            alert('✅ Ответ сохранён! (В реальном проекте здесь была бы отправка на email)');
+            // Проверка, что пользователь зарегистрирован
+            const users = getUsers();
+            if (!users[email] && email !== MAIN_ADMIN.toLowerCase()) {
+                alert('❌ Пользователь с таким email не зарегистрирован.\n\nСначала пусть зарегистрируется на сайте.');
+                return;
+            }
+
+            const admins = getAdmins();
+            if (admins.includes(email)) {
+                alert('Этот пользователь уже администратор');
+                return;
+            }
+
+            admins.push(email);
+            saveAdmins(admins);
+            input.value = '';
+            renderAdminsList();
+            renderUsersList();
+            alert('✅ Пользователь ' + email + ' назначен администратором!');
+        }
+
+        function makeAdminFromList(email) {
+            const admins = getAdmins();
+            if (admins.includes(email.toLowerCase())) return;
+            admins.push(email.toLowerCase());
+            saveAdmins(admins);
+            renderUsersList();
+            renderAdminsList();
+            alert('✅ ' + email + ' теперь администратор!');
+        }
+
+        function removeAdmin(email) {
+            const em = email.toLowerCase();
+            if (em === MAIN_ADMIN.toLowerCase()) {
+                alert('❌ Нельзя снять главного администратора');
+                return;
+            }
+            if (!confirm('Снять администратора ' + email + '?')) return;
+            
+            const admins = getAdmins().filter(a => a !== em);
+            saveAdmins(admins);
+            renderAdminsList();
+            renderUsersList();
+            alert('✅ Права администратора сняты с ' + email);
         }
     </script>
 </body>
