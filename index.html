@@ -150,6 +150,24 @@
             transform: translateY(-2px);
         }
 
+        .btn-key-small {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 0 15px rgba(0, 198, 255, 0.4);
+        }
+        .btn-key-small:hover {
+            box-shadow: 0 0 25px rgba(0, 198, 255, 0.8);
+            transform: translateY(-2px);
+        }
+
         .btn-support-small {
             background: transparent;
             border: 1px solid #4dff88;
@@ -230,6 +248,16 @@
         }
         .user-info.admin .avatar {
             background: linear-gradient(135deg, #ff4d4d, #ff8080);
+        }
+        .user-info .premium-badge-small {
+            background: linear-gradient(90deg, #ffb800, #ff8c00);
+            color: #1a1a1a;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .btn-logout {
             background: transparent;
@@ -628,6 +656,13 @@
         .auth-submit.green:hover {
             box-shadow: 0 10px 25px rgba(77, 255, 136, 0.5);
         }
+        .auth-submit.blue {
+            background: linear-gradient(90deg, #0072ff, #00c6ff);
+            color: #fff;
+        }
+        .auth-submit.blue:hover {
+            box-shadow: 0 10px 25px rgba(0, 198, 255, 0.5);
+        }
 
         .auth-error, .auth-success, .auth-warning {
             padding: 12px;
@@ -1018,7 +1053,7 @@
         }
         .admin-tab {
             flex: 1;
-            min-width: 120px;
+            min-width: 110px;
             background: transparent;
             border: none;
             color: #888;
@@ -1026,7 +1061,7 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-family: 'Montserrat', sans-serif;
             transition: 0.3s;
         }
@@ -1083,6 +1118,7 @@
         .ticket-actions button.danger:hover { border-color: #ff4d4d; color: #ff4d4d; }
         .ticket-actions button.reply:hover { border-color: #4dff88; color: #4dff88; }
         .ticket-actions button.make-admin:hover { border-color: #ffb800; color: #ffb800; }
+        .ticket-actions button.copy-key:hover { border-color: #00c6ff; color: #00c6ff; }
 
         .admin-empty {
             text-align: center;
@@ -1114,6 +1150,132 @@
             font-size: 0.8rem;
             margin-top: 5px;
         }
+
+        /* КЛЮЧИ */
+        .key-gen-panel {
+            background: #0a0a0f;
+            border: 1px solid #2a2a3e;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .key-gen-panel h4 {
+            color: #00c6ff;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        .key-gen-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .key-gen-row select,
+        .key-gen-row input {
+            padding: 12px 16px;
+            background: #12121a;
+            border: 1px solid #2a2a3e;
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            flex: 1;
+            min-width: 120px;
+        }
+        .key-gen-row select:focus,
+        .key-gen-row input:focus {
+            outline: none;
+            border-color: #00c6ff;
+        }
+        .key-gen-btn {
+            background: linear-gradient(90deg, #0072ff, #00c6ff);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .key-gen-btn:hover {
+            box-shadow: 0 0 20px rgba(0, 198, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .key-item {
+            background: #0a0a0f;
+            border: 1px solid #2a2a3e;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            transition: 0.3s;
+        }
+        .key-item:hover { border-color: #00c6ff; }
+        .key-item.used {
+            opacity: 0.5;
+            border-color: #2a2a3e;
+        }
+        .key-item.used:hover { border-color: #ff4d4d; }
+        .key-code {
+            font-family: 'Courier New', monospace;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #00c6ff;
+            letter-spacing: 1px;
+            user-select: all;
+            cursor: pointer;
+        }
+        .key-item.used .key-code {
+            color: #666;
+            text-decoration: line-through;
+        }
+        .key-info {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .key-tariff {
+            font-size: 0.8rem;
+            color: #ffb800;
+            font-weight: 700;
+            padding: 3px 10px;
+            background: rgba(255, 184, 0, 0.1);
+            border-radius: 6px;
+        }
+        .key-status {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 6px;
+        }
+        .key-status.active {
+            color: #4dff88;
+            background: rgba(77, 255, 136, 0.1);
+        }
+        .key-status.used {
+            color: #ff4d4d;
+            background: rgba(255, 77, 77, 0.1);
+        }
+        .key-item button {
+            background: transparent;
+            border: 1px solid #555;
+            color: #aaa;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: 0.3s;
+        }
+        .key-item button:hover { border-color: #ff4d4d; color: #ff4d4d; }
 
         /* ЧАТ */
         .chat-modal {
@@ -1237,6 +1399,31 @@
             box-shadow: 0 0 20px rgba(77, 255, 136, 0.5);
         }
 
+        /* ПРЕМИУМ-СТАТУС */
+        .premium-status {
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.15), rgba(255, 140, 0, 0.05));
+            border: 1px solid #ffb800;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .premium-status .ps-title {
+            color: #ffb800;
+            font-size: 1rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .premium-status .ps-date {
+            color: #fff;
+            font-size: 0.9rem;
+        }
+        .premium-status .ps-tariff {
+            color: #aaa;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .cta h2 { font-size: 2rem; }
@@ -1287,6 +1474,7 @@
                         <div class="user-info" id="user-info-box">
                             <div class="avatar" id="user-avatar">H</div>
                             <span id="user-email">user@mail.com</span>
+                            <span class="premium-badge-small hidden" id="user-premium-badge">💎 PREMIUM</span>
                         </div>
                         <button class="btn-logout" onclick="logout()">Выйти</button>
                     </div>
@@ -1294,6 +1482,7 @@
                         🛡️ Админка
                         <span class="admin-badge hidden" id="admin-badge">0</span>
                     </button>
+                    <button class="btn-key-small" onclick="openKeyModal()">🎟️ Активировать ключ</button>
                     <button class="btn-premium-small" onclick="openTariffsModal()">💎 Купить платную версию</button>
                     <button class="btn-download-small" onclick="requireAuthAndDownload()">Скачать бета</button>
                 </div>
@@ -1442,6 +1631,30 @@
         </div>
     </div>
 
+    <!-- МОДАЛЬНОЕ ОКНО АКТИВАЦИИ КЛЮЧА -->
+    <div class="modal-overlay" id="key-modal">
+        <div class="auth-modal">
+            <button class="modal-close" onclick="closeKeyModal()">&times;</button>
+            
+            <h2>🎟️ Активация ключа</h2>
+            <p class="auth-subtitle">Введите ключ для активации подписки</p>
+
+            <div id="key-message"></div>
+
+            <form class="auth-form" id="form-key" onsubmit="handleKeyActivate(event)">
+                <div class="form-group">
+                    <label>Ключ активации</label>
+                    <input type="text" id="key-input" placeholder="HOLY-XXXX-XXXX-XXXX" required style="font-family: 'Courier New', monospace; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">
+                </div>
+                <button type="submit" class="auth-submit blue">🔓 Активировать</button>
+            </form>
+
+            <p class="auth-switch" style="margin-top:15px;">
+                Нет ключа? <a onclick="closeKeyModal(); openTariffsModal();">Купить подписку</a>
+            </p>
+        </div>
+    </div>
+
     <!-- МОДАЛЬНОЕ ОКНО ТАРИФОВ -->
     <div class="modal-overlay" id="tariffs-modal">
         <div class="tariffs-modal">
@@ -1529,7 +1742,6 @@
                 </button>
             </div>
 
-            <!-- Детали Сбербанк -->
             <div class="payment-details" id="details-sber">
                 <h4>🟢 Перевод на карту / Сбербанк</h4>
                 <div class="detail-row">
@@ -1546,7 +1758,6 @@
                 </div>
             </div>
 
-            <!-- Детали СБП -->
             <div class="payment-details" id="details-sbp">
                 <h4>⚡ СБП по номеру телефона</h4>
                 <div class="detail-row">
@@ -1600,6 +1811,7 @@
                         <option value="Проблема со скачиванием">Проблема со скачиванием</option>
                         <option value="Ошибка в моде">Ошибка в моде</option>
                         <option value="Вопрос по оплате">Вопрос по оплате</option>
+                        <option value="Активация ключа">Активация ключа</option>
                         <option value="Предложение / идея">Предложение / идея</option>
                         <option value="Другое">Другое</option>
                     </select>
@@ -1624,9 +1836,7 @@
                 <h3 id="chat-title">💬 Чат с поддержкой</h3>
                 <button class="chat-close" onclick="closeChatModal()">&times;</button>
             </div>
-            <div class="chat-body" id="chat-body">
-                <!-- Сообщения -->
-            </div>
+            <div class="chat-body" id="chat-body"></div>
             <div class="chat-input-area" id="chat-input-area">
                 <input type="text" id="chat-input" placeholder="Введите сообщение..." onkeypress="if(event.key==='Enter') sendChatMessage()">
                 <button onclick="sendChatMessage()">Отправить</button>
@@ -1640,11 +1850,12 @@
             <button class="modal-close" onclick="closeAdminModal()">&times;</button>
             
             <h2>🛡️ Админ-панель</h2>
-            <p class="admin-subtitle">HolyVisuals — управление поддержкой и администраторами</p>
+            <p class="admin-subtitle">HolyVisuals — управление поддержкой, ключами и админами</p>
 
             <div class="admin-tabs">
                 <button class="admin-tab active" id="admin-tab-tickets" onclick="switchAdminTab('tickets')">📨 Обращения</button>
-                <button class="admin-tab" id="admin-tab-users" onclick="switchAdminTab('users')">👥 Пользователи</button>
+                <button class="admin-tab" id="admin-tab-keys" onclick="switchAdminTab('keys')">🎟️ Ключи</button>
+                <button class="admin-tab" id="admin-tab-users" onclick="switchAdminTab('users')">👥 Юзеры</button>
                 <button class="admin-tab" id="admin-tab-admins" onclick="switchAdminTab('admins')">🛡️ Админы</button>
             </div>
 
@@ -1664,6 +1875,30 @@
                     </div>
                 </div>
                 <div class="ticket-list" id="ticket-list"></div>
+            </div>
+
+            <div id="admin-content-keys" class="hidden">
+                <div class="key-gen-panel">
+                    <h4>🔑 Генерация нового ключа</h4>
+                    <div class="key-gen-row">
+                        <select id="gen-tariff">
+                            <option value="month">На месяц (75 ₽)</option>
+                            <option value="3months">На 3 месяца (220 ₽)</option>
+                            <option value="year">На год (400 ₽)</option>
+                        </select>
+                        <input type="number" id="gen-count" value="1" min="1" max="50" placeholder="Кол-во">
+                        <button class="key-gen-btn" onclick="generateKeys()">🎲 Сгенерировать</button>
+                    </div>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+                    <div style="color:#888; font-size:0.85rem;">
+                        Всего: <span id="keys-total" style="color:#00c6ff; font-weight:700;">0</span> | 
+                        Активных: <span id="keys-active" style="color:#4dff88; font-weight:700;">0</span> | 
+                        Использовано: <span id="keys-used" style="color:#ff4d4d; font-weight:700;">0</span>
+                    </div>
+                    <button onclick="copyAllKeys()" style="background:transparent; border:1px solid #00c6ff; color:#00c6ff; padding:8px 16px; border-radius:8px; cursor:pointer; font-family:'Montserrat',sans-serif; font-size:0.8rem; font-weight:600;">📋 Скопировать все активные</button>
+                </div>
+                <div class="ticket-list" id="keys-list"></div>
             </div>
 
             <div id="admin-content-users" class="hidden">
@@ -1689,15 +1924,21 @@
         const SESSION_KEY = 'holyvisuals_session';
         const TICKETS_KEY = 'holyvisuals_tickets';
         const ADMINS_KEY = 'holyvisuals_admins';
+        const KEYS_KEY = 'holyvisuals_keys';
         const MAIN_ADMIN = 'holyvisalsAMINS';
         const MAIN_ADMIN_PASSWORD = 'admin123';
         const TG_LINK = 'https://t.me/meowlik_bober';
 
-        // Данные для оплаты
         const PAYMENT_DATA = {
             phone: '+7 951 991-01-68',
             phoneRaw: '+79519910168',
             bank: 'Сбербанк'
+        };
+
+        const TARIFFS = {
+            'month': { name: 'На месяц', price: '75 ₽', days: 30 },
+            '3months': { name: 'На 3 месяца', price: '220 ₽', days: 90 },
+            'year': { name: 'На год', price: '400 ₽', days: 365 }
         };
 
         // ==================== ЗАСТАВКА ====================
@@ -1741,6 +1982,12 @@
             return `${pad(d.getDate())}.${pad(d.getMonth()+1)}.${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
         }
 
+        function formatDateShort(iso) {
+            const d = new Date(iso);
+            const pad = n => n.toString().padStart(2, '0');
+            return `${pad(d.getDate())}.${pad(d.getMonth()+1)}.${d.getFullYear()}`;
+        }
+
         function formatTime(iso) {
             const d = new Date(iso);
             const pad = n => n.toString().padStart(2, '0');
@@ -1749,29 +1996,139 @@
 
         function copyText(text) {
             navigator.clipboard.writeText(text).then(() => {
-                const toast = document.createElement('div');
-                toast.textContent = '✅ Скопировано: ' + text;
-                toast.style.cssText = `
-                    position: fixed;
-                    bottom: 30px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background: linear-gradient(90deg, #1a7a4a, #4dff88);
-                    color: #0a0a0f;
-                    padding: 12px 24px;
-                    border-radius: 10px;
-                    font-weight: 700;
-                    font-family: 'Montserrat', sans-serif;
-                    font-size: 0.9rem;
-                    z-index: 99999;
-                    box-shadow: 0 10px 30px rgba(77, 255, 136, 0.4);
-                    animation: fadeIn 0.3s ease;
-                `;
-                document.body.appendChild(toast);
-                setTimeout(() => toast.remove(), 2000);
+                showToast('✅ Скопировано: ' + text);
             }).catch(() => {
                 alert('Скопируйте вручную: ' + text);
             });
+        }
+
+        function showToast(text) {
+            const toast = document.createElement('div');
+            toast.textContent = text;
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: linear-gradient(90deg, #1a7a4a, #4dff88);
+                color: #0a0a0f;
+                padding: 12px 24px;
+                border-radius: 10px;
+                font-weight: 700;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.9rem;
+                z-index: 99999;
+                box-shadow: 0 10px 30px rgba(77, 255, 136, 0.4);
+                animation: fadeIn 0.3s ease;
+                max-width: 90vw;
+                text-align: center;
+            `;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2500);
+        }
+
+        // ==================== РАНДОМНЫЙ КЛЮЧ ====================
+        function generateRandomKey() {
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            const part = (len) => {
+                let s = '';
+                for (let i = 0; i < len; i++) {
+                    s += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                return s;
+            };
+            return `HOLY-${part(4)}-${part(4)}-${part(4)}`;
+        }
+
+        // ==================== КЛЮЧИ ====================
+        function getKeys() {
+            try { return JSON.parse(localStorage.getItem(KEYS_KEY)) || []; }
+            catch { return []; }
+        }
+        function saveKeys(keys) {
+            localStorage.setItem(KEYS_KEY, JSON.stringify(keys));
+        }
+
+        function generateKeys() {
+            const tariff = document.getElementById('gen-tariff').value;
+            const count = parseInt(document.getElementById('gen-count').value) || 1;
+            if (count < 1 || count > 50) { alert('Количество: от 1 до 50'); return; }
+
+            const keys = getKeys();
+            const newKeys = [];
+
+            for (let i = 0; i < count; i++) {
+                let code;
+                let attempts = 0;
+                do {
+                    code = generateRandomKey();
+                    attempts++;
+                } while (keys.some(k => k.code === code) && attempts < 20);
+
+                const key = {
+                    code: code,
+                    tariff: tariff,
+                    createdAt: new Date().toISOString(),
+                    used: false,
+                    usedBy: null,
+                    usedAt: null,
+                    expiresAt: null
+                };
+                keys.unshift(key);
+                newKeys.push(key);
+            }
+
+            saveKeys(keys);
+            renderKeysList();
+            updateKeysStats();
+            showToast(`🎲 Создано ключей: ${count} (${TARIFFS[tariff].name})`);
+        }
+
+        function updateKeysStats() {
+            const keys = getKeys();
+            document.getElementById('keys-total').textContent = keys.length;
+            document.getElementById('keys-active').textContent = keys.filter(k => !k.used).length;
+            document.getElementById('keys-used').textContent = keys.filter(k => k.used).length;
+        }
+
+        function renderKeysList() {
+            const keys = getKeys();
+            const list = document.getElementById('keys-list');
+
+            if (keys.length === 0) {
+                list.innerHTML = '<div class="admin-empty">🎟️ Пока нет ключей. Сгенерируйте первый!</div>';
+                return;
+            }
+
+            list.innerHTML = keys.map(k => `
+                <div class="key-item ${k.used ? 'used' : ''}">
+                    <div class="key-code" onclick="copyText('${k.code}')">${k.code}</div>
+                    <div class="key-info">
+                        <span class="key-tariff">${TARIFFS[k.tariff] ? TARIFFS[k.tariff].name : k.tariff}</span>
+                        <span class="key-status ${k.used ? 'used' : 'active'}">${k.used ? '❌ Использован' : '✅ Активен'}</span>
+                        ${k.used && k.usedBy ? `<span style="color:#888; font-size:0.75rem;">кем: ${escapeHtml(k.usedBy)}</span>` : ''}
+                        <span style="color:#555; font-size:0.75rem;">${formatDateShort(k.createdAt)}</span>
+                    </div>
+                    <div style="display:flex; gap:8px;">
+                        <button onclick="copyText('${k.code}')">📋</button>
+                        <button onclick="deleteKey('${k.code}')">🗑</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function copyAllKeys() {
+            const activeKeys = getKeys().filter(k => !k.used).map(k => k.code);
+            if (activeKeys.length === 0) { alert('Нет активных ключей'); return; }
+            copyText(activeKeys.join('\n'));
+        }
+
+        function deleteKey(code) {
+            if (!confirm('Удалить ключ ' + code + '?')) return;
+            const keys = getKeys().filter(k => k.code !== code);
+            saveKeys(keys);
+            renderKeysList();
+            updateKeysStats();
         }
 
         // ==================== ПОЛЬЗОВАТЕЛИ ====================
@@ -1805,6 +2162,26 @@
         function isUserAdmin(email) {
             if (!email) return false;
             return getAdmins().includes(email.toLowerCase());
+        }
+
+        // ==================== ПРЕМИУМ СТАТУС ====================
+        function hasPremium(email) {
+            if (!email) return false;
+            const users = getUsers();
+            const user = users[email.toLowerCase()];
+            if (!user || !user.premium) return false;
+            if (user.premium.expiresAt) {
+                const exp = new Date(user.premium.expiresAt);
+                if (exp < new Date()) return false;
+            }
+            return true;
+        }
+
+        function getPremiumInfo(email) {
+            if (!email) return null;
+            const users = getUsers();
+            const user = users[email.toLowerCase()];
+            return user ? user.premium : null;
         }
 
         // ==================== СЕССИЯ ====================
@@ -1849,6 +2226,11 @@
             const msg = document.getElementById('support-message');
             msg.innerHTML = `<div class="auth-${type}">${text}</div>`;
             setTimeout(() => { msg.innerHTML = ''; }, 5000);
+        }
+        function showKeyMessage(text, type) {
+            const msg = document.getElementById('key-message');
+            msg.innerHTML = `<div class="auth-${type}">${text}</div>`;
+            setTimeout(() => { msg.innerHTML = ''; }, 6000);
         }
 
         // ==================== АВТОРИЗАЦИЯ ====================
@@ -1904,6 +2286,7 @@
                 closeAdminModal();
                 closeChatModal();
                 closePaymentModal();
+                closeKeyModal();
             }
         });
 
@@ -1923,7 +2306,8 @@
             users[email] = {
                 email: email,
                 passwordHash: hashPassword(password),
-                createdAt: new Date().toISOString()
+                createdAt: new Date().toISOString(),
+                premium: null
             };
             saveUsers(users);
 
@@ -2003,15 +2387,20 @@
             const hint = document.getElementById('download-hint');
             const adminBtn = document.getElementById('admin-btn');
             const userInfoBox = document.getElementById('user-info-box');
+            const premiumBadge = document.getElementById('user-premium-badge');
 
             if (session) {
                 const admin = isAdmin();
+                const prem = hasPremium(session.email);
                 authButtons.classList.add('hidden');
                 userPanel.classList.remove('hidden');
                 userPanel.style.display = 'flex';
                 document.getElementById('user-email').textContent = session.email;
                 document.getElementById('user-avatar').textContent = session.email.charAt(0).toUpperCase();
                 if (hint) hint.style.display = 'none';
+
+                if (prem) premiumBadge.classList.remove('hidden');
+                else premiumBadge.classList.add('hidden');
 
                 if (admin) {
                     userInfoBox.classList.add('admin');
@@ -2027,6 +2416,7 @@
                 userPanel.classList.add('hidden');
                 userPanel.style.display = 'none';
                 adminBtn.classList.add('hidden');
+                premiumBadge.classList.add('hidden');
                 if (hint) hint.style.display = 'block';
                 updateSupportBadge();
             }
@@ -2101,12 +2491,99 @@
             if (e.target.id === 'tariffs-modal') closeTariffsModal();
         });
 
+        // ==================== АКТИВАЦИЯ КЛЮЧА ====================
+        function openKeyModal() {
+            const modal = document.getElementById('key-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('key-message').innerHTML = '';
+            document.getElementById('key-input').value = '';
+        }
+
+        function closeKeyModal() {
+            const modal = document.getElementById('key-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('key-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'key-modal') closeKeyModal();
+        });
+
+        function handleKeyActivate(event) {
+            event.preventDefault();
+
+            if (!isLoggedIn()) {
+                closeKeyModal();
+                openAuthModal('login', '🔒 Для активации ключа нужно войти');
+                return;
+            }
+
+            const input = document.getElementById('key-input');
+            const code = input.value.trim().toUpperCase();
+
+            if (!code) { showKeyMessage('Введите ключ', 'error'); return; }
+
+            const keys = getKeys();
+            const key = keys.find(k => k.code === code);
+
+            if (!key) {
+                showKeyMessage('❌ Ключ не найден. Проверьте правильность ввода.', 'error');
+                return;
+            }
+
+            if (key.used) {
+                showKeyMessage('❌ Этот ключ уже использован ' + (key.usedBy ? '(' + key.usedBy + ')' : ''), 'error');
+                return;
+            }
+
+            const session = getSession();
+            const users = getUsers();
+            const user = users[session.email.toLowerCase()];
+
+            if (!user) { showKeyMessage('Аккаунт не найден', 'error'); return; }
+
+            // Рассчитываем дату окончания
+            const tariff = TARIFFS[key.tariff];
+            const now = new Date();
+            let startDate = now;
+
+            // Если уже есть премиум — продлеваем
+            if (user.premium && user.premium.expiresAt) {
+                const exp = new Date(user.premium.expiresAt);
+                if (exp > now) startDate = exp;
+            }
+
+            const expiresAt = new Date(startDate.getTime() + tariff.days * 24 * 60 * 60 * 1000);
+
+            // Активируем
+            user.premium = {
+                tariff: key.tariff,
+                tariffName: tariff.name,
+                activatedAt: now.toISOString(),
+                expiresAt: expiresAt.toISOString(),
+                activatedByKey: code
+            };
+            users[session.email.toLowerCase()] = user;
+            saveUsers(users);
+
+            // Помечаем ключ использованным
+            key.used = true;
+            key.usedBy = session.email;
+            key.usedAt = now.toISOString();
+            key.expiresAt = expiresAt.toISOString();
+            saveKeys(keys);
+
+            showKeyMessage('✅ Ключ активирован! Тариф: ' + tariff.name + ' до ' + formatDateShort(expiresAt), 'success');
+
+            setTimeout(() => {
+                closeKeyModal();
+                checkAuthState();
+                alert('🎉 Поздравляем!\n\nТариф: ' + tariff.name + '\nАктивирован до: ' + formatDateShort(expiresAt) + '\n\nПриятной игры!');
+            }, 1500);
+        }
+
         // ==================== ОПЛАТА ====================
-        const TARIFFS = {
-            'month': { name: 'На месяц', price: '75 ₽' },
-            '3months': { name: 'На 3 месяца', price: '220 ₽' },
-            'year': { name: 'На год', price: '400 ₽' }
-        };
         let currentTariff = null;
         let currentPaymentMethod = null;
 
@@ -2147,10 +2624,8 @@
 
         function selectPaymentMethod(method) {
             currentPaymentMethod = method;
-            
             document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
             document.getElementById('pm-' + method).classList.add('active');
-
             document.getElementById('details-sber').classList.remove('active');
             document.getElementById('details-sbp').classList.remove('active');
             document.getElementById('details-' + method).classList.add('active');
@@ -2324,12 +2799,17 @@
 
         function switchAdminTab(tab) {
             document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('#admin-content-tickets, #admin-content-users, #admin-content-admins').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('#admin-content-tickets, #admin-content-keys, #admin-content-users, #admin-content-admins').forEach(c => c.classList.add('hidden'));
 
             if (tab === 'tickets') {
                 document.getElementById('admin-tab-tickets').classList.add('active');
                 document.getElementById('admin-content-tickets').classList.remove('hidden');
                 renderTicketsList();
+            } else if (tab === 'keys') {
+                document.getElementById('admin-tab-keys').classList.add('active');
+                document.getElementById('admin-content-keys').classList.remove('hidden');
+                renderKeysList();
+                updateKeysStats();
             } else if (tab === 'users') {
                 document.getElementById('admin-tab-users').classList.add('active');
                 document.getElementById('admin-content-users').classList.remove('hidden');
@@ -2401,21 +2881,42 @@
             list.innerHTML = emails.map(email => {
                 const u = users[email];
                 const adm = isUserAdmin(email);
+                const prem = hasPremium(email);
+                const premInfo = getPremiumInfo(email);
                 return `
                     <div class="ticket">
                         <div class="ticket-header">
                             <div class="ticket-from">
                                 ${escapeHtml(email)}
                                 ${adm ? '<span style="color:#ffb800;">🛡️ АДМИН</span>' : ''}
+                                ${prem ? '<span style="color:#00c6ff;">💎 PREMIUM</span>' : ''}
                             </div>
                             <div class="ticket-date">Регистрация: ${formatDate(u.createdAt)}</div>
                         </div>
+                        ${prem && premInfo ? `
+                            <div style="color:#888; font-size:0.8rem; margin-bottom:10px;">
+                                Тариф: <strong style="color:#ffb800;">${premInfo.tariffName}</strong>, 
+                                до: <strong style="color:#4dff88;">${formatDateShort(premInfo.expiresAt)}</strong>
+                            </div>
+                        ` : ''}
                         <div class="ticket-actions">
                             ${!adm ? `<button class="make-admin" onclick="makeAdminFromList('${escapeHtml(email)}')">🛡️ Сделать админом</button>` : `<button class="danger" onclick="removeAdmin('${escapeHtml(email)}')">❌ Снять админа</button>`}
+                            ${prem ? `<button class="danger" onclick="removePremium('${escapeHtml(email)}')">💎 Снять Premium</button>` : ''}
                         </div>
                     </div>
                 `;
             }).join('');
+        }
+
+        function removePremium(email) {
+            if (!confirm('Снять Premium с ' + email + '?')) return;
+            const users = getUsers();
+            if (users[email.toLowerCase()]) {
+                users[email.toLowerCase()].premium = null;
+                saveUsers(users);
+                renderUsersList();
+                showToast('Premium снят с ' + email);
+            }
         }
 
         function renderAdminsList() {
@@ -2515,6 +3016,38 @@
             renderUsersList();
             alert('✅ Права администратора сняты с ' + email);
         }
+
+        // ==================== АВТО-ГЕНЕРАЦИЯ ПЕРВЫХ КЛЮЧЕЙ ====================
+        function initKeys() {
+            const keys = getKeys();
+            if (keys.length === 0) {
+                // Генерируем по 5 ключей каждого типа при первом запуске
+                const tariffs = ['month', '3months', 'year'];
+                const allKeys = [];
+                tariffs.forEach(tariff => {
+                    for (let i = 0; i < 5; i++) {
+                        let code;
+                        do {
+                            code = generateRandomKey();
+                        } while (allKeys.some(k => k.code === code));
+                        allKeys.push({
+                            code: code,
+                            tariff: tariff,
+                            createdAt: new Date().toISOString(),
+                            used: false,
+                            usedBy: null,
+                            usedAt: null,
+                            expiresAt: null
+                        });
+                    }
+                });
+                saveKeys(allKeys);
+                console.log('🎟️ Сгенерировано 15 стартовых ключей');
+            }
+        }
+
+        // Вызываем инициализацию ключей
+        setTimeout(initKeys, 100);
     </script>
 </body>
 </html>
