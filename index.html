@@ -1520,7 +1520,7 @@
                 <button class="payment-method" id="pm-sber" onclick="selectPaymentMethod('sber')">
                     <div class="pm-icon">🟢</div>
                     <div class="pm-name">Сбербанк</div>
-                    <div class="pm-desc">Перевод на карту</div>
+                    <div class="pm-desc">Перевод по номеру</div>
                 </button>
                 <button class="payment-method" id="pm-sbp" onclick="selectPaymentMethod('sbp')">
                     <div class="pm-icon">⚡</div>
@@ -1531,14 +1531,14 @@
 
             <!-- Детали Сбербанк -->
             <div class="payment-details" id="details-sber">
-                <h4>🟢 Реквизиты Сбербанк</h4>
+                <h4>🟢 Перевод на карту / Сбербанк</h4>
                 <div class="detail-row">
-                    <span class="detail-label">Номер карты</span>
-                    <span class="detail-value" onclick="copyText('2202 2012 3456 7890')">2202 2012 3456 7890</span>
+                    <span class="detail-label">Номер телефона</span>
+                    <span class="detail-value" onclick="copyText('+79519910168')">+7 951 991-01-68</span>
                 </div>
                 <div class="detail-row">
-                    <span class="detail-label">Получатель</span>
-                    <span class="detail-value">Иван И.</span>
+                    <span class="detail-label">Банк</span>
+                    <span class="detail-value">Сбербанк</span>
                 </div>
                 <div class="detail-row">
                     <span class="detail-label">Сумма</span>
@@ -1548,14 +1548,14 @@
 
             <!-- Детали СБП -->
             <div class="payment-details" id="details-sbp">
-                <h4>⚡ Реквизиты СБП</h4>
+                <h4>⚡ СБП по номеру телефона</h4>
                 <div class="detail-row">
                     <span class="detail-label">Номер телефона</span>
-                    <span class="detail-value" onclick="copyText('+7 999 123-45-67')">+7 999 123-45-67</span>
+                    <span class="detail-value" onclick="copyText('+79519910168')">+7 951 991-01-68</span>
                 </div>
                 <div class="detail-row">
-                    <span class="detail-label">Банк</span>
-                    <span class="detail-value">Сбербанк / Тинькофф</span>
+                    <span class="detail-label">Банк получателя</span>
+                    <span class="detail-value">Сбербанк</span>
                 </div>
                 <div class="detail-row">
                     <span class="detail-label">Сумма</span>
@@ -1693,16 +1693,11 @@
         const MAIN_ADMIN_PASSWORD = 'admin123';
         const TG_LINK = 'https://t.me/meowlik_bober';
 
-        // Данные для оплаты (можно менять)
+        // Данные для оплаты
         const PAYMENT_DATA = {
-            sber: {
-                card: '2202 2012 3456 7890',
-                name: 'Иван И.'
-            },
-            sbp: {
-                phone: '+7 999 123-45-67',
-                bank: 'Сбербанк / Тинькофф'
-            }
+            phone: '+7 951 991-01-68',
+            phoneRaw: '+79519910168',
+            bank: 'Сбербанк'
         };
 
         // ==================== ЗАСТАВКА ====================
@@ -1754,7 +1749,6 @@
 
         function copyText(text) {
             navigator.clipboard.writeText(text).then(() => {
-                // Показываем всплывающее уведомление
                 const toast = document.createElement('div');
                 toast.textContent = '✅ Скопировано: ' + text;
                 toast.style.cssText = `
@@ -2117,7 +2111,6 @@
         let currentPaymentMethod = null;
 
         function openPaymentModal(tariff) {
-            // Требуется авторизация
             if (!isLoggedIn()) {
                 closeTariffsModal();
                 openAuthModal('register', '🔒 Для покупки тарифа нужно войти или зарегистрироваться');
@@ -2127,18 +2120,15 @@
             currentTariff = tariff;
             currentPaymentMethod = null;
 
-            // Заполняем данные
             document.getElementById('payment-tariff-name').textContent = TARIFFS[tariff].name;
             document.getElementById('payment-tariff-price').textContent = TARIFFS[tariff].price;
             document.getElementById('sber-amount').textContent = TARIFFS[tariff].price;
             document.getElementById('sbp-amount').textContent = TARIFFS[tariff].price;
 
-            // Сбрасываем выбор
             document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
             document.getElementById('details-sber').classList.remove('active');
             document.getElementById('details-sbp').classList.remove('active');
 
-            // Показываем модалку
             closeTariffsModal();
             document.getElementById('payment-modal').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -2158,11 +2148,9 @@
         function selectPaymentMethod(method) {
             currentPaymentMethod = method;
             
-            // Активная кнопка
             document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
             document.getElementById('pm-' + method).classList.add('active');
 
-            // Показ деталей
             document.getElementById('details-sber').classList.remove('active');
             document.getElementById('details-sbp').classList.remove('active');
             document.getElementById('details-' + method).classList.add('active');
