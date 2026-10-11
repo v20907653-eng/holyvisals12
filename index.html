@@ -393,7 +393,6 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
     </footer>
 </div>
 
-<!-- АВТОРИЗАЦИЯ -->
 <div class="modal-overlay" id="auth-modal">
     <div class="auth-modal">
         <button class="modal-close" onclick="closeAuthModal()">&times;</button>
@@ -420,7 +419,6 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
     </div>
 </div>
 
-<!-- КЛЮЧ -->
 <div class="modal-overlay" id="key-modal">
     <div class="auth-modal">
         <button class="modal-close" onclick="closeKeyModal()">&times;</button>
@@ -435,7 +433,6 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
     </div>
 </div>
 
-<!-- ТАРИФЫ -->
 <div class="modal-overlay" id="tariffs-modal">
     <div class="tariffs-modal">
         <button class="modal-close" onclick="closeTariffsModal()">&times;</button>
@@ -471,7 +468,6 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
     </div>
 </div>
 
-<!-- ОПЛАТА -->
 <div class="modal-overlay" id="payment-modal">
     <div class="payment-modal">
         <button class="modal-close" onclick="closePaymentModal()">&times;</button>
@@ -504,7 +500,6 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
     </div>
 </div>
 
-<!-- ПОДДЕРЖКА -->
 <div class="modal-overlay" id="support-modal">
     <div class="auth-modal">
         <button class="modal-close" onclick="closeSupportModal()">&times;</button>
@@ -530,7 +525,6 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
     </div>
 </div>
 
-<!-- ЧАТ -->
 <div class="modal-overlay" id="chat-modal">
     <div class="chat-modal">
         <div class="chat-header"><h3 id="chat-title">💬 Чат</h3><button class="chat-close" onclick="closeChatModal()">&times;</button></div>
@@ -542,7 +536,6 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
     </div>
 </div>
 
-<!-- АДМИНКА -->
 <div class="modal-overlay" id="admin-modal">
     <div class="admin-modal">
         <button class="modal-close" onclick="closeAdminModal()">&times;</button>
@@ -566,8 +559,7 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
             <div class="key-gen-panel">
                 <h4>🔑 Промокоды (работают во всех браузерах)</h4>
                 <p style="color:#888; font-size:.85rem; margin-bottom:15px;">
-                    Всего в системе: <strong style="color:#00c6ff;">35</strong> промокодов — 20 месяц / 10 три месяца / 5 год.<br>
-                    Их можно выдавать пользователям — они активируются в любом браузере.
+                    Всего: <strong style="color:#00c6ff;">35</strong> промокодов — 20 месяц / 10 три месяца / 5 год.
                 </p>
                 <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:15px;">
                     <button class="key-gen-btn" onclick="showPromos('month')">📋 Месяц (20)</button>
@@ -597,12 +589,13 @@ const USERS_KEY = 'holyvisuals_users';
 const SESSION_KEY = 'holyvisuals_session';
 const TICKETS_KEY = 'holyvisuals_tickets';
 const ADMINS_KEY = 'holyvisuals_admins';
-const KEYS_KEY = 'holyvisuals_keys';
 const CASE_KEY = 'holyvisuals_case';
 const USED_KEYS_KEY = 'holyvisuals_used_keys';
 const MAIN_ADMIN = 'holyvisalsamins';
 const MAIN_ADMIN_PASSWORD = 'admin123';
-const PREMIUM_DOWNLOAD_URL = 'https://www.dropbox.com/scl/fi/4w6awhswgtajzhmffyxjs/.zip?rlkey=xx5om18rfk991aacaty3oi0ly&st=g6tnmjxl&dl=1';
+
+// ⚠️ ССЫЛКА НА ПЛАТНУЮ ВЕРСИЮ (.rar)
+const PREMIUM_DOWNLOAD_URL = 'https://www.dropbox.com/scl/fi/5blq52my6phcalj8mhdke/.rar?rlkey=mxe1z734zvj7bws1ra5btz79h&st=lzi92byo&dl=1';
 
 const TARIFFS = {
     'month': { name: 'На месяц', price: '75 ₽', days: 30 },
@@ -610,7 +603,7 @@ const TARIFFS = {
     'year': { name: 'На год', price: '400 ₽', days: 365 }
 };
 
-// ==================== ФИКСИРОВАННЫЕ ПРОМОКОДЫ (работают во всех браузерах!) ====================
+// ==================== ФИКСИРОВАННЫЕ ПРОМОКОДЫ ====================
 const FIXED_PROMOS = {
     month: [
         'HOLY-M001-A1B2-C3D4','HOLY-M002-E5F6-G7H8','HOLY-M003-J9K1-L2M3','HOLY-M004-N4P5-Q6R7',
@@ -634,9 +627,7 @@ function getUsedKeys() {
     try { return JSON.parse(localStorage.getItem(USED_KEYS_KEY)) || []; }
     catch { return []; }
 }
-function saveUsedKeys(list) {
-    localStorage.setItem(USED_KEYS_KEY, JSON.stringify(list));
-}
+function saveUsedKeys(list) { localStorage.setItem(USED_KEYS_KEY, JSON.stringify(list)); }
 function findPromo(code) {
     const upper = code.toUpperCase();
     for (const tariff in FIXED_PROMOS) {
@@ -736,9 +727,12 @@ function showToast(text) {
 }
 function downloadPremiumLauncher() {
     const a = document.createElement('a');
-    a.href = PREMIUM_DOWNLOAD_URL; a.download = 'HolyVisuals-Premium.zip';
+    a.href = PREMIUM_DOWNLOAD_URL;
+    a.download = 'HolyVisuals-Premium.rar';
     a.style.display = 'none';
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
     showToast('⬇️ Скачивание платной версии началось!');
 }
 
