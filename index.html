@@ -365,6 +365,224 @@
             box-shadow: 0 0 40px rgba(255, 184, 0, 0.9);
         }
 
+        /* ==================== КЕЙСЫ ==================== */
+        .cases-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .cases-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .cases-section h2 .gold {
+            color: #ffb800;
+            text-shadow: 0 0 20px rgba(255, 184, 0, 0.5);
+        }
+        .case-box {
+            background: linear-gradient(180deg, #12121a 0%, #0a0a0f 100%);
+            border: 2px solid #2a2a3e;
+            border-radius: 25px;
+            padding: 40px 30px;
+            max-width: 600px;
+            margin: 40px auto 0;
+            position: relative;
+            transition: 0.4s;
+        }
+        .case-box:hover {
+            border-color: #9b30ff;
+            box-shadow: 0 20px 60px rgba(155, 48, 255, 0.3);
+        }
+        .case-box.win {
+            border-color: #ffb800;
+            box-shadow: 0 20px 60px rgba(255, 184, 0, 0.5);
+            animation: winPulse 1s ease infinite alternate;
+        }
+        @keyframes winPulse {
+            from { box-shadow: 0 20px 60px rgba(255, 184, 0, 0.4); }
+            to { box-shadow: 0 20px 80px rgba(255, 184, 0, 0.8); }
+        }
+
+        .cat-clicker {
+            font-size: 8rem;
+            user-select: none;
+            cursor: pointer;
+            display: inline-block;
+            transition: transform 0.1s;
+            filter: drop-shadow(0 0 30px rgba(155, 48, 255, 0.5));
+            line-height: 1;
+        }
+        .cat-clicker:hover {
+            filter: drop-shadow(0 0 40px rgba(155, 48, 255, 0.8));
+        }
+        .cat-clicker:active {
+            transform: scale(0.85);
+        }
+        .cat-clicker.pop {
+            animation: catPop 0.15s ease;
+        }
+        @keyframes catPop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        .cat-clicker.disabled {
+            cursor: not-allowed;
+            filter: grayscale(1) drop-shadow(0 0 20px rgba(255, 77, 77, 0.5));
+        }
+
+        .clicks-info {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #aaa;
+        }
+        .clicks-info strong {
+            color: #9b30ff;
+            font-size: 1.4rem;
+            font-weight: 900;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 20px;
+            background: #0a0a0f;
+            border: 1px solid #2a2a3e;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 20px;
+            position: relative;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #6a0dad, #9b30ff, #00c6ff);
+            background-size: 200% 100%;
+            transition: width 0.15s ease-out;
+            width: 0%;
+            animation: shimmer 2s linear infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        .progress-bar-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 0 5px #000;
+            pointer-events: none;
+        }
+
+        .case-result {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            font-weight: 700;
+            display: none;
+        }
+        .case-result.active { display: block; animation: fadeIn 0.5s ease; }
+        .case-result.win {
+            background: linear-gradient(135deg, rgba(255, 184, 0, 0.15), rgba(255, 140, 0, 0.05));
+            border: 2px solid #ffb800;
+            color: #ffb800;
+        }
+        .case-result.lose {
+            background: rgba(255, 77, 77, 0.08);
+            border: 2px solid #ff4d4d;
+            color: #ff8080;
+        }
+        .case-result .result-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        .case-result .result-key {
+            font-family: 'Courier New', monospace;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #4dff88;
+            letter-spacing: 2px;
+            padding: 12px 20px;
+            background: #0a0a0f;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 10px 0;
+            user-select: all;
+            cursor: pointer;
+            border: 1px solid #2a2a3e;
+        }
+        .case-result .result-key:hover {
+            border-color: #4dff88;
+        }
+
+        .cooldown-box {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255, 77, 77, 0.08);
+            border: 2px solid #ff4d4d;
+            border-radius: 15px;
+            display: none;
+        }
+        .cooldown-box.active { display: block; }
+        .cooldown-box .cd-title {
+            color: #ff8080;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .cooldown-box .cd-timer {
+            font-family: 'Courier New', monospace;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ff4d4d;
+            letter-spacing: 2px;
+            margin: 10px 0;
+        }
+        .cooldown-box .cd-sub {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .case-chances {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .chance-card {
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .chance-card.win-chance {
+            background: rgba(255, 184, 0, 0.08);
+            border: 1px solid #ffb800;
+            color: #ffb800;
+        }
+        .chance-card.lose-chance {
+            background: rgba(255, 77, 77, 0.08);
+            border: 1px solid #ff4d4d;
+            color: #ff8080;
+        }
+        .chance-card .chance-value {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+        .chance-card .chance-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
         .features {
             padding: 80px 20px;
             max-width: 1200px;
@@ -1389,6 +1607,8 @@
             .cta h2 { font-size: 2rem; }
             .features h2 { font-size: 1.8rem; }
             .premium-section h2 { font-size: 1.8rem; }
+            .cases-section h2 { font-size: 1.8rem; }
+            .cat-clicker { font-size: 5.5rem; }
             nav a { margin: 0 8px; font-size: 0.85rem; }
             .auth-modal, .tariffs-modal, .admin-modal, .payment-modal { padding: 30px 20px; }
             .tariffs-modal h2 { font-size: 1.5rem; }
@@ -1420,8 +1640,8 @@
                     <a href="#">Главная</a>
                     <a href="#features">Функции</a>
                     <a onclick="openTariffsModal()">Тарифы</a>
+                    <a href="#cases">Кейсы</a>
                     <a href="#">Видеообзоры</a>
-                    <a href="#" class="active">Бесплатная версия</a>
                 </nav>
                 <div class="nav-actions">
                     <button class="btn-support-small" id="support-btn" onclick="openSupportModal()">💬 Поддержка</button>
@@ -1488,6 +1708,44 @@
                 <div class="feature-card">
                     <h3>Регулярные обновления</h3>
                     <p>Мы постоянно улучшаем и обновляем наш мод, добавляя новые функции.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== КЕЙСЫ ==================== -->
+        <section class="cases-section" id="cases">
+            <h2>🎁 <span class="gold">Кейсы HolyVisuals</span></h2>
+            <p class="section-desc">Кликни по котику 100 раз и получи шанс выиграть бесплатный ключ на месяц! Одна попытка в день.</p>
+
+            <div class="case-box" id="case-box">
+                <div class="cat-clicker" id="cat-clicker" onclick="clickCat(event)">🐱</div>
+                
+                <div class="clicks-info">
+                    Кликов: <strong id="clicks-count">0</strong> / 100
+                </div>
+
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="progress-fill"></div>
+                    <div class="progress-bar-text" id="progress-text">0%</div>
+                </div>
+
+                <div class="case-result" id="case-result"></div>
+
+                <div class="cooldown-box" id="cooldown-box">
+                    <div class="cd-title">⏳ Следующая попытка через:</div>
+                    <div class="cd-timer" id="cd-timer">00:00:00</div>
+                    <div class="cd-sub">Кейс доступен 1 раз в день. Возвращайся завтра!</div>
+                </div>
+            </div>
+
+            <div class="case-chances">
+                <div class="chance-card win-chance">
+                    <div class="chance-value">20%</div>
+                    <div class="chance-label">🎟️ Ключ на месяц</div>
+                </div>
+                <div class="chance-card lose-chance">
+                    <div class="chance-value">80%</div>
+                    <div class="chance-label">😿 Ничего</div>
                 </div>
             </div>
         </section>
@@ -1746,6 +2004,7 @@
                         <option value="Ошибка в моде">Ошибка в моде</option>
                         <option value="Вопрос по оплате">Вопрос по оплате</option>
                         <option value="Активация ключа">Активация ключа</option>
+                        <option value="Кейс / котик">Кейс / котик</option>
                         <option value="Предложение / идея">Предложение / идея</option>
                         <option value="Другое">Другое</option>
                     </select>
@@ -1856,11 +2115,10 @@
         const TICKETS_KEY = 'holyvisuals_tickets';
         const ADMINS_KEY = 'holyvisuals_admins';
         const KEYS_KEY = 'holyvisuals_keys';
+        const CASE_KEY = 'holyvisuals_case';
         const MAIN_ADMIN = 'holyvisalsamins';
         const MAIN_ADMIN_PASSWORD = 'admin123';
         const TG_LINK = 'https://t.me/meowlik_bober';
-
-        // ⚠️ ССЫЛКА НА ПЛАТНУЮ ВЕРСИЮ ЛАУНЧЕРА
         const PREMIUM_DOWNLOAD_URL = 'https://www.dropbox.com/scl/fi/4w6awhswgtajzhmffyxjs/.zip?rlkey=xx5om18rfk991aacaty3oi0ly&st=g6tnmjxl&dl=1';
 
         const TARIFFS = {
@@ -1880,6 +2138,7 @@
                 setTimeout(() => preloader.style.display = 'none', 1000);
                 initAll();
                 checkAuthState();
+                renderCase();
             }, 1500);
         });
 
@@ -1952,7 +2211,7 @@
         function formatDateShort(iso) {
             const d = new Date(iso);
             const pad = n => n.toString().padStart(2, '0');
-            return `${pad(d.getDate())}.${pad(d.getMonth()+1)}.${d.getFullYear()}`;
+            return `${pad(d.getDate())}.${pad(d.getMonth()+1)}.${pad(d.getFullYear())}`;
         }
 
         function formatTime(iso) {
@@ -1993,9 +2252,7 @@
             setTimeout(() => toast.remove(), 2500);
         }
 
-        // ==================== СКАЧИВАНИЕ ПЛАТНОЙ ВЕРСИИ ====================
         function downloadPremiumLauncher() {
-            // Создаём скрытую ссылку и кликаем — это запускает скачивание
             const link = document.createElement('a');
             link.href = PREMIUM_DOWNLOAD_URL;
             link.download = 'HolyVisuals-Premium.zip';
@@ -2004,6 +2261,233 @@
             link.click();
             document.body.removeChild(link);
             showToast('⬇️ Скачивание платной версии началось!');
+        }
+
+        // ==================== КЕЙСЫ ====================
+        function getCaseData() {
+            try { return JSON.parse(localStorage.getItem(CASE_KEY)) || { clicks: 0, lastAttempt: null, pendingKey: null }; }
+            catch { return { clicks: 0, lastAttempt: null, pendingKey: null }; }
+        }
+        function saveCaseData(data) {
+            localStorage.setItem(CASE_KEY, JSON.stringify(data));
+        }
+
+        function getCooldownRemaining() {
+            const data = getCaseData();
+            if (!data.lastAttempt) return 0;
+            const last = new Date(data.lastAttempt).getTime();
+            const next = last + 24 * 60 * 60 * 1000;
+            const now = Date.now();
+            return Math.max(0, next - now);
+        }
+
+        function formatCooldown(ms) {
+            const totalSec = Math.floor(ms / 1000);
+            const h = Math.floor(totalSec / 3600);
+            const m = Math.floor((totalSec % 3600) / 60);
+            const s = totalSec % 60;
+            const pad = n => n.toString().padStart(2, '0');
+            return `${pad(h)}:${pad(m)}:${pad(s)}`;
+        }
+
+        let cooldownInterval = null;
+        let isSpinning = false;
+
+        function renderCase() {
+            const data = getCaseData();
+            const cooldown = getCooldownRemaining();
+            const cat = document.getElementById('cat-clicker');
+            const caseBox = document.getElementById('case-box');
+            const cooldownBox = document.getElementById('cooldown-box');
+            const cdTimer = document.getElementById('cd-timer');
+            const result = document.getElementById('case-result');
+
+            // Показываем сохранённый ключ, если он есть
+            if (data.pendingKey) {
+                result.className = 'case-result active win';
+                result.innerHTML = `
+                    <div class="result-title">🎉 Ты выиграл ключ!</div>
+                    <div>Тариф: <strong>${TARIFFS[data.pendingKey.tariff].name}</strong></div>
+                    <div class="result-key" onclick="copyText('${data.pendingKey.code}')">${data.pendingKey.code}</div>
+                    <div style="font-size:0.8rem; color:#888; margin-top:8px;">Нажми на ключ, чтобы скопировать. Введи его в окне «🎟️ Активировать ключ»</div>
+                `;
+            }
+
+            // Cooldown активен
+            if (cooldown > 0) {
+                cat.classList.add('disabled');
+                caseBox.classList.remove('win');
+                cooldownBox.classList.add('active');
+                cdTimer.textContent = formatCooldown(cooldown);
+
+                if (cooldownInterval) clearInterval(cooldownInterval);
+                cooldownInterval = setInterval(() => {
+                    const rem = getCooldownRemaining();
+                    if (rem <= 0) {
+                        clearInterval(cooldownInterval);
+                        cooldownInterval = null;
+                        renderCase();
+                    } else {
+                        cdTimer.textContent = formatCooldown(rem);
+                    }
+                }, 1000);
+            } else {
+                cat.classList.remove('disabled');
+                cooldownBox.classList.remove('active');
+                if (cooldownInterval) {
+                    clearInterval(cooldownInterval);
+                    cooldownInterval = null;
+                }
+            }
+
+            // Прогресс
+            const clicks = Math.min(data.clicks, 100);
+            document.getElementById('clicks-count').textContent = clicks;
+            const percent = Math.floor((clicks / 100) * 100);
+            document.getElementById('progress-fill').style.width = percent + '%';
+            document.getElementById('progress-text').textContent = percent + '%';
+        }
+
+        function clickCat(event) {
+            if (isSpinning) return;
+
+            if (!isLoggedIn()) {
+                openAuthModal('login', '🔒 Войдите, чтобы участвовать в кейсах');
+                return;
+            }
+
+            const cooldown = getCooldownRemaining();
+            if (cooldown > 0) {
+                showToast('⏳ Кейс доступен раз в день. Жди!');
+                return;
+            }
+
+            const data = getCaseData();
+
+            if (data.pendingKey) {
+                showToast('🎟️ Сначала активируй полученный ключ!');
+                return;
+            }
+
+            // Анимация
+            const cat = document.getElementById('cat-clicker');
+            cat.classList.remove('pop');
+            void cat.offsetWidth;
+            cat.classList.add('pop');
+            setTimeout(() => cat.classList.remove('pop'), 150);
+
+            data.clicks++;
+            saveCaseData(data);
+
+            // Мгновенное обновление прогресса
+            const clicks = Math.min(data.clicks, 100);
+            document.getElementById('clicks-count').textContent = clicks;
+            const percent = Math.floor((clicks / 100) * 100);
+            document.getElementById('progress-fill').style.width = percent + '%';
+            document.getElementById('progress-text').textContent = percent + '%';
+
+            if (data.clicks >= 100) {
+                data.clicks = 0;
+                data.lastAttempt = new Date().toISOString();
+                saveCaseData(data);
+
+                isSpinning = true;
+                setTimeout(() => {
+                    spinCase();
+                }, 400);
+            }
+        }
+
+        function spinCase() {
+            const caseBox = document.getElementById('case-box');
+            const result = document.getElementById('case-result');
+            const data = getCaseData();
+
+            result.classList.remove('active');
+            result.innerHTML = '';
+
+            caseBox.style.transition = 'transform 0.08s';
+            let shakeCount = 0;
+            const shakeInterval = setInterval(() => {
+                caseBox.style.transform = `translateX(${Math.random() * 24 - 12}px) rotate(${Math.random() * 8 - 4}deg)`;
+                shakeCount++;
+                if (shakeCount > 15) {
+                    clearInterval(shakeInterval);
+                    caseBox.style.transform = '';
+                    caseBox.style.transition = '';
+                    
+                    const win = Math.random() < 0.20;
+
+                    if (win) {
+                        const keys = getKeys();
+                        let monthKey = keys.find(k => !k.used && k.tariff === 'month');
+
+                        if (!monthKey) {
+                            let code;
+                            let attempts = 0;
+                            do {
+                                code = generateRandomKey();
+                                attempts++;
+                            } while (keys.some(k => k.code === code) && attempts < 20);
+                            
+                            monthKey = {
+                                code: code,
+                                tariff: 'month',
+                                createdAt: new Date().toISOString(),
+                                used: false,
+                                usedBy: null,
+                                usedAt: null,
+                                expiresAt: null
+                            };
+                            keys.unshift(monthKey);
+                            saveKeys(keys);
+                        }
+
+                        const session = getSession();
+                        monthKey.used = true;
+                        monthKey.usedBy = session.email;
+                        monthKey.usedAt = new Date().toISOString();
+                        saveKeys(keys);
+
+                        data.pendingKey = {
+                            code: monthKey.code,
+                            tariff: 'month'
+                        };
+                        saveCaseData(data);
+
+                        caseBox.classList.add('win');
+
+                        result.className = 'case-result active win';
+                        result.innerHTML = `
+                            <div class="result-title">🎉 Поздравляем! Ты выиграл ключ!</div>
+                            <div>Тариф: <strong>На месяц</strong></div>
+                            <div class="result-key" onclick="copyText('${monthKey.code}')">${monthKey.code}</div>
+                            <div style="font-size:0.8rem; color:#888; margin-top:8px;">Нажми на ключ, чтобы скопировать. Введи его в окне «🎟️ Активировать ключ»</div>
+                        `;
+
+                        setTimeout(() => {
+                            alert(
+                                '🎉 Ты выиграл ключ на месяц!\n\n' +
+                                'Ключ: ' + monthKey.code + '\n\n' +
+                                'Скопируй его и активируй в окне «🎟️ Активировать ключ».\n' +
+                                'Он уже закреплён за твоим аккаунтом!'
+                            );
+                        }, 600);
+
+                    } else {
+                        caseBox.classList.remove('win');
+                        result.className = 'case-result active lose';
+                        result.innerHTML = `
+                            <div class="result-title">😿 Ничего не выпало</div>
+                            <div style="font-size:0.9rem; color:#aaa; margin-top:8px;">Повезёт в следующий раз! Возвращайся завтра.</div>
+                        `;
+                        showToast('😿 Не повезло. Возвращайся завтра!');
+                    }
+
+                    isSpinning = false;
+                    renderCase();
+                }
+            }, 100);
         }
 
         // ==================== РАНДОМНЫЙ КЛЮЧ ====================
@@ -2294,6 +2778,7 @@
             setTimeout(() => {
                 closeAuthModal();
                 checkAuthState();
+                renderCase();
                 downloadJar();
             }, 1200);
         }
@@ -2314,6 +2799,7 @@
                 setTimeout(() => {
                     closeAuthModal();
                     checkAuthState();
+                    renderCase();
                     const unread = getTickets().filter(t => !t.read).length;
                     if (unread > 0) {
                         setTimeout(() => alert('🔔 У вас ' + unread + ' новых обращений в поддержку!'), 500);
@@ -2342,6 +2828,7 @@
             setTimeout(() => {
                 closeAuthModal();
                 checkAuthState();
+                renderCase();
                 if (!isAdm) downloadJar();
                 else {
                     const unread = getTickets().filter(t => !t.read).length;
@@ -2355,6 +2842,7 @@
         function logout() {
             localStorage.removeItem(SESSION_KEY);
             checkAuthState();
+            renderCase();
         }
 
         function checkAuthState() {
@@ -2509,12 +2997,13 @@
                 return;
             }
 
-            if (key.used) {
-                showKeyMessage('❌ Этот ключ уже использован ' + (key.usedBy ? '(' + key.usedBy + ')' : ''), 'error');
+            const session = getSession();
+
+            if (key.used && key.usedBy && key.usedBy !== session.email) {
+                showKeyMessage('❌ Этот ключ уже использован (' + key.usedBy + ')', 'error');
                 return;
             }
 
-            const session = getSession();
             const users = getUsers();
             const userEmail = session.email.toLowerCase();
             const user = users[userEmail];
@@ -2549,15 +3038,26 @@
             users[userEmail] = user;
             saveUsers(users);
 
-            key.used = true;
-            key.usedBy = session.email;
-            key.usedAt = now.toISOString();
-            key.expiresAt = expiresAt.toISOString();
-            saveKeys(keys);
+            if (!key.used) {
+                key.used = true;
+                key.usedBy = session.email;
+                key.usedAt = now.toISOString();
+                key.expiresAt = expiresAt.toISOString();
+                saveKeys(keys);
+            }
+
+            const caseData = getCaseData();
+            if (caseData.pendingKey && caseData.pendingKey.code === code) {
+                caseData.pendingKey = null;
+                saveCaseData(caseData);
+                const result = document.getElementById('case-result');
+                result.classList.remove('active');
+                result.innerHTML = '';
+                document.getElementById('case-box').classList.remove('win');
+            }
 
             showKeyMessage('✅ Ключ активирован! Скачиваем платную версию...', 'success');
 
-            // ⬇️ СРАЗУ ЗАПУСКАЕМ СКАЧИВАНИЕ ПЛАТНОЙ ВЕРСИИ
             setTimeout(() => {
                 downloadPremiumLauncher();
             }, 800);
@@ -2565,12 +3065,12 @@
             setTimeout(() => {
                 closeKeyModal();
                 checkAuthState();
+                renderCase();
                 alert(
                     '🎉 Поздравляем!\n\n' +
                     'Тариф: ' + tariff.name + '\n' +
                     'Активирован до: ' + formatDateShort(expiresAt) + '\n\n' +
-                    '⬇️ Скачивание платной версии лаунчера началось!\n' +
-                    'Если не началось — проверьте разрешения браузера.'
+                    '⬇️ Скачивание платной версии лаунчера началось!'
                 );
             }, 2200);
         }
