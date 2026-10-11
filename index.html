@@ -1589,14 +1589,14 @@
         <div class="auth-modal">
             <button class="modal-close" onclick="closeKeyModal()">&times;</button>
             <h2>🎟️ Активация ключа</h2>
-            <p class="auth-subtitle">Введите ключ для активации подписки</p>
+            <p class="auth-subtitle">Введите ключ — платная версия лаунчера скачается автоматически</p>
             <div id="key-message"></div>
             <form class="auth-form" id="form-key" onsubmit="handleKeyActivate(event)">
                 <div class="form-group">
                     <label>Ключ активации</label>
                     <input type="text" id="key-input" placeholder="HOLY-XXXX-XXXX-XXXX" required style="font-family: 'Courier New', monospace; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">
                 </div>
-                <button type="submit" class="auth-submit blue">🔓 Активировать</button>
+                <button type="submit" class="auth-submit blue">🔓 Активировать и скачать</button>
             </form>
             <p class="auth-switch" style="margin-top:15px;">
                 Нет ключа? <a onclick="closeKeyModal(); openTariffsModal();">Купить подписку</a>
@@ -1714,7 +1714,7 @@
                 </div>
             </div>
             <div class="payment-note">
-                ⚠️ <strong>Важно!</strong> После оплаты обязательно напишите нам в Telegram, чтобы мы активировали подписку. В сообщении укажите:
+                ⚠️ <strong>Важно!</strong> После оплаты обязательно напишите нам в Telegram, чтобы мы активировали подписку и выдали ключ. В сообщении укажите:
                 <br>• Ваш email от аккаунта
                 <br>• Тариф, который оплатили
                 <br>• Скриншот чека
@@ -1860,6 +1860,9 @@
         const MAIN_ADMIN_PASSWORD = 'admin123';
         const TG_LINK = 'https://t.me/meowlik_bober';
 
+        // ⚠️ ССЫЛКА НА ПЛАТНУЮ ВЕРСИЮ ЛАУНЧЕРА
+        const PREMIUM_DOWNLOAD_URL = 'https://www.dropbox.com/scl/fi/4w6awhswgtajzhmffyxjs/.zip?rlkey=xx5om18rfk991aacaty3oi0ly&st=g6tnmjxl&dl=1';
+
         const TARIFFS = {
             'month': { name: 'На месяц', price: '75 ₽', days: 30 },
             '3months': { name: 'На 3 месяца', price: '220 ₽', days: 90 },
@@ -1888,7 +1891,6 @@
             migrateOldData();
         }
 
-        // Создаём главного админа как пользователя в USERS_KEY
         function initMainAdminUser() {
             const users = getUsers();
             if (!users[MAIN_ADMIN]) {
@@ -1908,7 +1910,6 @@
             }
         }
 
-        // Миграция старых данных: добавляем premium: null, если нет
         function migrateOldData() {
             const users = getUsers();
             let changed = false;
@@ -1990,6 +1991,19 @@
             `;
             document.body.appendChild(toast);
             setTimeout(() => toast.remove(), 2500);
+        }
+
+        // ==================== СКАЧИВАНИЕ ПЛАТНОЙ ВЕРСИИ ====================
+        function downloadPremiumLauncher() {
+            // Создаём скрытую ссылку и кликаем — это запускает скачивание
+            const link = document.createElement('a');
+            link.href = PREMIUM_DOWNLOAD_URL;
+            link.download = 'HolyVisuals-Premium.zip';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast('⬇️ Скачивание платной версии началось!');
         }
 
         // ==================== РАНДОМНЫЙ КЛЮЧ ====================
@@ -2289,9 +2303,7 @@
             const login = document.getElementById('login-email').value.trim().toLowerCase();
             const password = document.getElementById('login-password').value;
 
-            // ГЛАВНЫЙ АДМИН — входит всегда, даже если данных нет
             if (login === MAIN_ADMIN && password === MAIN_ADMIN_PASSWORD) {
-                // Убеждаемся, что он есть в users
                 initMainAdminUser();
                 localStorage.setItem(SESSION_KEY, JSON.stringify({ 
                     email: MAIN_ADMIN, 
@@ -2408,7 +2420,7 @@
             }
         }
 
-        // ==================== СКАЧИВАНИЕ ====================
+        // ==================== СКАЧИВАНИЕ БЕТА ====================
         function requireAuthAndDownload() {
             if (!isLoggedIn()) {
                 openAuthModal('register', '🔒 Чтобы скачать мод, нужно войти или зарегистрироваться');
@@ -2516,12 +2528,10 @@
                 return; 
             }
 
-            // Рассчитываем дату окончания
             const tariff = TARIFFS[key.tariff];
             const now = new Date();
             let startDate = now;
 
-            // Если уже есть премиум — продлеваем
             if (user.premium && user.premium.expiresAt) {
                 const exp = new Date(user.premium.expiresAt);
                 if (exp > now) startDate = exp;
@@ -2529,7 +2539,6 @@
 
             const expiresAt = new Date(startDate.getTime() + tariff.days * 24 * 60 * 60 * 1000);
 
-            // Активируем
             user.premium = {
                 tariff: key.tariff,
                 tariffName: tariff.name,
@@ -2540,20 +2549,30 @@
             users[userEmail] = user;
             saveUsers(users);
 
-            // Помечаем ключ использованным
             key.used = true;
             key.usedBy = session.email;
             key.usedAt = now.toISOString();
             key.expiresAt = expiresAt.toISOString();
             saveKeys(keys);
 
-            showKeyMessage('✅ Ключ активирован! Тариф: ' + tariff.name + ' до ' + formatDateShort(expiresAt), 'success');
+            showKeyMessage('✅ Ключ активирован! Скачиваем платную версию...', 'success');
+
+            // ⬇️ СРАЗУ ЗАПУСКАЕМ СКАЧИВАНИЕ ПЛАТНОЙ ВЕРСИИ
+            setTimeout(() => {
+                downloadPremiumLauncher();
+            }, 800);
 
             setTimeout(() => {
                 closeKeyModal();
                 checkAuthState();
-                alert('🎉 Поздравляем!\n\nТариф: ' + tariff.name + '\nАктивирован до: ' + formatDateShort(expiresAt) + '\n\nПриятной игры!');
-            }, 1500);
+                alert(
+                    '🎉 Поздравляем!\n\n' +
+                    'Тариф: ' + tariff.name + '\n' +
+                    'Активирован до: ' + formatDateShort(expiresAt) + '\n\n' +
+                    '⬇️ Скачивание платной версии лаунчера началось!\n' +
+                    'Если не началось — проверьте разрешения браузера.'
+                );
+            }, 2200);
         }
 
         // ==================== ОПЛАТА ====================
@@ -3017,7 +3036,7 @@
                     }
                 });
                 saveKeys(allKeys);
-                console.log('🎟️ Сгенерировано 15 стартовых ключей. Смотри в админке → Ключи');
+                console.log('🎟️ Сгенерировано 15 стартовых ключей.');
             }
         }
     </script>
