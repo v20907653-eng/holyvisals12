@@ -150,29 +150,27 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
 .auth-switch a { color: #9b30ff; text-decoration: none; font-weight: 600; cursor: pointer; }
 .auth-switch a:hover { text-decoration: underline; }
 .tariffs-modal, .admin-modal, .payment-modal { background: #12121a; border-radius: 20px; padding: 40px 35px; width: 100%; position: relative; transform: translateY(20px); transition: transform .3s; max-height: 90vh; overflow-y: auto; }
-.tariffs-modal { border: 1px solid #6a0dad; max-width: 1000px; box-shadow: 0 0 60px rgba(106,13,173,.5); }
+.tariffs-modal { border: 1px solid #6a0dad; max-width: 700px; box-shadow: 0 0 60px rgba(106,13,173,.5); }
 .admin-modal { border: 1px solid #ff4d4d; max-width: 950px; box-shadow: 0 0 60px rgba(255,77,77,.3); }
 .payment-modal { border: 1px solid #4dff88; max-width: 550px; box-shadow: 0 0 60px rgba(77,255,136,.3); }
 .modal-overlay.active .tariffs-modal, .modal-overlay.active .admin-modal, .modal-overlay.active .payment-modal { transform: translateY(0); }
 .tariffs-modal h2, .payment-modal h2 { text-align: center; font-size: 2rem; font-weight: 800; margin-bottom: 5px; }
 .tariffs-modal .tariffs-subtitle, .payment-modal .payment-subtitle { text-align: center; color: #888; font-size: .95rem; margin-bottom: 35px; }
-.tariffs-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 25px; }
-.tariff-card { background: #0a0a0f; border: 1px solid #2a2a3e; border-radius: 15px; padding: 30px 25px; text-align: center; transition: .3s; position: relative; display: flex; flex-direction: column; }
-.tariff-card:hover { border-color: #9b30ff; transform: translateY(-5px); box-shadow: 0 15px 35px rgba(155,48,255,.2); }
-.tariff-card.popular { border-color: #ffb800; box-shadow: 0 0 25px rgba(255,184,0,.2); }
-.tariff-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg,#ffb800,#ff8c00); color: #1a1a1a; font-size: .7rem; font-weight: 800; padding: 5px 15px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; }
-.tariff-name { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
-.tariff-price { font-size: 2.2rem; font-weight: 900; color: #9b30ff; margin-bottom: 5px; }
-.tariff-price small { font-size: 1rem; font-weight: 600; color: #888; }
-.tariff-old-price { font-size: .9rem; color: #666; text-decoration: line-through; margin-bottom: 15px; }
-.tariff-desc { color: #888; font-size: .85rem; margin-bottom: 20px; min-height: 40px; }
-.tariff-features { list-style: none; text-align: left; margin-bottom: 25px; flex-grow: 1; }
-.tariff-features li { color: #aaa; font-size: .85rem; padding: 8px 0; border-bottom: 1px solid #1f1f2e; display: flex; align-items: center; gap: 8px; }
+.tariffs-grid { display: grid; grid-template-columns: 1fr; gap: 25px; max-width: 450px; margin: 0 auto; }
+.tariff-card { background: #0a0a0f; border: 2px solid #ffb800; border-radius: 20px; padding: 40px 30px; text-align: center; transition: .3s; position: relative; box-shadow: 0 0 30px rgba(255,184,0,.2); }
+.tariff-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(255,184,0,.4); }
+.tariff-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg,#ffb800,#ff8c00); color: #1a1a1a; font-size: .75rem; font-weight: 800; padding: 6px 20px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; }
+.tariff-name { font-size: 1.6rem; font-weight: 900; margin-bottom: 15px; color: #ffb800; }
+.tariff-price { font-size: 3rem; font-weight: 900; color: #ffb800; margin-bottom: 5px; }
+.tariff-price small { font-size: 1.1rem; font-weight: 600; color: #888; }
+.tariff-old-price { font-size: 1rem; color: #666; text-decoration: line-through; margin-bottom: 20px; }
+.tariff-desc { color: #aaa; font-size: .95rem; margin-bottom: 25px; }
+.tariff-features { list-style: none; text-align: left; margin-bottom: 30px; }
+.tariff-features li { color: #ccc; font-size: .9rem; padding: 10px 0; border-bottom: 1px solid #1f1f2e; display: flex; align-items: center; gap: 10px; }
 .tariff-features li:last-child { border-bottom: none; }
-.tariff-features li::before { content: "✓"; color: #4dff88; font-weight: 800; }
-.tariff-btn { width: 100%; background: linear-gradient(90deg,#6a0dad,#9b30ff); color: #fff; padding: 14px; border: none; border-radius: 10px; font-size: .95rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: .3s; }
-.tariff-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(155,48,255,.5); }
-.tariff-card.popular .tariff-btn { background: linear-gradient(90deg,#ffb800,#ff8c00); color: #1a1a1a; }
+.tariff-features li::before { content: "✓"; color: #4dff88; font-weight: 800; font-size: 1rem; }
+.tariff-btn { width: 100%; background: linear-gradient(90deg,#ffb800,#ff8c00); color: #1a1a1a; padding: 16px; border: none; border-radius: 12px; font-size: 1rem; font-weight: 800; cursor: pointer; font-family: inherit; transition: .3s; }
+.tariff-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(255,184,0,.6); }
 .payment-summary { background: #0a0a0f; border: 1px solid #2a2a3e; border-radius: 12px; padding: 20px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; }
 .payment-summary .ps-label { color: #888; font-size: .85rem; }
 .payment-summary .ps-name { color: #fff; font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
@@ -393,6 +391,7 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
     </footer>
 </div>
 
+<!-- АВТОРИЗАЦИЯ -->
 <div class="modal-overlay" id="auth-modal">
     <div class="auth-modal">
         <button class="modal-close" onclick="closeAuthModal()">&times;</button>
@@ -419,6 +418,7 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
     </div>
 </div>
 
+<!-- КЛЮЧ -->
 <div class="modal-overlay" id="key-modal">
     <div class="auth-modal">
         <button class="modal-close" onclick="closeKeyModal()">&times;</button>
@@ -433,41 +433,35 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
     </div>
 </div>
 
+<!-- ТАРИФЫ (ТОЛЬКО НАВСЕГДА) -->
 <div class="modal-overlay" id="tariffs-modal">
     <div class="tariffs-modal">
         <button class="modal-close" onclick="closeTariffsModal()">&times;</button>
-        <h2>💎 Тарифы HolyVisuals</h2>
-        <p class="tariffs-subtitle">Выберите подходящий план</p>
+        <h2>💎 Платная версия</h2>
+        <p class="tariffs-subtitle">Один тариф — навсегда</p>
         <div class="tariffs-grid">
             <div class="tariff-card">
-                <div class="tariff-name">На месяц</div>
-                <div class="tariff-price">75 ₽ <small>/ мес</small></div>
-                <div class="tariff-old-price">150 ₽</div>
-                <div class="tariff-desc">Старт для знакомства с премиум-возможностями</div>
-                <ul class="tariff-features"><li>Все функции бесплатной</li><li>Премиум-скины</li><li>Расширенный анти-чит</li><li>Приоритетная поддержка</li></ul>
-                <button class="tariff-btn" onclick="openPaymentModal('month')">Купить</button>
-            </div>
-            <div class="tariff-card popular">
-                <span class="tariff-badge">🔥 Популярный</span>
-                <div class="tariff-name">На 3 месяца</div>
-                <div class="tariff-price">220 ₽ <small>/ 3 мес</small></div>
-                <div class="tariff-old-price">450 ₽</div>
-                <div class="tariff-desc">Оптимальный выбор</div>
-                <ul class="tariff-features"><li>Всё из «На месяц»</li><li>Продвинутый PvP-модуль</li><li>Ранний доступ</li><li>Эксклюзивные эффекты</li><li>Экономия 51%</li></ul>
-                <button class="tariff-btn" onclick="openPaymentModal('3months')">Купить</button>
-            </div>
-            <div class="tariff-card">
-                <div class="tariff-name">На год</div>
-                <div class="tariff-price">400 ₽ <small>/ год</small></div>
+                <span class="tariff-badge">🔥 Выгодно</span>
+                <div class="tariff-name">Навсегда</div>
+                <div class="tariff-price">200 ₽ <small>/ навсегда</small></div>
                 <div class="tariff-old-price">900 ₽</div>
-                <div class="tariff-desc">Максимальная выгода</div>
-                <ul class="tariff-features"><li>Всё из «На 3 месяца»</li><li>Поддержка 24/7</li><li>Закрытые тесты</li><li>Персональные настройки</li><li>Экономия 56%</li></ul>
-                <button class="tariff-btn" onclick="openPaymentModal('year')">Купить</button>
+                <div class="tariff-desc">Один платёж — пожизненный доступ ко всем функциям</div>
+                <ul class="tariff-features">
+                    <li>Все функции бесплатной версии</li>
+                    <li>Премиум-скины и темы</li>
+                    <li>Расширенный анти-чит</li>
+                    <li>Продвинутый PvP-модуль</li>
+                    <li>Приоритетная поддержка 24/7</li>
+                    <li>Ранний доступ к обновлениям</li>
+                    <li>Без ограничений по времени</li>
+                </ul>
+                <button class="tariff-btn" onclick="openPaymentModal('forever')">Купить за 200 ₽</button>
             </div>
         </div>
     </div>
 </div>
 
+<!-- ОПЛАТА -->
 <div class="modal-overlay" id="payment-modal">
     <div class="payment-modal">
         <button class="modal-close" onclick="closePaymentModal()">&times;</button>
@@ -500,6 +494,7 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
     </div>
 </div>
 
+<!-- ПОДДЕРЖКА -->
 <div class="modal-overlay" id="support-modal">
     <div class="auth-modal">
         <button class="modal-close" onclick="closeSupportModal()">&times;</button>
@@ -525,6 +520,7 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
     </div>
 </div>
 
+<!-- ЧАТ -->
 <div class="modal-overlay" id="chat-modal">
     <div class="chat-modal">
         <div class="chat-header"><h3 id="chat-title">💬 Чат</h3><button class="chat-close" onclick="closeChatModal()">&times;</button></div>
@@ -536,6 +532,7 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
     </div>
 </div>
 
+<!-- АДМИНКА -->
 <div class="modal-overlay" id="admin-modal">
     <div class="admin-modal">
         <button class="modal-close" onclick="closeAdminModal()">&times;</button>
@@ -559,12 +556,10 @@ footer { text-align: center; padding: 40px; border-top: 1px solid #1f1f2e; color
             <div class="key-gen-panel">
                 <h4>🔑 Промокоды (работают во всех браузерах)</h4>
                 <p style="color:#888; font-size:.85rem; margin-bottom:15px;">
-                    Всего: <strong style="color:#00c6ff;">35</strong> промокодов — 20 месяц / 10 три месяца / 5 год.
+                    Тариф «Навсегда» — активирует Premium навсегда. Промокод: <strong style="color:#ffb800;">flugerrr</strong>
                 </p>
                 <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:15px;">
-                    <button class="key-gen-btn" onclick="showPromos('month')">📋 Месяц (20)</button>
-                    <button class="key-gen-btn" onclick="showPromos('3months')">📋 3 месяца (10)</button>
-                    <button class="key-gen-btn" onclick="showPromos('year')">📋 Год (5)</button>
+                    <button class="key-gen-btn" onclick="showPromos('forever')">📋 Показать промокоды</button>
                 </div>
                 <div id="promos-list" style="margin-top:15px;"></div>
             </div>
@@ -597,29 +592,20 @@ const MAIN_ADMIN_PASSWORD = 'admin123';
 // ⚠️ ССЫЛКА НА ПЛАТНУЮ ВЕРСИЮ (.rar)
 const PREMIUM_DOWNLOAD_URL = 'https://www.dropbox.com/scl/fi/c8182aiprqrsxrnvj7gtc/.rar?rlkey=xi5uor0yb6ivrpul0uqx35w9u&st=3s92btaj&dl=1';
 
+// Единственный тариф — навсегда
 const TARIFFS = {
-    'month': { name: 'На месяц', price: '75 ₽', days: 30 },
-    '3months': { name: 'На 3 месяца', price: '220 ₽', days: 90 },
-    'year': { name: 'На год', price: '400 ₽', days: 365 }
+    'forever': { name: 'Навсегда', price: '200 ₽', days: null }
 };
 
 // ==================== ФИКСИРОВАННЫЕ ПРОМОКОДЫ ====================
 const FIXED_PROMOS = {
-    month: [
-        'HOLY-M001-A1B2-C3D4','HOLY-M002-E5F6-G7H8','HOLY-M003-J9K1-L2M3','HOLY-M004-N4P5-Q6R7',
-        'HOLY-M005-S8T9-U1V2','HOLY-M006-W3X4-Y5Z6','HOLY-M007-A7B8-C9D1','HOLY-M008-E2F3-G4H5',
-        'HOLY-M009-J6K7-L8M9','HOLY-M010-N1P2-Q3R4','HOLY-M011-S5T6-U7V8','HOLY-M012-W9X1-Y2Z3',
-        'HOLY-M013-A4B5-C6D7','HOLY-M014-E8F9-G1H2','HOLY-M015-J3K4-L5M6','HOLY-M016-N7P8-Q9R1',
-        'HOLY-M017-S2T3-U4V5','HOLY-M018-W6X7-Y8Z9','HOLY-M019-A1B3-C5D7','HOLY-M020-E9F1-G3H5'
-    ],
-    '3months': [
-        'HOLY-Q001-J2K4-L6M8','HOLY-Q002-N1P3-Q5R7','HOLY-Q003-S9T2-U4V6','HOLY-Q004-W8X1-Y3Z5',
-        'HOLY-Q005-A7B9-C2D4','HOLY-Q006-E6F8-G1H3','HOLY-Q007-J5K7-L9M2','HOLY-Q008-N4P6-Q8R1',
-        'HOLY-Q009-S3T5-U7V9','HOLY-Q010-W2X4-Y6Z8'
-    ],
-    year: [
-        'HOLY-Y001-A9B8-C7D6','HOLY-Y002-E5F4-G3H2','HOLY-Y003-J1K9-L8M7',
-        'HOLY-Y004-N6P5-Q4R3','HOLY-Y005-S2T1-U9V8'
+    forever: [
+        'flugerrr',
+        'HOLY-F001-A9B8-C7D6',
+        'HOLY-F002-E5F4-G3H2',
+        'HOLY-F003-J1K9-L8M7',
+        'HOLY-F004-N6P5-Q4R3',
+        'HOLY-F005-S2T1-U9V8'
     ]
 };
 
@@ -631,7 +617,9 @@ function saveUsedKeys(list) { localStorage.setItem(USED_KEYS_KEY, JSON.stringify
 function findPromo(code) {
     const upper = code.toUpperCase();
     for (const tariff in FIXED_PROMOS) {
-        if (FIXED_PROMOS[tariff].includes(upper)) return { code: upper, tariff: tariff };
+        if (FIXED_PROMOS[tariff].includes(upper) || FIXED_PROMOS[tariff].includes(code)) {
+            return { code: code, tariff: tariff };
+        }
     }
     return null;
 }
@@ -672,9 +660,9 @@ function initMainAdminUser() {
             passwordHash: hashPassword(MAIN_ADMIN_PASSWORD),
             createdAt: new Date().toISOString(),
             premium: {
-                tariff: 'year', tariffName: 'На год',
+                tariff: 'forever', tariffName: 'Навсегда',
                 activatedAt: new Date().toISOString(),
-                expiresAt: new Date(Date.now() + 365*24*60*60*1000).toISOString(),
+                expiresAt: null,
                 activatedByKey: 'MAIN_ADMIN'
             }
         };
@@ -707,6 +695,7 @@ function formatDate(iso) {
     return `${p(d.getDate())}.${p(d.getMonth()+1)}.${d.getFullYear()} ${p(d.getHours())}:${p(d.getMinutes())}`;
 }
 function formatDateShort(iso) {
+    if (!iso) return '—';
     const d = new Date(iso), p = n => n.toString().padStart(2,'0');
     return `${p(d.getDate())}.${p(d.getMonth()+1)}.${d.getFullYear()}`;
 }
@@ -831,28 +820,26 @@ function spinCase() {
             const win = Math.random() < 0.20;
             if (win) {
                 const usedKeys = getUsedKeys();
-                let monthCode = FIXED_PROMOS.month.find(c => !usedKeys.includes(c));
+                let monthCode = FIXED_PROMOS.forever.find(c => !usedKeys.includes(c) && c !== 'flugerrr');
                 if (!monthCode) {
                     let attempts = 0;
                     do {
                         monthCode = generateRandomKey(); attempts++;
                     } while ((usedKeys.includes(monthCode) ||
-                              FIXED_PROMOS.month.includes(monthCode) ||
-                              FIXED_PROMOS['3months'].includes(monthCode) ||
-                              FIXED_PROMOS.year.includes(monthCode)) && attempts < 50);
-                    FIXED_PROMOS.month.push(monthCode);
+                              FIXED_PROMOS.forever.includes(monthCode)) && attempts < 50);
+                    FIXED_PROMOS.forever.push(monthCode);
                 }
                 usedKeys.push(monthCode); saveUsedKeys(usedKeys);
-                data.pendingKey = { code: monthCode, tariff: 'month' };
+                data.pendingKey = { code: monthCode, tariff: 'forever' };
                 saveCaseData(data);
                 caseBox.classList.add('win');
                 result.className = 'case-result active win';
                 result.innerHTML = `
                     <div class="result-title">🎉 Поздравляем! Ты выиграл ключ!</div>
-                    <div>Тариф: <strong>На месяц</strong></div>
+                    <div>Тариф: <strong>Навсегда</strong></div>
                     <div class="result-key" onclick="copyText('${monthCode}')">${monthCode}</div>
                     <div style="font-size:.8rem;color:#888;margin-top:8px;">Нажми на ключ, чтобы скопировать. Введи его в окне «🎟️ Активировать ключ»</div>`;
-                setTimeout(() => alert('🎉 Ты выиграл ключ на месяц!\n\nКлюч: ' + monthCode + '\n\nСкопируй и активируй в окне «🎟️ Активировать ключ»'), 600);
+                setTimeout(() => alert('🎉 Ты выиграл ключ навсегда!\n\nКлюч: ' + monthCode + '\n\nСкопируй и активируй в окне «🎟️ Активировать ключ»'), 600);
             } else {
                 caseBox.classList.remove('win');
                 result.className = 'case-result active lose';
@@ -1114,12 +1101,27 @@ document.getElementById('key-modal').addEventListener('click', e => { if (e.targ
 function handleKeyActivate(e) {
     e.preventDefault();
     if (!isLoggedIn()) { closeKeyModal(); openAuthModal('login', '🔒 Войдите для активации ключа'); return; }
-    const code = document.getElementById('key-input').value.trim().toUpperCase();
-    if (!code) { showKeyMessage('Введите ключ', 'error'); return; }
-    const promo = findPromo(code);
+    const rawCode = document.getElementById('key-input').value.trim();
+    const codeUpper = rawCode.toUpperCase();
+    if (!rawCode) { showKeyMessage('Введите ключ', 'error'); return; }
+
+    // Ищем промокод (с учётом flugerrr в нижнем регистре)
+    let promo = null;
+    for (const tariff in FIXED_PROMOS) {
+        for (const c of FIXED_PROMOS[tariff]) {
+            if (c === rawCode || c === codeUpper || c.toUpperCase() === codeUpper) {
+                promo = { code: c, tariff: tariff };
+                break;
+            }
+        }
+        if (promo) break;
+    }
+
     if (!promo) { showKeyMessage('❌ Ключ не найден', 'error'); return; }
+
     const usedKeys = getUsedKeys();
-    if (usedKeys.includes(code)) { showKeyMessage('❌ Ключ уже активирован на этом устройстве', 'error'); return; }
+    if (usedKeys.includes(promo.code)) { showKeyMessage('❌ Ключ уже активирован на этом устройстве', 'error'); return; }
+
     const s = getSession();
     const users = getUsers();
     const ue = s.email.toLowerCase();
@@ -1129,29 +1131,33 @@ function handleKeyActivate(e) {
         setTimeout(() => { closeKeyModal(); logout(); }, 2000);
         return;
     }
+
     const tariff = TARIFFS[promo.tariff];
     const now = new Date();
-    let start = now;
-    if (user.premium && user.premium.expiresAt) {
-        const ex = new Date(user.premium.expiresAt);
-        if (ex > now) start = ex;
-    }
-    const exp = new Date(start.getTime() + tariff.days * 24 * 60 * 60 * 1000);
-    user.premium = { tariff: promo.tariff, tariffName: tariff.name, activatedAt: now.toISOString(), expiresAt: exp.toISOString(), activatedByKey: code };
+
+    user.premium = {
+        tariff: promo.tariff,
+        tariffName: tariff.name,
+        activatedAt: now.toISOString(),
+        expiresAt: null,
+        activatedByKey: promo.code
+    };
     users[ue] = user; saveUsers(users);
-    usedKeys.push(code); saveUsedKeys(usedKeys);
+    usedKeys.push(promo.code); saveUsedKeys(usedKeys);
+
     const cd = getCaseData();
-    if (cd.pendingKey && cd.pendingKey.code === code) {
+    if (cd.pendingKey && cd.pendingKey.code === promo.code) {
         cd.pendingKey = null; saveCaseData(cd);
         const r = document.getElementById('case-result');
         r.classList.remove('active'); r.innerHTML = '';
         document.getElementById('case-box').classList.remove('win');
     }
+
     showKeyMessage('✅ Ключ активирован! Скачиваем...', 'success');
     setTimeout(downloadPremiumLauncher, 800);
     setTimeout(() => {
         closeKeyModal(); checkAuthState(); renderCase();
-        alert('🎉 Поздравляем!\n\nТариф: ' + tariff.name + '\nДо: ' + formatDateShort(exp) + '\n\n⬇️ Скачивание началось!');
+        alert('🎉 Поздравляем!\n\nТариф: ' + tariff.name + ' (навсегда)\n\n⬇️ Скачивание началось!');
     }, 2200);
 }
 
@@ -1350,7 +1356,7 @@ function renderUsersList() {
                 </div>
                 <div class="ticket-date">Рег: ${formatDate(u.createdAt)}</div>
             </div>
-            ${prem && pi ? `<div style="color:#888;font-size:.8rem;margin-bottom:10px;">Тариф: <strong style="color:#ffb800;">${pi.tariffName}</strong>, до: <strong style="color:#4dff88;">${formatDateShort(pi.expiresAt)}</strong></div>` : ''}
+            ${prem && pi ? `<div style="color:#888;font-size:.8rem;margin-bottom:10px;">Тариф: <strong style="color:#ffb800;">${pi.tariffName}</strong>${pi.expiresAt ? ', до: <strong style="color:#4dff88;">' + formatDateShort(pi.expiresAt) + '</strong>' : ' <strong style="color:#4dff88;">(навсегда)</strong>'}</div>` : ''}
             <div class="ticket-actions">
                 ${!adm ? `<button class="make-admin" onclick="makeAdminFromList('${escapeHtml(email)}')">🛡️ Сделать админом</button>` : `<button class="danger" onclick="removeAdmin('${escapeHtml(email)}')">❌ Снять админа</button>`}
                 ${prem ? `<button class="danger" onclick="removePremium('${escapeHtml(email)}')">💎 Снять Premium</button>` : ''}
